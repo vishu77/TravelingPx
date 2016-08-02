@@ -1,9 +1,14 @@
+const React = require('react');
 const AppDispatcher = require('../dispatcher/dispatcher');
 const SessionConstants = require('../constants/session_constants');
 const SessionApiUtil = require('../utils/session_api_util');
 const ErrorActions = require('../actions/error_actions');
 
 const SessionActions = {
+  contextTypes: {
+		router: React.PropTypes.object.isRequired
+	},
+
   signup (user) {
     SessionApiUtil.signup(user,
       SessionActions.receiveCurrentUser,
@@ -31,6 +36,7 @@ const SessionActions = {
     AppDispatcher.dispatch({
       actionType: SessionConstants.LOGOUT
     });
+    this.context.router.push("/");
   }
 };
 

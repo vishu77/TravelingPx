@@ -44,11 +44,20 @@ const LoginForm = React.createClass({
   handleSubmit (e) {
     e.preventDefault();
 
-    if (this.formType() === "/login") {
+    if (this.formType() === "login") {
       SessionActions.login(this.state);
     } else {
       SessionActions.signup(this.state);
     }
+  },
+
+  errors() {
+    const errors = ErrorStore.errors(this.formType());
+    const messages = errors.map( (errorMsg, i) => {
+      return <li key={ i }>{ errorMsg }</li>;
+    });
+
+    return <ul>{ messages }</ul>;
   },
 
   render () {
@@ -65,7 +74,7 @@ const LoginForm = React.createClass({
 
     return (
       <div className="login-signup-box">
-        {this.state.errors}
+        {this.errors()}
         <div>
           <h3>{formHeader}</h3>
 
@@ -73,7 +82,7 @@ const LoginForm = React.createClass({
             <label>
               Username
               <div>
-                <input type="text"
+                <input type="text" className="login-input"
                   value={this.state.username}
                   onChange={this.setUsername} />
               </div>
@@ -82,7 +91,7 @@ const LoginForm = React.createClass({
             <label>
               Password
               <div>
-                <input type="password"
+                <input type="password" className="login-input"
                   value={this.state.password}
                   onChange={this.setPassword} />
               </div>

@@ -10,24 +10,24 @@
 .login-signup-form h3 {
   padding: 15px;
   text-align: center;
-  font-size: 24px;
 }
 
 .login-form {
   padding: 15px;
 }
 
-.login-form input {
+.login-input {
   width: 100%;
-  height: 25px;
+  height: 30px;
   margin: 5px 0 10px 0;
   border-radius: 5px;
+  font-size: 18px;
 }
 
 .submit-button {
   width: 100%;
-  height: 25px;
-  margin: 5px 0 10px 0;
+  height: 35px;
   border-radius: 5px;
   background: skyblue;
+  margin: 10px 0 0 3px;
 }

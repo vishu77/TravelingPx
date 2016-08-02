@@ -8,7 +8,7 @@ const SessionApilUtil = {
       success,
       error(xhr) {
         const errors = xhr.responseJSON;
-        error("login", errors);
+        error('signup', errors);
       }
     });
   },
@@ -21,7 +21,7 @@ const SessionApilUtil = {
       success,
       error(xhr) {
         const errors = xhr.responseJSON;
-        error("login", errors);
+        error('login', errors);
       }
     });
   },
@@ -32,7 +32,7 @@ const SessionApilUtil = {
       method: 'DELETE',
       success,
       error: function () {
-        console.log("Logout error in UserApiUtil#logout");
+        console.log("Logout error in SessionApiUtil#logout");
       }
     });
   }

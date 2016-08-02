@@ -20,9 +20,15 @@ const _clearErrors = () => {
 };
 
 ErrorStore.errors = (form) => {
-  if (form === _form) {
-    return _errors;
+  if (form !== _form) {
+    return [];
   }
+
+  return _errors.slice();
+};
+
+ErrorStore.form = () => {
+  return _form;
 };
 
 ErrorStore.__onDispatch = (payload) => {
