@@ -1,4 +1,4 @@
-# Phase 1: User Authentication, Note Model and JSON API (2 days, W1 W 6pm)
+# Phase 1: User Authentication, User/Session Model and JSON API (2 days, W1 W 6pm)
 
 ## Rails
 ### Models
@@ -10,9 +10,8 @@
 * Api::SessionsController (create, destroy, show)
 
 ### Views
-* api/users/new.html.erb
-* api/session/new.html.erb
-
+* api/users/show.json.jbuilder
+* api/users/`_`user.json.jbuilder
 
 ## Flux
 ### Views (React Components)
@@ -35,7 +34,7 @@
 * `ErrorActions.setErrors`
 * `ErrorActions.removeErrors`
 
-### ApiUtil
+### SessionApiUtil
 * `logIn`
 * `logOut`
 * `signUp`  
