@@ -1,33 +1,32 @@
-# FresherNote
+# PxPerfect
 
-[Heroku link][heroku] **Note:** This should be a link to your production site
+[Heroku link][heroku]
 
 [heroku]: http://www.herokuapp.com
 
 ## Minimum Viable Product
 
-FresherNote is a web application inspired by Evernote that will be build using Ruby on Rails and React.js.  By the end of Week 9, this app will, at a minimum, satisfy the following criteria:
+PxPerfect is a web application inspired by 500px that will be build using Ruby on Rails and React.js. By the end of Week 9, this app will, at a minimum, satisfy the following criteria:
 
-- [ ] Hosting on Heroku
-- [ ] New account creation, login, and guest/demo login
+- [x] Hosting on Heroku
+- [x] New account creation, login, and guest/demo login
 - [ ] A production README, replacing this README (**NB**: check out the [sample production README](docs/production_readme.md) -- you'll write this later)
-- [ ] Notes
+- [ ] Post Pictures
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
-- [ ] Notebooks for organizing notes
+- [ ] Follow Users
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
-- [ ] Tags for notes
+- [ ] Home Feed
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
-- [ ] Rich Text Editing of notes
+- [ ] Profile Page
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
-- [ ] Infinite Scroll for Notes
 
 ## Design Docs
 * [View Wireframes][views]
@@ -48,88 +47,90 @@ FresherNote is a web application inspired by Evernote that will be build using R
 
 **Objective:** Functioning rails project with front-end Authentication
 
-- [ ] create new project
-- [ ] create `User` model
-- [ ] authentication backend setup
-- [ ] create `StaticPages` controller and root view
-- [ ] set up webpack & flux scaffold with skeleton files
-- [ ] setup `APIUtil` to interact with the API
-- [ ] set up flux cycle for frontend auth
-- [ ] user signup/signin components
-- [ ] blank landing component after signin
-- [ ] style signin/signup components
-- [ ] seed users
+- [x] create new project
+- [x] create `User` model
+- [x] authentication backend setup
+- [x] create `StaticPages` controller and root view
+- [x] set up webpack & flux scaffold with skeleton files
+- [x] setup `SessionApiUtil` to interact with the API
+- [x] set up flux cycle for frontend auth
+- [x] user signup/signin components
+- [x] blank landing component after signin
+- [x] style signin/signup components
 
-### Phase 2: Notes Model, API, and components (2 days, W1 F 6pm)
+### Phase 2: Photos, API, and components (2 days, W1 F 6pm)
 
-**Objective:** Notes can be created, read, edited and destroyed through
+**Objective:** Uploaded Photos can be created, read, edited and destroyed through
 the API.
 
-- [ ] create `Note` model
+- [ ] create `Photo` model
 - [ ] seed the database with a small amount of test data
-- [ ] CRUD API for notes (`NotesController`)
-- [ ] jBuilder views for notes
+- [ ] CRUD API for Photo (`PhotosController`)
+- [ ] jBuilder views for photos
 - [ ] test out API interaction in the console.
-- implement each note component, building out the flux loop as needed.
-  - [ ] `NotesIndex`
-  - [ ] `NoteIndexItem`
-  - [ ] `NoteForm`
-- [ ] save Notes to the DB when the form loses focus or is left idle after editing.
-- [ ] style notes components
-- [ ] seed notes
+- implement each photo component, building out the flux loop as needed.
+  - [ ] `PhotosIndex`
+  - [ ] `PhotosIndexItem`
+  - [ ] `PhotoForm`
+- [ ] save Photos to the DB when the form loses focus or is left idle after editing.
+- [ ] basic styling for existing components
 
-### Phase 3: Notebooks (2 day, W2 Tu 6pm)
+### Phase 3: Follow Users (1 day, W2 Mon 6pm)
 
-**Objective:** Notes belong to Notebooks, and can be viewed by notebook.
+**Objective:** Allows users to follow other users
 
-- [ ] create `Notebook` model
+- [ ] create `FollowToggle` (`FollowButton`)
+- build out omponents for:
+  - [ ] Follow CRUD
+  - [ ] FollowToggle allowing to follow and unfollow user
+  - [ ] Update database for followed and following
+- Use CSS to style new components
+
+Phase 3 adds follow to the users which will provide a list of followers and list of people who are follow user.
+Follow information will be listed on the profile page of each user.
+
+### Phase 4: Home Feed (2 days, W2 W 6pm)
+
+**Objective:** Flushing out the users profile with a photo feed from users who we are following.
+
+- [ ] Using photosIndex to make a Home Feed
 - build out API, Flux loop, and components for:
-  - [ ] Notebook CRUD
-  - [ ] adding notes requires a notebook
-  - [ ] moving notes to a different notebook
-  - [ ] viewing notes by notebook
-- [ ] Use CSS to style new components
-- [ ] Seed Notebooks
-
-Phase 3 adds organization to the Notes. Notes belong to a Notebook,
-which has its own `Index` view.
-
-### Phase 4: Tags (1 days, W2 W 6pm)
-
-**Objective:** Notes can be tagged with multiple tags, and tags are searchable.
-
-- [ ] create `Tag` model and join table
-- build out API, Flux loop, and components for:
-  - [ ] fetching tags for notebook
-  - [ ] adding tags to notebook
-  - [ ] creating tags while adding to notebooks
-  - [ ] searching notebooks by tag
+  - [ ] Fetch photos from followed users
+  - [ ] Infinite scrolling for the home feed
+- [ ] Include suggestions for follow sidebar
+  - [ ] Randomly suggest other uses not already followed
+  - [ ] Stationary side bar
 - [ ] Style new elements
-- [ ] Seed tags and tag the seeded Notebooks
 
-### Phase 5: Allow Complex Styling in Notes (1 days, W2 Th 6pm)
+### Phase 5: Profile Page (1 days, W2 Th 6pm)
 
-**objective:** Enable complex styling of notes.
+**objective:** Redirects to user page to see their photos and information. Also to allow editing of user information.
 
-- [ ] Integrate `react-quill` (based on Quill.js).
-- [ ] Use Rails helpers to sanitize HTML before rendering.
-- [ ] Style the new Quill elements.
-- [ ] Add Quill styling to seeded notes
+- build out API, Flux loop, and components for:
+  - [ ] Fetch user information
+  - [ ] Allow user to edit and update their information
+- [ ] Fetch User information from database
+- [ ] Style the profile page.
 
-### Phase 6: - Pagination / infinite scroll for Notes Index (1 day, W2 F 6pm)
+### Phase 6: Styling Cleanup and Seeding (1 day, W2 F 6pm)
 
-**objective:** Add infinite scroll to Notes Index
+**objective:** Make the site feel more cohesive and awesome.
 
-- [ ] Paginate Notes Index API to send 20 results at a time
-- [ ] Append next set of results when user scrolls and is near bottom
-- [ ] Make sure styling still looks good
-- [ ] Ensure we have enough seeded notes to demo infinite scroll
+- [ ] Refactor HTML classes & CSS rules
+- [ ] Add modals, transitions, carousel and other styling flourishes.
+- [ ] Consider implementing a grid system for responsive webpage
+
+### Bonus Phases: Tagging, Comments and Likes
 
 ### Bonus Features (TBD)
-- [ ] Search through notes for blocks of text
-- [ ] Set reminders on notes
-- [ ] Changelogs for Notes
-- [ ] Multiple sessions
+- [ ] OAuth (Facebook, Twitter, Google)
+- [ ] Comments
+- [ ] Tagging
+- [ ] Likes
+- [ ] Gallery
+- [ ] Ratings
+- [ ] Discover with infinite scrolling
+- [ ] Notifications
 
 [phase-one]: docs/phases/phase1.md
 [phase-two]: docs/phases/phase2.md
