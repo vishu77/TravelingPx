@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   attr_reader :password
 
-  before_validation :ensure_sessino_token
+  before_validation :ensure_session_token
 
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)
