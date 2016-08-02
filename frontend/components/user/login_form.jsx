@@ -61,22 +61,26 @@ const LoginForm = React.createClass({
   },
 
   render () {
-    let navlink, submitText, formHeader;
+    let navlink, submitText, formHeader, formInfo;
     if (this.formType() === "login") {
       navlink = <Link to="/signup">Sign Up</Link>;
-      formHeader = "Welcome, Please Log in to PxPerfect";
+      formHeader = "Log In to PxPerfect";
       submitText = "Log in";
     } else {
       navlink = <Link to="/login">Log in</Link>;
-      formHeader = "Welcome, Please Sign Up to PxPerfect";
+      formHeader = "Join PxPerfect";
+      formInfo = "Upload your amazing travels!";
       submitText = "Sign Up";
     }
 
     return (
       <div className="login-signup-box">
-        {this.errors()}
         <div>
-          <h3>{formHeader}</h3>
+          {this.errors()}
+        </div>
+        <div>
+          <h2>{formHeader}</h2>
+          <h3>{formInfo}</h3>
 
           <form onSubmit={this.handleSubmit} className="login-form">
             <label>

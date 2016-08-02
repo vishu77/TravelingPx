@@ -17,4 +17,4 @@ const ErrorActions = {
   }
 };
 
-module.exporst = ErrorActions;
+module.exports = ErrorActions;

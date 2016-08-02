@@ -1,5 +1,5 @@
 const SessionApilUtil = {
-  signup (user, success, error) {
+  signup (user, success, errorCb) {
     $.ajax({
       url: '/api/users',
       method: 'POST',
@@ -8,12 +8,12 @@ const SessionApilUtil = {
       success,
       error(xhr) {
         const errors = xhr.responseJSON;
-        error('signup', errors);
+        errorCb('signup', errors);
       }
     });
   },
 
-  login (user, success, error) {
+  login (user, success, errorCb) {
     $.ajax({
       url: '/api/session',
       method: 'POST',
@@ -21,7 +21,7 @@ const SessionApilUtil = {
       success,
       error(xhr) {
         const errors = xhr.responseJSON;
-        error('login', errors);
+        errorCb('login', errors);
       }
     });
   },
