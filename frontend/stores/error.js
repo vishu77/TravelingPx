@@ -28,8 +28,8 @@ ErrorStore.errors = (form) => {
 ErrorStore.__onDispatch = (payload) => {
   switch (payload.actionType) {
     case ErrorConstants.SET_ERRORS:
-    _setErrors(payload);
-    break;
+      _setErrors(payload);
+      break;
 
     case ErrorConstants.CLEAR_ERRORS:
       _clearErrors();

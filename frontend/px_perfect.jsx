@@ -5,6 +5,9 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 const App = require('./components/app');
 const LoginForm = require('./components/user/login_form');
+const SessionApilUtil = require('./utils/session_api_util');
+
+window.SessionApilUtil = SessionApilUtil;
 
 const pageRouter = (
   <Router history={browserHistory}>

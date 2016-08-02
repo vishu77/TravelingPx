@@ -10,11 +10,11 @@ const LoginForm = React.createClass({
 	},
 
   getInitialState () {
-    return { username: "", password: "", errors: [] };
+    return { username: "", password: "" };
   },
 
   componentDidMount() {
-    this.errorListener = ErrorStore.addListener(this._handleErrorChange);
+    this.errorListener = ErrorStore.addListener(this.forceUpdate.bind(this));
     this.sessionListener = SessionStore.addListener(this.redirectIfLoggedIn);
   },
 
@@ -27,10 +27,6 @@ const LoginForm = React.createClass({
     if (SessionStore.isUserLoggedIn()) {
       this.context.router.push("/");
     }
-  },
-
-  _handleErrorChange () {
-    this.setState({errors: ErrorStore.errors('login')});
   },
 
   setUsername (e) {
@@ -56,23 +52,21 @@ const LoginForm = React.createClass({
   },
 
   render () {
-    let navlink;
+    let navlink, submitText, formHeader;
     if (this.formType() === "login") {
       navlink = <Link to="/signup">Sign Up</Link>;
-    } else {
-      navlink = <Link to="/login">Log in</Link>;
-    }
-
-    let submitText;
-    if (this.props.location.pathname === "login") {
+      formHeader = "Welcome, Please Log in to PxPerfect";
       submitText = "Log in";
     } else {
+      navlink = <Link to="/login">Log in</Link>;
+      formHeader = "Welcome, Please Sign Up to PxPerfect";
       submitText = "Sign Up";
     }
-
+  
     return (
       <div className="login-signup-form">
         {this.state.errors}
+        <h2>{formHeader}</h2>
 
         <form onSubmit={this.handleSubmit} className="login-form">
           <label>
