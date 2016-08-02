@@ -37,18 +37,18 @@ const LoginForm = React.createClass({
     this.setState({password: e.target.value});
   },
 
+  formType() {
+    return this.props.location.pathname.slice(1);
+  },
+
   handleSubmit (e) {
     e.preventDefault();
 
-    if (this.props.location.pathname === "/login") {
+    if (this.formType() === "/login") {
       SessionActions.login(this.state);
     } else {
       SessionActions.signup(this.state);
     }
-  },
-
-  formType() {
-    return this.props.location.pathname.slice(1);
   },
 
   render () {
@@ -62,29 +62,35 @@ const LoginForm = React.createClass({
       formHeader = "Welcome, Please Sign Up to PxPerfect";
       submitText = "Sign Up";
     }
-  
+
     return (
-      <div className="login-signup-form">
+      <div className="login-signup-box">
         {this.state.errors}
-        <h2>{formHeader}</h2>
+        <div>
+          <h3>{formHeader}</h3>
 
-        <form onSubmit={this.handleSubmit} className="login-form">
-          <label>
-            Username
-            <input type="text"
-              value={this.state.username}
-              onChange={this.setUsername} />
-          </label>
+          <form onSubmit={this.handleSubmit} className="login-form">
+            <label>
+              Username
+              <div>
+                <input type="text"
+                  value={this.state.username}
+                  onChange={this.setUsername} />
+              </div>
+            </label>
 
-          <label>
-            Password
-            <input type="password"
-              value={this.state.password}
-              onChange={this.setPassword} />
-          </label>
+            <label>
+              Password
+              <div>
+                <input type="password"
+                  value={this.state.password}
+                  onChange={this.setPassword} />
+              </div>
+            </label>
 
-          <input type="submit" value={submitText} />
-        </form>
+            <input type="submit" className="submit-button" value={submitText} />
+          </form>
+        </div>
       </div>
     );
   }
