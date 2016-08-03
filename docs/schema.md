@@ -8,6 +8,14 @@ username        | string    | not null, indexed, unique
 password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
 
+## Phase 5 User addons
+first_name      | string    |
+last_name       | string    |
+description     | text      |
+profile_photo   | text      | not_null, default: picture
+cover_photo     | text      |
+
+
 ## Photos
 column name | data type | details
 ------------|-----------|-----------------------
@@ -24,18 +32,6 @@ column name | data type | details
 id          | integer   | not null, primary key
 followee_id | integer   | not null, foreign key (references users), indexed
 follower_id | string    | not null, foreign key (references users), indexed
-
-## UserInformation
-
-column name     | data type | details
-----------------|-----------|-----------------------
-id              | integer   | not null, primary key
-user_id         | integer   | not null, indexed, unique (references users), indexed
-first_name      | string    |
-last_name       | string    |
-description     | text      |
-profile_photo   | text      | not_null, default: picture
-cover_photo     | text      |
 
 # Bonus
 

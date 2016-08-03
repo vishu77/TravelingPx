@@ -37,7 +37,7 @@
 
 ### User Profile
 
-- `GET /api/users/:user_id/profile`
+- `GET /api/users/:user_id/`
 - `PATCH /api/users/:user_id/edit`
 
 ## Bonus

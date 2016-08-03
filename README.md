@@ -112,19 +112,12 @@ Follow information will be listed on the profile page of each user.
 - [ ] Fetch User information from database
 - [ ] Style the profile page.
 
-### Phase 6: Styling Cleanup and Seeding (1 day, W2 F 6pm)
-
-**objective:** Make the site feel more cohesive and awesome.
-
-- [ ] Refactor HTML classes & CSS rules
-- [ ] Add modals, transitions, carousel and other styling flourishes.
-- [ ] Consider implementing a grid system for responsive webpage
-
-### Bonus Phases: Tagging, Comments and Likes
+### Bonus Phases: Tagging, Comments Likes, Infinite Scrolling, Follow Suggestions
 
 ### Bonus Features (TBD)
 - [ ] OAuth (Facebook, Twitter, Google)
 - [ ] Comments
+- [ ] Follow Suggestions
 - [ ] Tagging
 - [ ] Likes
 - [ ] Gallery
