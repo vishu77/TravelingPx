@@ -2,11 +2,29 @@ const React = require('react');
 const Link = require('react-router').Link;
 const SessionStore = require('../stores/session');
 const SessionActions = require('../actions/session_actions');
+const ErrorStore = require('../stores/error');
 
 const App = React.createClass({
   _handleLogOut (e) {
     e.preventDefault();
     SessionActions.logout();
+  },
+
+  componentDidMount () {
+    this.errorListener = ErrorStore.addListener(this.forceUpdate.bind(this));
+  },
+
+  componentWillUnmount () {
+    this.errorListener.remove();
+  },
+
+  errors() {
+    const errors = ErrorStore.errors(this.props.location.pathname.slice(1));
+    const messages = errors.map( (errorMsg, i) => {
+      return <li key={ i }>{ errorMsg }</li>;
+    });
+
+    return <ul>{ messages }</ul>;
   },
 
   greeting () {
@@ -35,6 +53,7 @@ const App = React.createClass({
     return (
       <div>
         {this.greeting()}
+        {this.errors()}
         {this.props.children}
       </div>
     );

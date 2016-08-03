@@ -14,12 +14,10 @@ const LoginForm = React.createClass({
   },
 
   componentDidMount() {
-    this.errorListener = ErrorStore.addListener(this.forceUpdate.bind(this));
     this.sessionListener = SessionStore.addListener(this.redirectIfLoggedIn);
   },
 
   componentWillUnmount() {
-    this.errorListener.remove();
     this.sessionListener.remove();
   },
 
@@ -51,14 +49,14 @@ const LoginForm = React.createClass({
     }
   },
 
-  errors() {
-    const errors = ErrorStore.errors(this.formType());
-    const messages = errors.map( (errorMsg, i) => {
-      return <li key={ i }>{ errorMsg }</li>;
-    });
-
-    return <ul>{ messages }</ul>;
-  },
+  // errors() {
+  //   const errors = ErrorStore.errors(this.formType());
+  //   const messages = errors.map( (errorMsg, i) => {
+  //     return <li key={ i }>{ errorMsg }</li>;
+  //   });
+  //
+  //   return <ul>{ messages }</ul>;
+  // },
 
   render () {
     let navlink, submitText, formHeader, formInfo;
@@ -75,9 +73,6 @@ const LoginForm = React.createClass({
 
     return (
       <div className="login-signup-box">
-        <div>
-          {this.errors()}
-        </div>
         <div>
           <h2>{formHeader}</h2>
           <h3>{formInfo}</h3>
