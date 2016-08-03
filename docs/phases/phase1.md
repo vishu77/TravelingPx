@@ -16,6 +16,7 @@
 ## Flux
 ### Views (React Components)
 * App
+* Navbar
 * LoginForm
 * SignupForm
 
@@ -49,4 +50,3 @@
 * "react": "^0.14.2",
 * "react-dom": "^0.14.2",
 * "react-router": "2.0.1"
-* "react-alerts"

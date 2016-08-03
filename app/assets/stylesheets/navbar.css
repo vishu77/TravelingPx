@@ -1,0 +1,25 @@
+.navbar {
+  background: grey;
+  height: 50px;
+  font-size: 14px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.leftButtons {
+  float: left;
+}
+
+.rightButtons {
+  float: right;
+}
+
+.navbar li {
+  float: left;
+  text-align: center;
+  padding: 15px;
+}
+
+.navbar li:hover {
+  background: white;
+}

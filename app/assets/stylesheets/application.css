@@ -13,19 +13,3 @@
  *= require_tree .
  *= require_self
  */
-
-ul {
- list-style: none;
-}
-
-nav {
-  background: gray;
-}
-
-nav ul {
- float: right;
-}
-
-body {
-  font-family: sans-serif;
-}

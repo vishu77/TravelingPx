@@ -1,15 +1,8 @@
 const React = require('react');
-const Link = require('react-router').Link;
-const SessionStore = require('../stores/session');
-const SessionActions = require('../actions/session_actions');
+const NavBar = require('./navbar');
 const ErrorStore = require('../stores/error');
 
 const App = React.createClass({
-  _handleLogOut (e) {
-    e.preventDefault();
-    SessionActions.logout();
-  },
-
   componentDidMount () {
     this.errorListener = ErrorStore.addListener(this.forceUpdate.bind(this));
   },
@@ -27,32 +20,12 @@ const App = React.createClass({
     return <ul>{ messages }</ul>;
   },
 
-  greeting () {
-    if (SessionStore.isUserLoggedIn()) {
-      return (
-        <nav className="group">
-          <ul>
-              <li><input type="submit" onClick={this._handleLogOut}
-                  value="Log Out" /></li>
-          </ul>
-        </nav>
-      );
-    } else {
-      return (
-        <nav className="group">
-          <ul>
-            <li><Link to="/login">Login</Link></li>
-            <li><Link to="/signup">Sign Up!</Link></li>
-          </ul>
-        </nav>
-      );
-    }
-  },
-
   render () {
+    let location = this.props.location;
+
     return (
       <div>
-        {this.greeting()}
+        <NavBar pathname={location.pathname}/>
         {this.errors()}
         {this.props.children}
       </div>
