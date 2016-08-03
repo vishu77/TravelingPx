@@ -1,4 +1,3 @@
-const React = require('react');
 const AppDispatcher = require('../dispatcher/dispatcher');
 const SessionConstants = require('../constants/session_constants');
 const SessionApiUtil = require('../utils/session_api_util');
@@ -33,7 +32,7 @@ const SessionActions = {
     AppDispatcher.dispatch({
       actionType: SessionConstants.LOGOUT
     });
-    hashHistory.push("/login");
+    hashHistory.push("/");
   }
 };
 

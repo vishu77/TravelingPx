@@ -30,7 +30,7 @@ SessionStore.__onDispatch = (payload) => {
       _login(payload.currentUser);
       break;
 
-    case SessionConstants.LOGIN:
+    case SessionConstants.LOGOUT:
       _logout();
       break;
   }

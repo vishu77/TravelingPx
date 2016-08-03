@@ -12,9 +12,10 @@ const App = React.createClass({
   greeting () {
     if (SessionStore.isUserLoggedIn()) {
       return (
-        <nav>
+        <nav className="group">
           <ul>
-            <input type="submit" value="Logout" onClick={this._handleLogOut} />
+              <li><input type="submit" onClick={this._handleLogOut}
+                  value="Log Out" /></li>
           </ul>
         </nav>
       );
