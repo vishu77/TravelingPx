@@ -42,6 +42,7 @@
 
 ## Gems/Libraries
 * BCrypt (Gem)
+* Gon (Gem)
 * "babel-core": "^6.2.0",
 * "babel-loader": "^6.2.0",
 * "babel-preset-react": "^6.1.18",
