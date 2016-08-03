@@ -12,11 +12,11 @@ class Api::PhotosController < ApplicationController
   def destroy
     photo = Photo.find(params[:id])
     photo.delete
-    render "api/photos/index"
+    render "api/photos/show"
   end
 
   def index
-    @photos = Photos.all
+    @photos = Photo.all
     render "api/photos/index"
   end
 
@@ -31,7 +31,7 @@ class Api::PhotosController < ApplicationController
     if @photo.update(photo_params)
       render "api/photos/show"
     else
-      render json: ["can't update photo"], status 404
+      render json: ["can't update photo"], status: 404
     end
   end
 
@@ -40,5 +40,4 @@ class Api::PhotosController < ApplicationController
   def photo_params
     params.require(:photo).permit(:title, :description, :url)
   end
-
 end

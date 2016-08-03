@@ -11,8 +11,8 @@ const PhotoUtil = {
 
   fetchAllPhotos (callBack) {
     $.ajax({
-      url: "api/photos",
-      method: "GET",
+      url: 'api/photos',
+      method: 'GET',
       success (data) {
         callBack(data);
       }
@@ -22,7 +22,7 @@ const PhotoUtil = {
   fetchSinglePhoto (id, callBack) {
     $.ajax({
       url: `api/photos/${id}`,
-      method: "GET",
+      method: 'GET',
       success (data) {
         callBack(data);
       }
@@ -32,7 +32,7 @@ const PhotoUtil = {
   updatePhoto (photo, callBack) {
     $.ajax({
       url: `api/photos/${photo.id}`,
-      method: "PATCH",
+      method: 'PATCH',
       data: { photo: photo },
       success (data) {
         callBack(data);
@@ -43,7 +43,7 @@ const PhotoUtil = {
   uploadPhoto (photo, callBack) {
     $.ajax({
       url: `api/photos`,
-      method: "POST",
+      method: 'POST',
       data: { photo: photo },
       success (data) {
         callBack(data);
