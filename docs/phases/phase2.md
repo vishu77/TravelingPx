@@ -8,8 +8,9 @@
 * Api::PhotosController (create, destroy, index, show, update)
 
 ### Views
-* photos/index.json.jbuilder
-* photos/show.json.jbuilder
+* api/photos/index.json.jbuilder
+* api/photos/show.json.jbuilder
+* api/photos/`_`photo.json.jbuilder
 
 ## Flux
 ### Views (React Components)
@@ -22,22 +23,21 @@
 * Photos
 
 ### Actions
-* `PhotoActions.receiveAllPhotos`
-* `PhotoActions.receiveSinglePhoto`
-* `PhotoActions.deletePhoto`
 * `PhotoActions.fetchAllPhotos`
 * `PhotoActions.fetchSinglePhoto`
-* `PhotoActions.createPhoto`
-* `PhotoActions.editPhoto`
-* `PhotoActions.destroyPhoto`
+* `PhotoActions.uploadPhoto`
+* `PhotoActions.updatePhoto`
+* `PhotoActions.deletePhoto`
+* `PhotoActions.receiveAllPhotos`
+* `PhotoActions.receiveSinglePhoto`
+* `PhotoActions.removePhoto`
 
-### ApiUtil
+### ApiUtils
 * `PhotoUtil.fetchAllPhotos`
 * `PhotoUtil.fetchSinglePhoto`
-* `PhotoUtil.createPhoto`
-* `PhotoUtil.editPhoto`
-* `PhotoUtil.destroyPhoto`
+* `PhotoUtil.uploadPhoto`
+* `PhotoUtil.updatePhoto`
+* `PhotoUtil.deletePhoto`
 
 ## Gems/Libraries
-* paperclip (Gem)
 * Cloudinary (react)

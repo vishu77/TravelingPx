@@ -52,7 +52,7 @@ PxPerfect is a web application inspired by 500px that will be build using Ruby o
 - [x] authentication backend setup
 - [x] create `StaticPages` controller and root view
 - [x] set up webpack & flux scaffold with skeleton files
-- [x] setup `SessionApiUtil` to interact with the API
+- [x] setup `SessionUtil` to interact with the API
 - [x] set up flux cycle for frontend auth
 - [x] user signup/signin components
 - [x] blank landing component after signin

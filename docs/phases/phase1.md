@@ -18,7 +18,6 @@
 * App
 * LoginForm
 * SignupForm
-* PhotosIndex (just a skeleton)
 
 ### Stores
 * CurrentUser
@@ -27,18 +26,16 @@
 ### Actions
 * `SessionActions.logIn`
 * `SessionActions.signUp`
-* `SessionActions.fetchCurrentUser`
 * `SessionActions.signOut`
 * `SessionActions.receiveCurrentUser`
 * `SessionActions.removeCurrentUser`
 * `ErrorActions.setErrors`
 * `ErrorActions.removeErrors`
 
-### SessionApiUtil
-* `logIn`
-* `logOut`
-* `signUp`  
-* `fetchCurrentUser`
+### ApiUtils
+* `SessionUtil.login`
+* `SessionUtil.logout`
+* `SessionUtil.signup`  
 
 ## Gems/Libraries
 * BCrypt (Gem)

@@ -12,7 +12,6 @@
 ## Flux
 ### Views (React Components)
 * Home Feed
-* Follow Suggestion bar
 
 ### Stores
 * PhotoStore
@@ -21,9 +20,11 @@
 ### Actions
 * `PhotoActions.receiveHomeFeed`
 * `PhotoActions.fetchHomeFeed`
-* `PhotoUtil.fetchHomeFeed`
 * `FollowActions.fetchUnfollowedUsers`
 * `FollowActions.receiveUnfollowedUsers`
+
+### ApiUtils
+* `PhotoUtil.fetchHomeFeed`
 * `FollowUtil.fetchUnfollowedUsers`
 
 ## Gems/Libraries

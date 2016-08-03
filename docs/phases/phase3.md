@@ -23,7 +23,7 @@
 * `FollowActions.fetchStatus`
 * `FollowActions.receiveStatus`
 
-### ApiUtil
+### ApiUtils
 * `FollowUtil.follow`
 * `FollowUtil.unfollow`
 * `FollowUtil.status`

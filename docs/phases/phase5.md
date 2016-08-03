@@ -2,12 +2,12 @@
 
 ## Rails
 ### Models
-* User Information
 
 ### Controllers
-* User Information
+* User
 
 ### Views
+* Api::UsersController (:index, :show)
 
 ## Flux
 ### Views (React Components)
@@ -30,11 +30,10 @@
 * `UserActions.logout`
 * `UserActions.guestLogin`
 
-### ApiUtil
+### ApiUtils
 * `UserUtil.fetchProfile`
 * `UserUtil.updateProfile`
 * `UserUtil.fetchCurrentUser`
-* `UserUtil.logout`
 
 ## Gems/Libraries
 * Unknown as of right now
