@@ -1,6 +1,6 @@
 const React = require('react');
-const NavBar = require('./navbar');
 const ErrorStore = require('../stores/error');
+const NavBar = require('./navbar');
 
 const App = React.createClass({
   componentDidMount () {
@@ -25,7 +25,9 @@ const App = React.createClass({
 
     return (
       <div>
-        <NavBar pathname={location.pathname}/>
+        <header>
+          <NavBar pathname={location.pathname}/>
+        </header>
         {this.errors()}
         {this.props.children}
       </div>

@@ -1,6 +1,7 @@
 class Api::PhotosController < ApplicationController
   def create
     @photo = Photo.new(photo_params)
+    @photo.poster_id = current_user.id
 
     if @photo.save
       render "api/photos/show"
@@ -12,7 +13,7 @@ class Api::PhotosController < ApplicationController
   def destroy
     photo = Photo.find(params[:id])
     photo.delete
-    render "api/photos/show"
+    render json: photo
   end
 
   def index

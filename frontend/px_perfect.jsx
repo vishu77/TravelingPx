@@ -1,5 +1,6 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
+const Modal = require('react-modal');
 
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
@@ -18,6 +19,7 @@ const pageRouter = (
 );
 
 document.addEventListener('DOMContentLoaded', () => {
+  Modal.setAppElement(document.body);
   SetupApp();
   const root = document.getElementById('content');
   ReactDOM.render(pageRouter, root);

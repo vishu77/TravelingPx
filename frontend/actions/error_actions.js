@@ -1,5 +1,5 @@
-const ErrorConstants = require('../constants/error_constants');
 const AppDispatcher = require('../dispatcher/dispatcher');
+const ErrorConstants = require('../constants/error_constants');
 
 const ErrorActions = {
   clearErrors () {

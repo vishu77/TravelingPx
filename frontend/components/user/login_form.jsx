@@ -1,8 +1,8 @@
 const React = require('react');
-const SessionActions = require('../../actions/session_actions');
-const SessionStore = require('../../stores/session');
 const ErrorStore = require('../../stores/error');
 const Link = require('react-router').Link;
+const SessionActions = require('../../actions/session_actions');
+const SessionStore = require('../../stores/session');
 
 const LoginForm = React.createClass({
   contextTypes: {

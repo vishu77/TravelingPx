@@ -1,4 +1,4 @@
-const AppDispatcher = require('../dispatcher.dispatcher');
+const AppDispatcher = require('../dispatcher/dispatcher');
 const PhotoConstants = require('../constants/photo_constants');
 const PhotoUtil = require('../utils/photo_api_util');
 
@@ -20,7 +20,7 @@ const PhotoActions = {
   },
 
   deletePhoto (photoID) {
-    PhotoUtil.delete(photoID, this.removePhoto);
+    PhotoUtil.deletePhoto(photoID, this.removePhoto);
   },
 
   receiveAllPhoto (photos) {

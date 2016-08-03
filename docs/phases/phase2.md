@@ -42,3 +42,4 @@
 ## Gems/Libraries
 * Cloudinary (react)
 * "react-alerts"
+* "react-modal"
