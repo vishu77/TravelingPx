@@ -1,4 +1,4 @@
-# Phase 5: User Profile (1 days, W2 Th 6pm)
+# Phase 5: User Profile (2 days, W2 F 6pm)
 
 ## Rails
 ### Models

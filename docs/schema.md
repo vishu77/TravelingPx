@@ -1,20 +1,18 @@
 # Schema Information
 
 ## Users
+### Everything after session token is phase 5
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
 username        | string    | not null, indexed, unique
 password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
-
-## Phase 5 User addons
 first_name      | string    |
 last_name       | string    |
 description     | text      |
 profile_photo   | text      | not_null, default: picture
 cover_photo     | text      |
-
 
 ## Photos
 column name | data type | details
@@ -22,8 +20,7 @@ column name | data type | details
 id          | integer   | not null, primary key
 title       | string    | not null
 description | text      |
-url         | text      | not null
-category    | text      | not null
+url         | text      | not null, indexed, unique
 poster_id   | integer   | not null, foreign key (references users), indexed
 
 ## Follows

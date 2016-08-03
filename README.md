@@ -102,7 +102,7 @@ Follow information will be listed on the profile page of each user.
   - [ ] Stationary side bar
 - [ ] Style new elements
 
-### Phase 5: Profile Page (1 days, W2 Th 6pm)
+### Phase 5: Profile Page (2 days, W2 F 6pm)
 
 **objective:** Redirects to user page to see their photos and information. Also to allow editing of user information.
 

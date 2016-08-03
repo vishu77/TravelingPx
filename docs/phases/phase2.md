@@ -22,10 +22,10 @@
 * Photos
 
 ### Actions
-* `ApiActions.receiveAllPhotos`
-* `ApiActions.receiveSinglePhoto`
-* `ApiActions.deletePhoto`
-* `PhotoActions.fetchAllPhotoss`
+* `PhotoActions.receiveAllPhotos`
+* `PhotoActions.receiveSinglePhoto`
+* `PhotoActions.deletePhoto`
+* `PhotoActions.fetchAllPhotos`
 * `PhotoActions.fetchSinglePhoto`
 * `PhotoActions.createPhoto`
 * `PhotoActions.editPhoto`

@@ -49,15 +49,6 @@ const LoginForm = React.createClass({
     }
   },
 
-  // errors() {
-  //   const errors = ErrorStore.errors(this.formType());
-  //   const messages = errors.map( (errorMsg, i) => {
-  //     return <li key={ i }>{ errorMsg }</li>;
-  //   });
-  //
-  //   return <ul>{ messages }</ul>;
-  // },
-
   render () {
     let navlink, submitText, formHeader, formInfo;
     if (this.formType() === "login") {
