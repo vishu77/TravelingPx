@@ -18,6 +18,7 @@
   - PhotosIndexItem
 * PhotosForm
 * PhotoDetail
+* Splash (IndexRoute to hold all the components)
 
 ### Stores
 * Photos
@@ -43,3 +44,4 @@
 * Cloudinary (react)
 * "react-alerts"
 * "react-modal"
+* "react-masonry"

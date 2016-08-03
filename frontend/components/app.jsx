@@ -1,6 +1,7 @@
 const React = require('react');
 const ErrorStore = require('../stores/error');
 const NavBar = require('./navbar');
+const PhotoIndex = require('./photo/index');
 
 const App = React.createClass({
   componentDidMount () {
