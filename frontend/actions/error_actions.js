@@ -2,6 +2,12 @@ const ErrorConstants = require('../constants/error_constants');
 const AppDispatcher = require('../dispatcher/dispatcher');
 
 const ErrorActions = {
+  clearErrors () {
+    AppDispatcher.dispatch({
+      actionType: ErrorConstants.CLEAR_ERRORS,
+    });
+  },
+
   setErrors (form, errors) {
     AppDispatcher.dispatch({
       actionType: ErrorConstants.SET_ERRORS,
@@ -9,12 +15,6 @@ const ErrorActions = {
       errors: errors
     });
   },
-
-  clearErrors () {
-    AppDispatcher.dispatch({
-      actionType: ErrorConstants.CLEAR_ERRORS,
-    });
-  }
 };
 
 module.exports = ErrorActions;

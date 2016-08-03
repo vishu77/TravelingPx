@@ -1,7 +1,7 @@
-const SessionApilUtil = {
+const SessionUtil = {
   signup (user, success, errorCb) {
     $.ajax({
-      url: '/api/users',
+      url: 'api/users',
       method: 'POST',
       dataType: 'json',
       data: { user },
@@ -15,7 +15,7 @@ const SessionApilUtil = {
 
   login (user, success, errorCb) {
     $.ajax({
-      url: '/api/session',
+      url: 'api/session',
       method: 'POST',
       data: { user },
       success,
@@ -28,14 +28,14 @@ const SessionApilUtil = {
 
   logout (success) {
     $.ajax({
-      url: '/api/session',
+      url: 'api/session',
       method: 'DELETE',
       success,
       error: function () {
-        console.log("Logout error in SessionApiUtil#logout");
+        console.log("Logout error in SessionUtil#logout");
       }
     });
   }
 };
 
-module.exports = SessionApilUtil;
+module.exports = SessionUtil;

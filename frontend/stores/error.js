@@ -7,15 +7,15 @@ const ErrorStore = new Store(AppDispatcher);
 let _errors = [];
 let _form = "";
 
-const _setErrors = (payload) => {
-  _form = payload.form;
-  _errors = payload.errors;
-  ErrorStore.__emitChange();
-};
-
 const _clearErrors = () => {
   _form = "";
   _errors = [];
+  ErrorStore.__emitChange();
+};
+
+const _setErrors = (payload) => {
+  _form = payload.form;
+  _errors = payload.errors;
   ErrorStore.__emitChange();
 };
 

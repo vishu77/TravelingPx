@@ -9,16 +9,30 @@ const LoginForm = React.createClass({
 		router: React.PropTypes.object.isRequired
 	},
 
-  getInitialState () {
-    return { username: "", password: "" };
-  },
-
   componentDidMount() {
     this.sessionListener = SessionStore.addListener(this.redirectIfLoggedIn);
   },
 
   componentWillUnmount() {
     this.sessionListener.remove();
+  },
+
+  formType() {
+    return this.props.location.pathname.slice(1);
+  },
+
+  getInitialState () {
+    return { username: "", password: "" };
+  },
+
+  handleSubmit (e) {
+    e.preventDefault();
+
+    if (this.formType() === "login") {
+      SessionActions.login(this.state);
+    } else {
+      SessionActions.signup(this.state);
+    }
   },
 
   redirectIfLoggedIn () {
@@ -33,20 +47,6 @@ const LoginForm = React.createClass({
 
   setPassword (e) {
     this.setState({password: e.target.value});
-  },
-
-  formType() {
-    return this.props.location.pathname.slice(1);
-  },
-
-  handleSubmit (e) {
-    e.preventDefault();
-
-    if (this.formType() === "login") {
-      SessionActions.login(this.state);
-    } else {
-      SessionActions.signup(this.state);
-    }
   },
 
   render () {
