@@ -9,8 +9,7 @@ class Api::SessionsController < ApplicationController
       login(@user)
       render "api/users/show"
     else
-      @errors = ["Invalid Username/Password combination"]
-      render "api/shared/error", status: 401
+      render json: ["Invalid Username/Password combination"], status: 401
     end
   end
 
@@ -20,8 +19,7 @@ class Api::SessionsController < ApplicationController
       logout
       render "api/users/show"
     else
-      @errors = ["Nobody Currently Signed In"]
-      render "api/shared/error", status: 404
+      render json: ["Nobody Currently Signed In"], status: 404
     end
   end
 
@@ -30,8 +28,7 @@ class Api::SessionsController < ApplicationController
       @user = current_user
       render "api/users/show"
     else
-      @errors = nil
-      render "api/shared/error", status: 404
+      render json: nil, status: 404
     end
   end
 end
