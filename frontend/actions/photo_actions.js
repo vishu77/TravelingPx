@@ -11,11 +11,11 @@ const PhotoActions = {
     PhotoUtil.fetchSinglePhoto(photoID, this.receiveSinglePhoto);
   },
 
-  uploadPhoto (photo) {
+  uploadPhoto (photo, close) {
     PhotoUtil.uploadPhoto(photo, this.receiveSinglePhoto);
   },
 
-  updatePhoto (photo) {
+  updatePhoto (photo, close) {
     PhotoUtil.updatePhoto(photo, this.receiveSinglePhoto);
   },
 

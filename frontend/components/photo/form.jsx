@@ -8,13 +8,14 @@ const PhotoForm = React.createClass({
 
   handleSubmit (e) {
     e.preventDefault();
-
     let photo = {
       title: this.state.title,
       description: this.state.description,
       image_url: this.state.image_url
     };
     PhotoActions.uploadPhoto(photo);
+    this.props.close();
+    this.setState({title: "", description: "", image_url: ""});
   },
 
   updateProps (property) {
@@ -23,29 +24,38 @@ const PhotoForm = React.createClass({
 
   render () {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <div className="image-box">
-            <img className="upload-photo" width="100px" height="100px" src={this.state.image_url} />
-            <input type="text" value={this.state.image_url} hidden />
+      <div className="form-box group">
+        <div className="image-box">
+          <img className="upload-photo" src={this.props.image_url} />
+        </div>
+
+        <form onSubmit={this.handleSubmit} className="inputs-box">
+          <div className="publish-button-box">
+            <button className="submit-button">Publish photo</button>
           </div>
 
-          <div className="inputs-box">
-            <button>Publish Photo</button>
-
-            <label>
-              Title
-              <input type="text"
-                value={this.state.title}
-                onChange={this.updateProps("title")} />
+          <div className="input-components">
+            <div>
+              <label>
+                <h4>Title</h4>
+                <div>
+                  <input type="text" className="form-inputs"
+                    value={this.state.title}
+                    onChange={this.updateProps("title")} />
+                </div>
             </label>
+            </div>
 
-            <label>
-              Description
-              <textarea
-                value={this.state.description}
-                onChange={this.updateProps("description")} />
-            </label>
+            <div>
+              <label>
+              <h4>Description</h4>
+                <div>
+                  <textarea className="form-inputs"
+                    value={this.state.description}
+                    onChange={this.updateProps("description")} />
+                </div>
+              </label>
+            </div>
           </div>
         </form>
       </div>

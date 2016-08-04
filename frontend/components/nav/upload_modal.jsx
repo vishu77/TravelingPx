@@ -22,7 +22,7 @@ const UploadModal = React.createClass({
   },
 
   onModalClose () {
-    this.setState({ modalOpen: false });
+    this.setState({ modalOpen: false, image_url: "" });
     ModalStyle.content.opacity = 0;
   },
 
@@ -33,7 +33,7 @@ const UploadModal = React.createClass({
   photoDropped () {
     if (this.state.image_url) {
       return (
-        <PhotoForm image_url={this.state.image_url}/>
+        <PhotoForm image_url={this.state.image_url} close={this.onModalClose}/>
       );
     } else {
       return (

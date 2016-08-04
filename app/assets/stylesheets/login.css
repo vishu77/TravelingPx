@@ -32,7 +32,7 @@
   font-size: 14px;
 }
 
-.login-input {
+.form-inputs {
   width: 100%;
   height: 30px;
   margin: 5px 0 15px 0;
@@ -50,4 +50,5 @@
   color: white;
   padding: 7px;
   text-align: center;
+  border: 1px solid #2fab41;
 }
