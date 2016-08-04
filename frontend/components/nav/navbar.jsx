@@ -1,7 +1,8 @@
 const React = require('react');
 const Link = require('react-router').Link;
-const SessionStore = require('../stores/session');
-const SessionActions = require('../actions/session_actions');
+const SessionStore = require('../../stores/session');
+const SessionActions = require('../../actions/session_actions');
+const UploadModal = require('./upload_modal');
 
 const NavBar = React.createClass({
   _handleLogOut (e) {
@@ -31,7 +32,7 @@ const NavBar = React.createClass({
       return (
         <ul>
           <li><button onClick={this._handleLogOut}>Log Out</button></li>
-          <li><button>Upload</button></li>
+          <UploadModal />
         </ul>
       );
     } else if (this.props.pathname === '/login') {
