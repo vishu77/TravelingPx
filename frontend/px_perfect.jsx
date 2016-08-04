@@ -2,15 +2,15 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 const Modal = require('react-modal');
 
-import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 const App = require('./components/app');
 const LoginForm = require('./components/user/login_form');
-const SetupApp = require('./setup_app');
+const SessionActions = require('./actions/session_actions');
 const PhotoIndex = require('./components/photo/index');
 
 const pageRouter = (
-  <Router history={hashHistory}>
+  <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={PhotoIndex} />
       <Route path="/login" component={LoginForm} />
@@ -21,7 +21,11 @@ const pageRouter = (
 
 document.addEventListener('DOMContentLoaded', () => {
   Modal.setAppElement(document.body);
-  SetupApp();
+
+  if(window.currentUser) {
+    SessionActions.receiveCurrentUser(window.currentUser);
+  }
+
   const root = document.getElementById('content');
   ReactDOM.render(pageRouter, root);
 });

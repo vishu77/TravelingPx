@@ -2,7 +2,7 @@ const AppDispatcher = require('../dispatcher/dispatcher');
 const ErrorActions = require('./error_actions');
 const SessionConstants = require('../constants/session_constants');
 const SessionUtil = require('../utils/session_api_util');
-const hashHistory = require('react-router').hashHistory;
+const BrowserHistory = require('react-router').browserHistory;
 
 const SessionActions = {
   login (user) {
@@ -32,7 +32,7 @@ const SessionActions = {
     AppDispatcher.dispatch({
       actionType: SessionConstants.LOGOUT
     });
-    hashHistory.push("/");
+    BrowserHistory.push("/");
   }
 };
 

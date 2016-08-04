@@ -3,11 +3,17 @@ const Link = require('react-router').Link;
 const SessionStore = require('../../stores/session');
 const SessionActions = require('../../actions/session_actions');
 const UploadModal = require('./upload_modal');
+const BrowserHistory = require('react-router').browserHistory;
 
 const NavBar = React.createClass({
   _handleLogOut (e) {
     e.preventDefault();
     SessionActions.logout();
+  },
+
+  _handleMain (e) {
+    e.preventDefault();
+    BrowserHistory.push("/");
   },
 
   navLeft () {
@@ -21,7 +27,7 @@ const NavBar = React.createClass({
     } else {
       return (
         <ul>
-          <li><button>some logo</button></li>
+          <li><button onClick={this._handleMain}>some logo</button></li>
         </ul>
       );
     }

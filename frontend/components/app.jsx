@@ -4,8 +4,17 @@ const NavBar = require('./nav/navbar');
 const PhotoIndex = require('./photo/index');
 
 const App = React.createClass({
+  getInitialState () {
+    return { errors: [] };
+  },
+
+  _handleErrors () {
+    const form = this.props.location.pathname.slice(1);
+    this.setState({ errors: ErrorStore.errors(form) });
+  },
+
   componentDidMount () {
-    this.errorListener = ErrorStore.addListener(this.forceUpdate.bind(this));
+    this.errorListener = ErrorStore.addListener(this._handleErrors);
   },
 
   componentWillUnmount () {
@@ -13,7 +22,7 @@ const App = React.createClass({
   },
 
   errors() {
-    const errors = ErrorStore.errors(this.props.location.pathname.slice(1));
+    const errors = this.state.errors;
     const messages = errors.map( (errorMsg, i) => {
       return <li key={ i }>{ errorMsg }</li>;
     });

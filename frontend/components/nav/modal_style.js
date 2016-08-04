@@ -1,4 +1,4 @@
-const UploadStyle = {
+const ModalStyle = {
   overlay : {
     position        : 'fixed',
     top             : 0,
@@ -24,4 +24,4 @@ const UploadStyle = {
   }
 };
 
-module.exports = UploadStyle;
+module.exports = ModalStyle;
