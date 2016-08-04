@@ -23,3 +23,7 @@
 .navbar li:hover {
   background: white;
 }
+
+.ReactModal__Body--open {
+  overflow: hidden;
+}

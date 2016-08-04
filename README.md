@@ -11,7 +11,7 @@ PxPerfect is a web application inspired by 500px that will be build using Ruby o
 - [x] Hosting on Heroku
 - [x] New account creation, login, and guest/demo login
 - [ ] A production README, replacing this README (**NB**: check out the [sample production README](docs/production_readme.md) -- you'll write this later)
-- [ ] Post Pictures
+- [x] Post Pictures
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
@@ -63,14 +63,14 @@ PxPerfect is a web application inspired by 500px that will be build using Ruby o
 **Objective:** Uploaded Photos can be created, read, edited and destroyed through
 the API.
 
-- [ ] create `Photo` model
-- [ ] seed the database with a small amount of test data
-- [ ] CRUD API for Photo (`PhotosController`)
-- [ ] jBuilder views for photos
-- [ ] test out API interaction in the console.
+- [x] create `Photo` model
+- [x] seed the database with a small amount of test data
+- [x] CRUD API for Photo (`PhotosController`)
+- [x] jBuilder views for photos
+- [x] test out API interaction in the console.
 - implement each photo component, building out the flux loop as needed.
-  - [ ] `PhotosIndex`
-  - [ ] `PhotosIndexItem`
+  - [x] `PhotosIndex`
+  - [x] `PhotosIndexItem`
   - [ ] `PhotoForm`
 - [ ] save Photos to the DB when the form loses focus or is left idle after editing.
 - [ ] basic styling for existing components
@@ -115,14 +115,14 @@ Follow information will be listed on the profile page of each user.
 ### Bonus Phases: Tagging, Comments Likes, Infinite Scrolling, Follow Suggestions
 
 ### Bonus Features (TBD)
-- [ ] OAuth (Facebook, Twitter, Google)
-- [ ] Comments
-- [ ] Follow Suggestions
-- [ ] Tagging
 - [ ] Likes
+- [ ] Comments
+- [ ] Tagging (Key Words)
+- [ ] OAuth (Facebook, Twitter, Google)
+- [ ] Discover with infinite scrolling
+- [ ] Follow Suggestions
 - [ ] Gallery
 - [ ] Ratings
-- [ ] Discover with infinite scrolling
 - [ ] Notifications
 
 [phase-one]: docs/phases/phase1.md

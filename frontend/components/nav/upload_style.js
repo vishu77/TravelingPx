@@ -15,7 +15,6 @@ const UploadStyle = {
     right           : '50px',
     bottom          : '50px',
     background      : '#fff',
-    backgroundColor : '#eee',
     border          : '1px solid #ccc',
     padding         : '20px',
     outline         : 'none',
