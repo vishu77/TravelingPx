@@ -13,7 +13,7 @@
 
 class Photo < ActiveRecord::Base
   validates :title, presence: true
-  validates :url, presence: true, uniqueness: true
+  validates :image_url, presence: true, uniqueness: true
 
   belongs_to(
     :poster,

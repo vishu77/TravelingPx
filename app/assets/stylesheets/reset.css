@@ -11,6 +11,11 @@ header, nav, body, div, ul, li, h1, h2, h3, input, a, button {
   background: transparent;
 }
 
+body {
+  font-family: "Open Sans", sans-serif;
+  position: relative;
+}
+
 ul {
   list-style: none;
 }

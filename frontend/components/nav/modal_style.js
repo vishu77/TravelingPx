@@ -16,7 +16,7 @@ const ModalStyle = {
     bottom          : '50px',
     background      : '#fff',
     border          : '1px solid #ccc',
-    padding         : '20px',
+    padding         : '0',
     outline         : 'none',
     borderRadius    : '3px',
     opacity         : '0',

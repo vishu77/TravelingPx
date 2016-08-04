@@ -1,0 +1,47 @@
+.dropzone {
+  height: 100%;
+  color: #00aaff;
+  font-weight: lighter;
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  align-items: center;
+}
+
+.dropzone button {
+  border-radius: 3px;
+  padding: 10px 35px 10px 35px;
+  color: #fff;
+  background-color: #0099e5;
+  margin-bottom: 20px;
+  border: 1px solid #0088cc;
+  font-size: 16px;
+}
+
+.dropzone div {
+  font-size: 14px;
+}
+
+.drop-button:hover {
+  background-color: #00aaff;
+}
+
+.dragging {
+  background: aliceblue;
+}
+
+.form-box {
+  display: flex;
+}
+
+.image-box {
+  width: 45%;
+  line-height: 100%;
+  float: left;
+  text-align: center;
+}
+
+.inputs-box {
+  width: 55%;
+  float:right;
+}
