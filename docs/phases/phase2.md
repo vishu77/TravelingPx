@@ -45,3 +45,4 @@
 * "react-alerts"
 * "react-modal"
 * "react-masonry"
+* "react-dropzone"
