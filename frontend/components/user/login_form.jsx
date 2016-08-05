@@ -38,7 +38,7 @@ const LoginForm = React.createClass({
 
   redirectIfLoggedIn () {
     if (SessionStore.isUserLoggedIn()) {
-      browserHistory.push('/signup');
+      browserHistory.push('/');
     }
   },
 

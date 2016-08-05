@@ -27,7 +27,6 @@ const SessionActions = {
       actionType: SessionConstants.LOGIN,
       currentUser: currentUser
     });
-    browserHistory.push('/');
   },
 
   removeCurrentUser() {

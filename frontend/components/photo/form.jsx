@@ -4,7 +4,6 @@ const PhotoActions = require('../../actions/photo_actions');
 const PhotoForm = React.createClass({
   getInitialState () {
     if (this.props.formType === 'edit') {
-      debugger
       return { title: this.props.photo.title,
         description: this.props.photo.description,
         imageURL: this.props.photo.image_url };

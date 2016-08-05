@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-gem 'rails_12factor'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
@@ -31,6 +30,7 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'rails_12factor', group: :production
 
 # paperclip for file upload
 gem 'paperclip', '5.0.0.beta1'
