@@ -1,9 +1,11 @@
 .navbar {
-  background: grey;
+  border-bottom: 1px solid lightgray;
   height: 50px;
   font-size: 14px;
   padding-left: 50px;
   padding-right: 50px;
+  z-index: 1;
+  position: relative;
 }
 
 .leftButtons {

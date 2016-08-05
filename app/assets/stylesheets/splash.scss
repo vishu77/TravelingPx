@@ -1,0 +1,60 @@
+.splash {
+  width: 100%;
+  min-height: 700px;
+  background-position: 50% 50%;
+  background-image: image-url("splash-ChrisLu.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+}
+
+.splash-text {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 700px;
+  color: darkslategray;
+}
+
+.splash-text h1 {
+  font-size: 48px;
+  font-size: 3vw;
+  margin-bottom: 20px;
+}
+
+.splash-text h2 {
+  font-size: 24px;
+  font-size: 2vw;
+  margin-bottom: 40px;
+  font-weight: lighter;
+}
+
+.splash-button {
+  min-width: 250px;
+  height: 50px;
+  text-align: center;
+  font-size: 20px;
+  color: white;
+  background: #0099e5;
+  border-radius: 3px;
+  border-color: #0088cc;
+  font-weight: lighter;
+}
+
+.splash-footer {
+  float: right;
+  padding: 15px;
+  color: dimgray;
+  font-weight: lighter;
+  font-size: 18px;
+}
+
+.splash-footer li {
+  float: left;
+  padding-right: 3px;
+  padding-left: 3px;
+  padding-bottom: 10px;
+}

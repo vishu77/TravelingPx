@@ -1,13 +1,14 @@
 const React = require('react');
-const ErrorStore = require('../../stores/error');
 const Link = require('react-router').Link;
+const BrowserHistory = require('react-router').browserHistory;
+const ErrorActions = require('../../actions/error_actions');
 const SessionActions = require('../../actions/session_actions');
 const SessionStore = require('../../stores/session');
 
 const LoginForm = React.createClass({
-  contextTypes: {
-		router: React.PropTypes.object.isRequired
-	},
+  getInitialState () {
+    return { username: "", password: "" };
+  },
 
   componentDidMount() {
     this.sessionListener = SessionStore.addListener(this.redirectIfLoggedIn);
@@ -21,11 +22,7 @@ const LoginForm = React.createClass({
     return this.props.location.pathname.slice(1);
   },
 
-  getInitialState () {
-    return { username: "", password: "" };
-  },
-
-  handleSubmit (e) {
+  _handleSubmit (e) {
     e.preventDefault();
 
     if (this.formType() === "login") {
@@ -35,9 +32,14 @@ const LoginForm = React.createClass({
     }
   },
 
+  _handleGuestLogin (e) {
+    e.preventDefault();
+    SessionActions.login({username: "flypuppy", password: "iamsofly"});
+  },
+
   redirectIfLoggedIn () {
     if (SessionStore.isUserLoggedIn()) {
-      this.context.router.push("/");
+      BrowserHistory.push('/signup');
     }
   },
 
@@ -68,7 +70,7 @@ const LoginForm = React.createClass({
           <h2>{formHeader}</h2>
           <h3>{formInfo}</h3>
 
-          <form onSubmit={this.handleSubmit} className="login-form">
+          <form onSubmit={this._handleSubmit} className="login-form">
             <label>
               Username
               <div>
@@ -89,6 +91,9 @@ const LoginForm = React.createClass({
 
             <input type="submit" className="submit-button" value={submitText} />
           </form>
+
+          <button className="submit-button"
+            onClick={this._handleGuestLogin}>Guest Login</button>
         </div>
       </div>
     );

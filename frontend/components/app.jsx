@@ -1,7 +1,7 @@
 const React = require('react');
 const ErrorStore = require('../stores/error');
+const ErrorActions = require('../actions/error_actions');
 const NavBar = require('./nav/navbar');
-const PhotoIndex = require('./photo/index');
 
 const App = React.createClass({
   getInitialState () {
@@ -15,6 +15,10 @@ const App = React.createClass({
 
   componentDidMount () {
     this.errorListener = ErrorStore.addListener(this._handleErrors);
+  },
+
+  componentWillReceiveProps () {
+    ErrorActions.clearErrors();
   },
 
   componentWillUnmount () {

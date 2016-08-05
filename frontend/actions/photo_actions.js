@@ -12,7 +12,6 @@ const PhotoActions = {
   },
 
   uploadPhoto (formData) {
-    debugger
     PhotoUtil.uploadPhoto(formData, this.receiveSinglePhoto);
   },
 

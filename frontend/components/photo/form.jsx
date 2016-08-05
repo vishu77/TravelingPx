@@ -8,7 +8,7 @@ const PhotoForm = React.createClass({
               imageURL: this.props.imageURL };
   },
 
-  handleSubmit (e) {
+  _handleSubmit (e) {
     e.preventDefault();
     const formData = new FormData();
 
@@ -32,7 +32,7 @@ const PhotoForm = React.createClass({
           <img className="upload-photo" src={this.props.imageURL} />
         </div>
 
-        <form onSubmit={this.handleSubmit} className="inputs-box">
+        <form onSubmit={this._handleSubmit} className="inputs-box">
           <div className="publish-button-box">
             <button className="submit-button">Publish photo</button>
           </div>

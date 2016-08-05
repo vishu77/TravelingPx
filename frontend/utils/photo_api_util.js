@@ -45,7 +45,7 @@ const PhotoUtil = {
       url: `api/photos`,
       method: 'POST',
       processData: false,
-      contentTyoe: false,
+      contentType: false,
       data: formData,
       success (data) {
         callBack(data);
