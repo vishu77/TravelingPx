@@ -1,5 +1,5 @@
 const React = require('react');
-const BrowserHistory = require('react-router').browserHistory;
+import { browserHistory } from 'react-router';
 const PhotoIndex = require('./photo/index');
 const SessionStore = require('../stores/session');
 const NavBar = require('./nav/navbar');
@@ -7,7 +7,7 @@ const NavBar = require('./nav/navbar');
 const Splash = React.createClass({
   handleClick (e) {
     e.preventDefault();
-    BrowserHistory.push('/signup');
+    browserHistory.push('/signup');
   },
 
   render () {

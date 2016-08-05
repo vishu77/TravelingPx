@@ -1,10 +1,8 @@
 const React = require('react');
-const Link = require('react-router').Link;
+import { Link, browserHistory } from 'react-router';
 const SessionStore = require('../../stores/session');
 const SessionActions = require('../../actions/session_actions');
 const UploadModal = require('./upload_modal');
-const BrowserHistory = require('react-router').browserHistory;
-
 const NavBar = React.createClass({
   _handleLogOut (e) {
     e.preventDefault();
@@ -13,7 +11,7 @@ const NavBar = React.createClass({
 
   _handleMain (e) {
     e.preventDefault();
-    BrowserHistory.push("/");
+    browserHistory.push("/");
   },
 
   navLeft () {

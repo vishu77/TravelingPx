@@ -1,7 +1,6 @@
 const Store = require('flux/utils').Store;
 const AppDispatcher = require('../dispatcher/dispatcher');
 const ErrorConstants = require('../constants/error_constants');
-const SessionConstants = require('../constants/session_constants');
 
 let _errors = [];
 let _form = "";
@@ -39,10 +38,6 @@ ErrorStore.__onDispatch = (payload) => {
       break;
 
     case ErrorConstants.CLEAR_ERRORS:
-      _clearErrors();
-      break;
-
-    case SessionConstants.LOGIN:
       _clearErrors();
       break;
   }

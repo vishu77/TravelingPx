@@ -8,6 +8,7 @@ const App = require('./components/app');
 const LoginForm = require('./components/user/login_form');
 const SessionActions = require('./actions/session_actions');
 const Splash = require('./components/splash');
+const PhotoShow = require('./components/photo/show');
 
 const pageRouter = (
   <Router history={browserHistory}>
@@ -15,6 +16,7 @@ const pageRouter = (
       <IndexRoute component={Splash} />
       <Route path="/login" component={LoginForm} />
       <Route path="/signup" component={LoginForm} />
+      <Route path="/photos/:photoId" component={PhotoShow} />
     </Route>
   </Router>
 );

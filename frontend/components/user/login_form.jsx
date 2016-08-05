@@ -1,6 +1,5 @@
 const React = require('react');
-const Link = require('react-router').Link;
-const BrowserHistory = require('react-router').browserHistory;
+import { Link, browserHistory } from 'react-router';
 const ErrorActions = require('../../actions/error_actions');
 const SessionActions = require('../../actions/session_actions');
 const SessionStore = require('../../stores/session');
@@ -39,7 +38,7 @@ const LoginForm = React.createClass({
 
   redirectIfLoggedIn () {
     if (SessionStore.isUserLoggedIn()) {
-      BrowserHistory.push('/signup');
+      browserHistory.push('/signup');
     }
   },
 
@@ -65,37 +64,39 @@ const LoginForm = React.createClass({
     }
 
     return (
-      <div className="login-signup-box">
-        <div>
-          <h2>{formHeader}</h2>
-          <h3>{formInfo}</h3>
+      // <div className="login-signup-page">
+        <div className="login-signup-box">
+          <div>
+            <h2>{formHeader}</h2>
+            <h3>{formInfo}</h3>
 
-          <form onSubmit={this._handleSubmit} className="login-form">
-            <label>
-              Username
-              <div>
-                <input type="text" className="form-inputs"
-                  value={this.state.username}
-                  onChange={this.setUsername} />
-              </div>
-            </label>
+            <form onSubmit={this._handleSubmit} className="login-form">
+              <label>
+                Username
+                <div>
+                  <input type="text" className="form-inputs"
+                    value={this.state.username}
+                    onChange={this.setUsername} />
+                </div>
+              </label>
 
-            <label>
-              Password
-              <div>
-                <input type="password" className="form-inputs"
-                  value={this.state.password}
-                  onChange={this.setPassword} />
-              </div>
-            </label>
+              <label>
+                Password
+                <div>
+                  <input type="password" className="form-inputs"
+                    value={this.state.password}
+                    onChange={this.setPassword} />
+                </div>
+              </label>
 
-            <input type="submit" className="submit-button" value={submitText} />
-          </form>
+              <input type="submit" className="submit-button" value={submitText} />
+            </form>
 
-          <button className="submit-button"
-            onClick={this._handleGuestLogin}>Guest Login</button>
+            <button className="submit-button"
+              onClick={this._handleGuestLogin}>Guest Login</button>
+          </div>
         </div>
-      </div>
+      // </div>
     );
   }
 });
