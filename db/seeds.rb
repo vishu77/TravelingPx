@@ -11,15 +11,12 @@ flypuppy = User.create(username: "flypuppy", password: "iamsofly")
 polarbear = Photo.create(
             poster_id: flypuppy.id,
             title: "My Polar Bear Friend",
-            description: "Busy resting on that rock",
-            url: "https://images.unsplash.com/photo-1465232377925-cce9a9d87843");
+            description: "Busy resting on that rock");
 camping = Photo.create(
             poster_id: flypuppy.id,
             title: "Night in the woods",
-            description: "Camping with my best buddy, the polar bear",
-            url: "https://images.unsplash.com/photo-1470246973918-29a93221c455");
+            description: "Camping with my best buddy, the polar bear");
 animal = Photo.create(
             poster_id: flypuppy.id,
             title: "Some animal",
-            description: "Wanted to eat me, shame on him.",
-            url: "https://images.unsplash.com/photo-1470239313878-0d1de9d85508");
+            description: "Wanted to eat me, shame on him.");

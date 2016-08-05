@@ -3,19 +3,22 @@ const PhotoActions = require('../../actions/photo_actions');
 
 const PhotoForm = React.createClass({
   getInitialState () {
-    return { title: "", description: "", image_url: this.props.image_url };
+    return { title: "", description: "",
+              imageFile: this.props.imageFile,
+              imageURL: this.props.imageURL };
   },
 
   handleSubmit (e) {
     e.preventDefault();
-    let photo = {
-      title: this.state.title,
-      description: this.state.description,
-      image_url: this.state.image_url
-    };
-    PhotoActions.uploadPhoto(photo);
-    this.props.close();
-    this.setState({title: "", description: "", image_url: ""});
+    const formData = new FormData();
+
+    formData.append("photo[title]", this.state.title);
+    formData.append("photo[description]", this.state.description);
+    formData.append("photo[image]", this.state.imageFile);
+
+    PhotoActions.uploadPhoto(formData);
+    // this.props.close();
+    this.setState({title: "", description: "", imageURL: "", imageFile: null });
   },
 
   updateProps (property) {
@@ -26,7 +29,7 @@ const PhotoForm = React.createClass({
     return (
       <div className="form-box group">
         <div className="image-box">
-          <img className="upload-photo" src={this.props.image_url} />
+          <img className="upload-photo" src={this.props.imageURL} />
         </div>
 
         <form onSubmit={this.handleSubmit} className="inputs-box">

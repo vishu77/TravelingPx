@@ -31,6 +31,13 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+
+# paperclip for file upload
+gem 'paperclip', '5.0.0.beta1'
+gem 'figaro'
+gem 'aws-sdk'
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

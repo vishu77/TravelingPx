@@ -6,7 +6,7 @@ const PhotoForm = require('../photo/form');
 
 const UploadModal = React.createClass({
   getInitialState () {
-    return { modalOpen: false, image_url: "" };
+    return { modalOpen: false, imageURL: "", imageFile: null };
   },
 
   _handleClick () {
@@ -17,12 +17,23 @@ const UploadModal = React.createClass({
     this.refs.dropzone.open();
   },
 
-  onDrop (image_url) {
-    this.setState({ image_url: image_url });
+  onDrop (image) {
+    let reader = new FileReader();
+    let file = image[0];
+
+    reader.onloadend = () => {
+      this.setState({ imageURL: reader.result, imageFile: file });
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      this.setState({ imageURL: "", imageFile: null });
+    }
   },
 
   onModalClose () {
-    this.setState({ modalOpen: false, image_url: "" });
+    this.setState({ modalOpen: false, imageURL: "", imageFile: null });
     ModalStyle.content.opacity = 0;
   },
 
@@ -31,9 +42,11 @@ const UploadModal = React.createClass({
   },
 
   photoDropped () {
-    if (this.state.image_url) {
+    if (this.state.imageFile) {
       return (
-        <PhotoForm image_url={this.state.image_url} close={this.onModalClose}/>
+        <PhotoForm imageURL={this.state.imageURL}
+          imageFile={this.state.imageFile}
+          close={this.onModalClose} />
       );
     } else {
       return (

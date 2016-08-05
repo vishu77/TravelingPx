@@ -40,11 +40,13 @@ const PhotoUtil = {
     });
   },
 
-  uploadPhoto (photo, callBack) {
+  uploadPhoto (formData, callBack) {
     $.ajax({
       url: `api/photos`,
       method: 'POST',
-      data: { photo: photo },
+      processData: false,
+      contentTyoe: false,
+      data: formData,
       success (data) {
         callBack(data);
       }
