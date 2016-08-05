@@ -28,7 +28,7 @@ const PhotoIndex = React.createClass({
     });
 
     return (
-      <div>
+      <div className="photo-main">
         {photos}
       </div>
     );

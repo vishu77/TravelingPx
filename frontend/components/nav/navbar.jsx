@@ -64,8 +64,15 @@ const NavBar = React.createClass({
   },
 
   render () {
+    let navClass;
+    if (SessionStore.isUserLoggedIn() || this.props.pathname !== '/') {
+      navClass="navbar navbar-other group";
+    } else {
+      navClass="navbar navbar-home group";
+    }
+
     return (
-      <nav className="navbar group">
+      <nav className={navClass}>
         <div className="leftButtons">
           {this.navLeft()}
         </div>

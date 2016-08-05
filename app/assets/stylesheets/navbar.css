@@ -1,11 +1,18 @@
-.navbar {
-  border-bottom: 1px solid lightgray;
+.navbar-home {
   height: 50px;
+  width: 100%;
   font-size: 14px;
   padding-left: 50px;
-  padding-right: 50px;
   z-index: 1;
-  position: relative;
+  position: fixed;
+}
+
+.navbar-other {
+  border-bottom: 1px solid lightgray;
+  height: 50px;
+  width: 100%;
+  font-size: 14px;
+  padding-left: 50px;
 }
 
 .leftButtons {
@@ -14,6 +21,7 @@
 
 .rightButtons {
   float: right;
+  padding-right: 115px;
 }
 
 .navbar li {

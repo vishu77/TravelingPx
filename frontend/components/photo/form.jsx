@@ -17,7 +17,7 @@ const PhotoForm = React.createClass({
     formData.append("photo[image]", this.state.imageFile);
 
     PhotoActions.uploadPhoto(formData);
-    // this.props.close();
+    this.props.close();
     this.setState({title: "", description: "", imageURL: "", imageFile: null });
   },
 

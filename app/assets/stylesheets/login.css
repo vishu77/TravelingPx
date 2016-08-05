@@ -1,7 +1,8 @@
 .login-signup-box {
   display: flex;
   justify-content: center;
-  margin: 200px auto;
+  align-items: center;
+  margin: 0 auto;
   width: 400px;
   height: 450px;
   border: 1px solid lightgray;
