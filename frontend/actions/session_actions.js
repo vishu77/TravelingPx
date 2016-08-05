@@ -8,6 +8,7 @@ const SessionActions = {
   login (user) {
     SessionUtil.login(user,
       SessionActions.receiveCurrentUser,
+      ErrorActions.clearErrors,
       ErrorActions.setErrors);
   },
 
@@ -26,13 +27,14 @@ const SessionActions = {
       actionType: SessionConstants.LOGIN,
       currentUser: currentUser
     });
+    browserHistory.push('/');
   },
 
   removeCurrentUser() {
     AppDispatcher.dispatch({
       actionType: SessionConstants.LOGOUT
     });
-    browserHistory.push("/");
+    browserHistory.push('/');
   }
 };
 

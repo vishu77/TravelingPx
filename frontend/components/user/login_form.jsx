@@ -42,12 +42,8 @@ const LoginForm = React.createClass({
     }
   },
 
-  setUsername (e) {
-    this.setState({username: e.target.value});
-  },
-
-  setPassword (e) {
-    this.setState({password: e.target.value});
+  updateProps (property) {
+    return (e) => this.setState({ [property]: e.target.value });
   },
 
   render () {
@@ -76,7 +72,7 @@ const LoginForm = React.createClass({
                 <div>
                   <input type="text" className="form-inputs"
                     value={this.state.username}
-                    onChange={this.setUsername} />
+                    onChange={this.updateProps("username")} />
                 </div>
               </label>
 
@@ -85,7 +81,7 @@ const LoginForm = React.createClass({
                 <div>
                   <input type="password" className="form-inputs"
                     value={this.state.password}
-                    onChange={this.setPassword} />
+                    onChange={this.updateProps("password")} />
                 </div>
               </label>
 

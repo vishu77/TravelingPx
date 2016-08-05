@@ -1,7 +1,7 @@
 const PhotoUtil = {
   deletePhoto (id, callBack) {
     $.ajax({
-      url: `api/photos/${id}`,
+      url: `/api/photos/${id}`,
       method: "DELETE",
       success (data) {
         callBack(data);
@@ -11,7 +11,7 @@ const PhotoUtil = {
 
   fetchAllPhotos (callBack) {
     $.ajax({
-      url: 'api/photos',
+      url: '/api/photos',
       method: 'GET',
       success (data) {
         callBack(data);
@@ -21,7 +21,7 @@ const PhotoUtil = {
 
   fetchSinglePhoto (id, callBack) {
     $.ajax({
-      url: `api/photos/${id}`,
+      url: `/api/photos/${id}`,
       method: 'GET',
       success (data) {
         callBack(data);
@@ -31,7 +31,7 @@ const PhotoUtil = {
 
   updatePhoto (photo, callBack) {
     $.ajax({
-      url: `api/photos/${photo.id}`,
+      url: `/api/photos/${photo.id}`,
       method: 'PATCH',
       data: { photo: photo },
       success (data) {
@@ -42,7 +42,7 @@ const PhotoUtil = {
 
   uploadPhoto (formData, callBack) {
     $.ajax({
-      url: `api/photos`,
+      url: `/api/photos`,
       method: 'POST',
       processData: false,
       contentType: false,

@@ -2,3 +2,56 @@
   width: 25%;
   height: 25%;
 }
+
+.photo-details-box {
+  display: flex;
+  flex-flow: row;
+  position: relative;
+}
+
+.image-show-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid lightgray;
+}
+
+.photo-show {
+  width: auto;
+  height: auto;
+  max-width: 90%;
+  margin: 20px;
+  border: 3px solid lightgray;
+  border-radius: 3px;
+}
+
+.photo-details-show-box {
+  width: 300px;
+  border-left: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
+
+.photo-details-show-box div {
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 20px;
+  margin-top: 15px;
+  color: darkslategray;
+}
+
+.user-info {
+  text-align: center;
+  font-size: 24px;
+}
+
+.photo-text {
+  text-indent: 15px;
+}
+
+.photo-text h3 {
+  font-size: 24px;
+}
+
+.photo-text p {
+  font-size: 18px;
+}

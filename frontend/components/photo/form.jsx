@@ -3,22 +3,36 @@ const PhotoActions = require('../../actions/photo_actions');
 
 const PhotoForm = React.createClass({
   getInitialState () {
-    return { title: "", description: "",
-              imageFile: this.props.imageFile,
-              imageURL: this.props.imageURL };
+    if (this.props.formType === 'edit') {
+      debugger
+      return { title: this.props.photo.title,
+        description: this.props.photo.description,
+        imageURL: this.props.photo.image_url };
+    } else {
+      return { title: "", description: "",
+        imageFile: this.props.imageFile,
+        imageURL: this.props.imageURL };
+    }
   },
 
   _handleSubmit (e) {
     e.preventDefault();
-    const formData = new FormData();
 
-    formData.append("photo[title]", this.state.title);
-    formData.append("photo[description]", this.state.description);
-    formData.append("photo[image]", this.state.imageFile);
+    if (this.props.formType === 'edit') {
+      let photo = { title: this.state.title, description: this.state.description };
+      PhotoActions.updatePhoto(photo);
+      this.props.close();
+    } else {
+      const formData = new FormData();
 
-    PhotoActions.uploadPhoto(formData);
-    this.props.close();
-    this.setState({title: "", description: "", imageURL: "", imageFile: null });
+      formData.append("photo[title]", this.state.title);
+      formData.append("photo[description]", this.state.description);
+      formData.append("photo[image]", this.state.imageFile);
+
+      PhotoActions.uploadPhoto(formData);
+      this.props.close();
+      this.setState({title: "", description: "", imageURL: "", imageFile: null });
+    }
   },
 
   updateProps (property) {
@@ -26,6 +40,11 @@ const PhotoForm = React.createClass({
   },
 
   render () {
+    let submitText = "Upload Photo";
+    if (this.props.formType === 'edit') {
+      submitText = "Edit Photo";
+    }
+
     return (
       <div className="form-box group">
         <div className="image-box">
@@ -34,7 +53,7 @@ const PhotoForm = React.createClass({
 
         <form onSubmit={this._handleSubmit} className="inputs-box">
           <div className="publish-button-box">
-            <button className="submit-button">Publish photo</button>
+            <button className="submit-button">{submitText}</button>
           </div>
 
           <div className="input-components">

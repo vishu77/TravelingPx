@@ -1,11 +1,14 @@
 const SessionUtil = {
-  signup (user, success, errorCb) {
+  signup (user, success, clear, errorCb) {
     $.ajax({
-      url: 'api/users',
+      url: '/api/users',
       method: 'POST',
       dataType: 'json',
       data: { user },
-      success,
+      success(resp) {
+        success(resp);
+        clear();
+      },
       error(xhr) {
         const errors = xhr.responseJSON;
         errorCb('signup', errors);
@@ -13,12 +16,15 @@ const SessionUtil = {
     });
   },
 
-  login (user, success, errorCb) {
+  login (user, success, clear, errorCb) {
     $.ajax({
-      url: 'api/session',
+      url: '/api/session',
       method: 'POST',
       data: { user },
-      success,
+      success (resp){
+        success(resp);
+        clear();
+      },
       error(xhr) {
         const errors = xhr.responseJSON;
         errorCb('login', errors);
@@ -28,7 +34,7 @@ const SessionUtil = {
 
   logout (success) {
     $.ajax({
-      url: 'api/session',
+      url: '/api/session',
       method: 'DELETE',
       success,
       error: function () {

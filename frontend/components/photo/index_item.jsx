@@ -3,14 +3,12 @@ import { browserHistory } from 'react-router';
 const PhotoShow = require('./show');
 
 const PhotoIndexItem = React.createClass({
-  handleClick (e) {
-    e.preventDefault();
-    browserHistory.push(`/photos/${this.props.photo.photoId}`);
+  handleClick () {
+    browserHistory.push(`/photos/${this.props.photo.id}`);
   },
 
   render () {
     let photo = this.props.photo;
-    debugger
 
     return (
       <div>
