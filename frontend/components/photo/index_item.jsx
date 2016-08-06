@@ -11,11 +11,11 @@ const PhotoIndexItem = React.createClass({
     let photo = this.props.photo;
 
     return (
-      <div>
+      <li>
         <img className="condensed"
           onClick={this.handleClick}
           src={photo.image_url} />
-      </div>
+      </li>
     );
   }
 });

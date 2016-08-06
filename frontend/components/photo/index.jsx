@@ -1,7 +1,13 @@
 const React = require('react');
+const Masonry = require('react-masonry-component');
 const PhotoActions = require('../../actions/photo_actions');
 const PhotoStore = require('../../stores/photo');
 const PhotoIndexItem = require('./index_item');
+
+const masonryOptions = {
+  isFitWidth: true,
+	gutter: 5
+};
 
 const PhotoIndex = React.createClass({
   getInitialState () {
@@ -21,15 +27,25 @@ const PhotoIndex = React.createClass({
     this.photoListener.remove();
   },
 
-  render () {
-    let photos = [];
-    this.state.photos.forEach((photo) => {
-      photos.push(<PhotoIndexItem photo={photo} key={photo.id} />);
+  gallery () {
+    return this.state.photos.map((photo) => {
+      return <PhotoIndexItem photo={photo} key={photo.id} />;
     });
+  },
+
+  render () {
 
     return (
-      <div className="photo-main">
-        {photos}
+      <div className="gallery">
+        <Masonry
+          className="photo-index"
+          elementType='ul'
+          options={masonryOptions}
+          disableImagesLoaded={false}
+          updateOnEachImageLoad={true}>
+
+          { this.gallery() }
+        </Masonry>
       </div>
     );
   }
