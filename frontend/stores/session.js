@@ -1,6 +1,7 @@
 const Store = require('flux/utils').Store;
 const AppDispatcher = require('../dispatcher/dispatcher');
 const SessionConstants = require('../constants/session_constants');
+const FollowConstants = require('../constants/follow_constants');
 
 let _currentUser = {};
 
@@ -13,6 +14,17 @@ const _login = (currentUser) => {
 
 const _logout = () => {
   _currentUser = {};
+  SessionStore.__emitChange();
+};
+
+const _addFollow = (userID) => {
+  _currentUser.followees.push(parseInt(userID));
+  SessionStore.__emitChange();
+};
+
+const _removeFollow = (userID) => {
+  let userIdx = _currentUser.followees.indexOf(parseInt(userID));
+  _currentUser.followees.splice(userIdx, 1);
   SessionStore.__emitChange();
 };
 
@@ -32,6 +44,14 @@ SessionStore.__onDispatch = (payload) => {
 
     case SessionConstants.LOGOUT:
       _logout();
+      break;
+
+    case FollowConstants.FOLLOW_RECEIVED:
+      _addFollow(payload.follow);
+      break;
+
+    case FollowConstants.FOLLOW_REMOVED:
+      _removeFollow(payload.follow);
       break;
   }
 };

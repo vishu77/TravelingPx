@@ -45,6 +45,16 @@ const PhotoShow = React.createClass({
     ModalStyle.content.opacity = 100;
   },
 
+  followToggle () {
+    let currentUser = SessionStore.currentUser();
+    let followText;
+
+    if (currentUser && currentUser.id !== this.state.photo.poster_id) {
+
+      return <button>{}</button>;
+    }
+  },
+
   render () {
     let photoDetails = this.state.photo;
 

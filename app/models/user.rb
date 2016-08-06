@@ -20,18 +20,16 @@ class User < ActiveRecord::Base
   validates :password_digest, presence: { message: "Password can't be blank" }
   validates :password, length: { minimum: 6, allow_nil: true }
 
-
-  # has_attached_file :avatar, default_url: "default.png"
-  # validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
+  has_attached_file :avatar, default_url: "default.png"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   attr_reader :password
 
-  has_many(
-    :photos,
-    class_name: "Photo",
-    foreign_key: :poster_id,
-    primary_key: :id
-  )
+  has_many :photos, class_name: "Photo", foreign_key: :poster_id
+  has_many :is_followed, class_name: "Follow", foreign_key: :followee_id
+  has_many :is_following, class_name: "Follow", foreign_key: :follower_id
+  has_many :followers, through: :is_followed, source: :follower
+  has_many :followees, through: :is_following, source: :followee
 
   before_validation :ensure_session_token
 

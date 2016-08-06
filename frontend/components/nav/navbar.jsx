@@ -18,14 +18,14 @@ const NavBar = React.createClass({
     if (SessionStore.isUserLoggedIn()) {
       return (
         <ul>
-          <li><button>some logo</button></li>
+          <li><Link to="/"><img className="logo" src={window.logoURL} /></Link></li>
           <li><button>home button</button></li>
         </ul>
       );
     } else {
       return (
         <ul>
-          <li><button onClick={this._handleMain}>some logo</button></li>
+          <li><Link to="/"><img className="logo" src={window.logoURL} /></Link></li>
         </ul>
       );
     }

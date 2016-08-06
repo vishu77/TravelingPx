@@ -29,10 +29,15 @@
   padding: 16px;
 }
 
+
 .navbar li:hover {
   background: white;
 }
 
 .ReactModal__Body--open {
   overflow: hidden;
+}
+
+.logo {
+  width: 120px;
 }

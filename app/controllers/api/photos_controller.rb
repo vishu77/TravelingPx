@@ -6,7 +6,8 @@ class Api::PhotosController < ApplicationController
     if @photo.save
       render "api/photos/show"
     else
-      render json: @photo.errors.full_messages, status: 422
+      @errors = @photo.errors.full_messages
+      render "api/shared/errors", status: 422
     end
   end
 
@@ -32,7 +33,8 @@ class Api::PhotosController < ApplicationController
     if @photo.update(photo_params)
       render "api/photos/show"
     else
-      render json: ["can't update photo"], status: 404
+      @errors ["can't update photo"]
+      render "api/shared/errors", status: 404
     end
   end
 

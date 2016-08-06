@@ -12,9 +12,9 @@ PxPerfect is a web application inspired by 500px that will be build using Ruby o
 - [x] New account creation, login, and guest/demo login
 - [ ] A production README, replacing this README (**NB**: check out the [sample production README](docs/production_readme.md) -- you'll write this later)
 - [x] Post Pictures
-  - [ ] Smooth, bug-free navigation
-  - [ ] Adequate seed data to demonstrate the site's features
-  - [ ] Adequate CSS styling
+  - [x] Smooth, bug-free navigation
+  - [x] Adequate seed data to demonstrate the site's features
+  - [x] Adequate CSS styling
 - [ ] Follow Users
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
