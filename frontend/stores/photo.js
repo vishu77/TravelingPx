@@ -7,7 +7,7 @@ let _photos = {};
 const PhotoStore = new Store(AppDispatcher);
 
 const _removePhoto = (photo) => {
-  delete _photo[photo.id];
+  delete _photos[photo.id];
   PhotoStore.__emitChange();
 };
 

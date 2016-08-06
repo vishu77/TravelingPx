@@ -4,7 +4,7 @@ const PhotoUtil = require('../utils/photo_api_util');
 
 const PhotoActions = {
   fetchAllPhotos () {
-    PhotoUtil.fetchAllPhotos(this.receiveAllPhoto);
+    PhotoUtil.fetchAllPhotos(this.receiveAllPhotos);
   },
 
   fetchSinglePhoto (photoID) {
@@ -23,7 +23,7 @@ const PhotoActions = {
     PhotoUtil.deletePhoto(photoID, this.removePhoto);
   },
 
-  receiveAllPhoto (photos) {
+  receiveAllPhotos (photos) {
     AppDispatcher.dispatch({
       actionType: PhotoConstants.PHOTOS_RECEIVED,
       photos: photos

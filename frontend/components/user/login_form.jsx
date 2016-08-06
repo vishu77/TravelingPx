@@ -85,11 +85,13 @@ const LoginForm = React.createClass({
                 </div>
               </label>
 
-              <input type="submit" className="submit-button" value={submitText} />
+              <input type="submit" className="button submit-button" value={submitText} />
             </form>
 
-            <button className="submit-button"
-              onClick={this._handleGuestLogin}>Guest Login</button>
+            <button className="button submit-button"
+              onClick={this._handleGuestLogin}>
+              Guest Login
+            </button>
           </div>
         </div>
       // </div>

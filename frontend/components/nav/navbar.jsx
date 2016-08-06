@@ -62,11 +62,9 @@ const NavBar = React.createClass({
   },
 
   render () {
-    let navClass;
+    let navClass = "navbar navbar-home group";
     if (SessionStore.isUserLoggedIn() || this.props.pathname !== '/') {
       navClass="navbar navbar-other group";
-    } else {
-      navClass="navbar navbar-home group";
     }
 
     return (

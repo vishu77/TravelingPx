@@ -16,12 +16,17 @@ const PhotoForm = React.createClass({
 
   _handleSubmit (e) {
     e.preventDefault();
-
     if (this.props.formType === 'edit') {
-      let photo = { title: this.state.title, description: this.state.description };
+      let photo = {
+          id: this.props.photoId,
+          title: this.state.title,
+          description: this.state.description };
+
       PhotoActions.updatePhoto(photo);
       this.props.close();
+
     } else {
+
       const formData = new FormData();
 
       formData.append("photo[title]", this.state.title);
@@ -47,12 +52,12 @@ const PhotoForm = React.createClass({
     return (
       <div className="form-box group">
         <div className="image-box">
-          <img className="upload-photo" src={this.props.imageURL} />
+          <img className="upload-photo" src={this.state.imageURL} />
         </div>
 
         <form onSubmit={this._handleSubmit} className="inputs-box">
           <div className="publish-button-box">
-            <button className="submit-button">{submitText}</button>
+            <button className="button submit-button">{submitText}</button>
           </div>
 
           <div className="input-components">

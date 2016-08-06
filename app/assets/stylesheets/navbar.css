@@ -1,18 +1,18 @@
-.navbar-home {
-  height: 50px;
-  width: 100%;
-  font-size: 14px;
+.navbar {
   padding-left: 50px;
+  padding-right: 50px;
+  font-size: 16px;
+  height: 50px;
+}
+
+.navbar-home {
+  width: 100%;
   z-index: 1;
   position: fixed;
 }
 
 .navbar-other {
   border-bottom: 1px solid lightgray;
-  height: 50px;
-  width: 100%;
-  font-size: 14px;
-  padding-left: 50px;
 }
 
 .leftButtons {
@@ -21,13 +21,12 @@
 
 .rightButtons {
   float: right;
-  padding-right: 115px;
 }
 
 .navbar li {
   float: left;
   text-align: center;
-  padding: 15px;
+  padding: 16px;
 }
 
 .navbar li:hover {

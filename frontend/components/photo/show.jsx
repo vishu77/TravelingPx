@@ -1,5 +1,6 @@
 const React = require('react');
 const Modal = require('react-modal');
+import { browserHistory } from 'react-router';
 const ModalStyle = require('../nav/modal_style');
 const PhotoStore = require('../../stores/photo');
 const PhotoActions = require('../../actions/photo_actions');
@@ -14,6 +15,11 @@ const PhotoShow = React.createClass({
 
   _handleClick () {
     this.setState({ modalOpen: true });
+  },
+
+  _handleRemove () {
+    PhotoActions.deletePhoto(parseInt(this.props.params.photoId));
+    browserHistory.push('/');
   },
 
   componentDidMount () {
@@ -42,28 +48,36 @@ const PhotoShow = React.createClass({
   render () {
     let photoDetails = this.state.photo;
 
-    let editButton = <div></div>;
-
-    let currentUser = SessionStore.currentUser();
-    if (currentUser && currentUser.id === photoDetails.poster_id) {
-      editButton = (
-        <div>
-          <button onClick={this._handleClick}>Edit Photo</button>
-          <Modal
-            isOpen={this.state.modalOpen}
-            onAfterOpen={this.onModalOpen}
-            onRequestClose={this.onModalClose}
-            style={ModalStyle}>
-
-            <PhotoForm formType={"edit"}
-              photo={this.state.photo} 
-              close={this.onModalClose} />
-          </Modal>
-        </div>
-      );
-    }
-
     if (photoDetails){
+      let editButton = <div></div>;
+      let deleteButton = <div></div>;
+
+      let currentUser = SessionStore.currentUser();
+      if (currentUser && currentUser.id === photoDetails.poster_id) {
+        editButton = (
+          <div className="button-space">
+            <button className="button form-button" onClick={this._handleClick}>Edit Photo</button>
+            <Modal
+              isOpen={this.state.modalOpen}
+              onAfterOpen={this.onModalOpen}
+              onRequestClose={this.onModalClose}
+              style={ModalStyle}>
+
+              <PhotoForm formType={"edit"}
+                photo={this.state.photo}
+                photoId={parseInt(this.props.params.photoId)}
+                close={this.onModalClose} />
+            </Modal>
+          </div>
+        );
+
+        deleteButton = (
+          <div className="button-space">
+            <button className="button form-button" onClick={this._handleRemove}>Delete Photo</button>
+          </div>
+        );
+      }
+
       return (
         <div className="photo-details-box">
           <div className="image-show-box">
@@ -81,6 +95,7 @@ const PhotoShow = React.createClass({
             </div>
 
             {editButton}
+            {deleteButton}
           </div>
         </div>
       );
