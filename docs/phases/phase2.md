@@ -16,7 +16,7 @@
 ### Views (React Components)
 * PhotosIndex
   - PhotosIndexItem
-* PhotosForm
+* PhotosForm for uploading editing
 * PhotoDetail
 * Splash (IndexRoute to hold all the components)
 
@@ -41,8 +41,9 @@
 * `PhotoUtil.deletePhoto`
 
 ## Gems/Libraries
-* Cloudinary (react)
 * "react-alerts"
 * "react-modal"
 * "react-masonry"
 * "react-dropzone"
+* "paperclip" (gem)
+* AWS Server

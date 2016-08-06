@@ -71,9 +71,10 @@ the API.
 - implement each photo component, building out the flux loop as needed.
   - [x] `PhotosIndex`
   - [x] `PhotosIndexItem`
-  - [ ] `PhotoForm`
-- [ ] save Photos to the DB when the form loses focus or is left idle after editing.
-- [ ] basic styling for existing components
+  - [x] `PhotoForm for uploading and editing`
+  - [x] `PhotoDetail`
+- [x] save Photos to the DB when the form loses focus or is left idle after editing.
+- [x] basic styling for existing components
 
 ### Phase 3: Follow Users (1 day, W2 Mon 6pm)
 
