@@ -11,8 +11,8 @@ session_token   | string    | not null, indexed, unique
 first_name      | string    |
 last_name       | string    |
 description     | text      |
-profile_photo   | text      | not_null, default: picture
-cover_photo     | text      |
+avatar          | text      | default: picture
+cover           | text      |
 
 ## Photos
 column name | data type | details

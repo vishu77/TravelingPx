@@ -4,6 +4,7 @@ const SessionConstants = require('../constants/session_constants');
 const FollowConstants = require('../constants/follow_constants');
 
 let _currentUser = {};
+let _profile = {};
 
 const SessionStore = new Store(AppDispatcher);
 
@@ -22,6 +23,12 @@ const _addFollow = (followeeId) => {
   SessionStore.__emitChange();
 };
 
+const _setProfile = (profile) => {
+  debugger
+  _profile = profile;
+  SessionStore.__emitChange();
+};
+
 const _removeFollow = (followeeId) => {
   let userIdx = _currentUser.followees.indexOf(parseInt(followeeId));
   _currentUser.followees.splice(userIdx, 1);
@@ -36,6 +43,10 @@ SessionStore.isUserLoggedIn = () => {
   return !!_currentUser.id;
 };
 
+SessionStore.profile = () => {
+  return _profile;
+};
+
 SessionStore.__onDispatch = (payload) => {
   switch (payload.actionType) {
     case SessionConstants.LOGIN:
@@ -46,6 +57,10 @@ SessionStore.__onDispatch = (payload) => {
       _logout();
       break;
 
+    case SessionConstants.PROFILE_RECEIVED:
+      _setProfile(payload.profile);
+      break;
+
     case FollowConstants.FOLLOW_RECEIVED:
       _addFollow(payload.follow.followeeId);
       break;
@@ -53,6 +68,7 @@ SessionStore.__onDispatch = (payload) => {
     case FollowConstants.FOLLOW_REMOVED:
       _removeFollow(payload.follow.followeeId);
       break;
+
   }
 };
 

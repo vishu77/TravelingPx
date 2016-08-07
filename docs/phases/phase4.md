@@ -11,7 +11,6 @@
 
 ## Flux
 ### Views (React Components)
-* SignUp Form
 * Profile Edit
 * Profile page
 

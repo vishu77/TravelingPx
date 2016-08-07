@@ -10,6 +10,7 @@ const SessionActions = require('./actions/session_actions');
 const SessionStore = require('./stores/session');
 const Splash = require('./components/splash');
 const PhotoShow = require('./components/photo/show');
+const Profile = require('./components/user/profile');
 
 const pageRouter = (
   <Router history={browserHistory}>
@@ -18,6 +19,7 @@ const pageRouter = (
       <Route path="/login" component={LoginForm} onEnter={ _ensureLoggedIn }/>
       <Route path="/signup" component={LoginForm} onEnter={ _ensureLoggedIn }/>
       <Route path="/photos/:photoId" component={PhotoShow} />
+      <Route path="/:userId" component={Profile} />
     </Route>
   </Router>
 );

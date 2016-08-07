@@ -17,7 +17,7 @@ TravelingPx is a web application inspired by 500px that will be build using Ruby
   - [x] Adequate CSS styling
 - [x] Follow Users
   - [x] Smooth, bug-free navigation
-  - [x] Adequate seed data to demonstrate the site's features
+  - [ ] Adequate seed data to demonstrate the site's features
   - [x] Adequate CSS styling
 - [ ] Profile Page
   - [ ] Smooth, bug-free navigation

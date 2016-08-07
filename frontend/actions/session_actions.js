@@ -5,6 +5,10 @@ const SessionConstants = require('../constants/session_constants');
 const SessionUtil = require('../utils/session_api_util');
 
 const SessionActions = {
+  fetchProfile (userId) {
+    SessionUtil.fetchProfile(userId, this.receiveProfile);
+  },
+
   login (user) {
     SessionUtil.login(user,
       SessionActions.receiveCurrentUser,
@@ -22,10 +26,21 @@ const SessionActions = {
       ErrorActions.setErrors);
   },
 
+  updateProfile (user) {
+    SessionUtil.updateProfile(user, this.receiveProfile);
+  },
+
   receiveCurrentUser(currentUser) {
     AppDispatcher.dispatch({
       actionType: SessionConstants.LOGIN,
       currentUser: currentUser
+    });
+  },
+
+  receiveProfile(profile) {
+    AppDispatcher.dispatch({
+      actionType: SessionConstants.PROFILE_RECEIVED,
+      profile: profile
     });
   },
 

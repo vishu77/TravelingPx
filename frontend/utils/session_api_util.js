@@ -1,22 +1,26 @@
 const SessionUtil = {
-  signup (user, success, clear, errorCb) {
+  fetchProfile(userId, success) {
     $.ajax({
-      url: '/api/users',
-      method: 'POST',
-      dataType: 'json',
-      data: { user },
-      success(resp) {
-        success(resp);
-        clear();
-      },
-      error(xhr) {
-        const errors = xhr.responseJSON;
-        errorCb('signup', errors);
+      url: `/api/users/${userId}`,
+      method: "GET",
+      success (user) {
+        success(user);
       }
     });
   },
 
-  login (user, success, clear, errorCb) {
+  updateProfile(user, success) {
+    $.ajax({
+      url: `/api/users/${user.id}`,
+      method: 'PATCH',
+      data: { user: user },
+      success (data) {
+        success(data);
+      }
+    });
+  },
+
+ login (user, success, clear, errorCb) {
     $.ajax({
       url: '/api/session',
       method: 'POST',
@@ -39,6 +43,23 @@ const SessionUtil = {
       success,
       error: function () {
         console.log("Logout error in SessionUtil#logout");
+      }
+    });
+  },
+
+  signup (user, success, clear, errorCb) {
+    $.ajax({
+      url: '/api/users',
+      method: 'POST',
+      dataType: 'json',
+      data: { user },
+      success(resp) {
+        success(resp);
+        clear();
+      },
+      error(xhr) {
+        const errors = xhr.responseJSON;
+        errorCb('signup', errors);
       }
     });
   }
