@@ -17,13 +17,13 @@ const _logout = () => {
   SessionStore.__emitChange();
 };
 
-const _addFollow = (userID) => {
-  _currentUser.followees.push(parseInt(userID));
+const _addFollow = (followeeId) => {
+  _currentUser.followees.push(parseInt(followeeId));
   SessionStore.__emitChange();
 };
 
-const _removeFollow = (userID) => {
-  let userIdx = _currentUser.followees.indexOf(parseInt(userID));
+const _removeFollow = (followeeId) => {
+  let userIdx = _currentUser.followees.indexOf(parseInt(followeeId));
   _currentUser.followees.splice(userIdx, 1);
   SessionStore.__emitChange();
 };
@@ -47,11 +47,11 @@ SessionStore.__onDispatch = (payload) => {
       break;
 
     case FollowConstants.FOLLOW_RECEIVED:
-      _addFollow(payload.follow);
+      _addFollow(payload.follow.followeeId);
       break;
 
     case FollowConstants.FOLLOW_REMOVED:
-      _removeFollow(payload.follow);
+      _removeFollow(payload.follow.followeeId);
       break;
   }
 };

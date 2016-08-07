@@ -4,6 +4,8 @@
   padding-left: 100px;
   padding-right: 100px;
   color: darkslategray;
+  font-weight: lighter;
+  letter-spacing: 2px;
 }
 
 .navbar-home {
@@ -11,10 +13,24 @@
   position: fixed;
   left: 0;
   right: 0;
+  color: white;
+}
+
+.nav-scroll {
+  transition: 0.5s;
+  opacity: 0.85;
+  color: darkslategray;
+  background: lightgrey;
+  box-shadow: 0 0 30px black;
 }
 
 .navbar-other {
-  border-bottom: 1px solid lightgray;
+  background: lightgrey;
+  border-bottom: 2px solid lightslategray;
+}
+
+.logo {
+  width: 179px;
 }
 
 .leftButtons {
@@ -25,29 +41,23 @@
   padding: 20px;
 }
 
-
 .rightButtons {
   float: right;
 }
 
 .rightButtons li {
-  padding: 20px;
+  padding: 19px;
 }
 
 .navbar li {
- float: left;
+  float: left;
 }
 
-
 .navbar li:hover {
-  background: darkgray;
-  color: #fff;
+  background: #fff;
+  color: darkslategray;
 }
 
 .ReactModal__Body--open {
   overflow: hidden;
-}
-
-.logo {
-  width: 180px;
 }

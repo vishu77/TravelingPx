@@ -10,3 +10,18 @@
 </script>
 
 <div id="content"></div>
+
+<script>
+  $(document).ready(function($) {
+    $(window).scroll(function() {
+      let scrollPos = $(window).scrollTop(),
+          navBar = $('.navbar-home');
+
+      if (scrollPos > 100) {
+        navBar.addClass('nav-scroll');
+      } else {
+        navBar.removeClass('nav-scroll');
+      }
+    });
+  });
+</script>

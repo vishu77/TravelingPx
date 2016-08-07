@@ -15,15 +15,15 @@ TravelingPx is a web application inspired by 500px that will be build using Ruby
   - [x] Smooth, bug-free navigation
   - [x] Adequate seed data to demonstrate the site's features
   - [x] Adequate CSS styling
-- [ ] Follow Users
+- [x] Follow Users
+  - [x] Smooth, bug-free navigation
+  - [x] Adequate seed data to demonstrate the site's features
+  - [x] Adequate CSS styling
+- [ ] Profile Page
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
 - [ ] Home Feed
-  - [ ] Smooth, bug-free navigation
-  - [ ] Adequate seed data to demonstrate the site's features
-  - [ ] Adequate CSS styling
-- [ ] Profile Page
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
@@ -80,11 +80,11 @@ the API.
 
 **Objective:** Allows users to follow other users
 
-- [ ] create `FollowToggle` (`FollowButton`)
+- [x] create `FollowToggle` (`FollowButton`)
 - build out omponents for:
-  - [ ] Follow CRUD
-  - [ ] FollowToggle allowing to follow and unfollow user
-  - [ ] Update database for followed and following
+  - [x] Follow CRUD
+  - [x] FollowToggle allowing to follow and unfollow user
+  - [x] Update database for followed and following
 - Use CSS to style new components
 
 Phase 3 adds follow to the users which will provide a list of followers and list of people who are follow user.

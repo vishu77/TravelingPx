@@ -1,5 +1,5 @@
-const FollowUtil = require('../util/follow_api_util');
-const FollowConstants = require ('../constants/follow_constant');
+const FollowUtil = require('../utils/follow_api_util');
+const FollowConstants = require ('../constants/follow_constants');
 const AppDispatcher = require('../dispatcher/dispatcher');
 
 const FollowActions = {

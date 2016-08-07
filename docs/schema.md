@@ -1,7 +1,7 @@
 # Schema Information
 
 ## Users
-### Everything after session token is phase 5
+### Everything after session token is phase 4
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key

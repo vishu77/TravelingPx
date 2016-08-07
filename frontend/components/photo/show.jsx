@@ -2,10 +2,11 @@ const React = require('react');
 const Modal = require('react-modal');
 import { browserHistory } from 'react-router';
 const ModalStyle = require('../nav/modal_style');
+const PhotoForm = require('./form');
 const PhotoStore = require('../../stores/photo');
 const PhotoActions = require('../../actions/photo_actions');
 const SessionStore = require('../../stores/session');
-const PhotoForm = require('./form');
+const FollowButton = require('../user/follow_button');
 
 const PhotoShow = React.createClass({
   getInitialState () {
@@ -45,20 +46,10 @@ const PhotoShow = React.createClass({
     ModalStyle.content.opacity = 100;
   },
 
-  followToggle () {
-    let currentUser = SessionStore.currentUser();
-    let followText;
-
-    if (currentUser && currentUser.id !== this.state.photo.poster_id) {
-
-      return <button>{}</button>;
-    }
-  },
-
   render () {
     let photoDetails = this.state.photo;
 
-    if (photoDetails){
+    if (this.state.photo){
       let editButton = <div></div>;
       let deleteButton = <div></div>;
 
@@ -66,24 +57,32 @@ const PhotoShow = React.createClass({
       if (currentUser && currentUser.id === photoDetails.poster_id) {
         editButton = (
           <div className="button-space">
-            <button className="button form-button" onClick={this._handleClick}>Edit Photo</button>
+            <button className="button form-button"
+              onClick={ this._handleClick }>
+              Edit Photo
+            </button>
+
             <Modal
-              isOpen={this.state.modalOpen}
-              onAfterOpen={this.onModalOpen}
-              onRequestClose={this.onModalClose}
+              isOpen={ this.state.modalOpen }
+              onAfterOpen={ this.onModalOpen }
+              onRequestClose={ this.onModalClose }
               style={ModalStyle}>
 
               <PhotoForm formType={"edit"}
-                photo={this.state.photo}
-                photoId={parseInt(this.props.params.photoId)}
-                close={this.onModalClose} />
+                photo={ this.state.photo }
+                photoId= { parseInt(this.props.params.photoId) }
+                close={ this.onModalClose } />
+
             </Modal>
           </div>
         );
 
         deleteButton = (
           <div className="button-space">
-            <button className="button form-button" onClick={this._handleRemove}>Delete Photo</button>
+            <button className="button form-button"
+              onClick={this._handleRemove}>
+              Delete Photo
+            </button>
           </div>
         );
       }
@@ -91,17 +90,18 @@ const PhotoShow = React.createClass({
       return (
         <div className="photo-details-box">
           <div className="image-show-box">
-            <img className="photo-show" src={photoDetails.image_url}/>
+            <img className="photo-show" src={ photoDetails.image_url }/>
           </div>
 
           <div className="photo-details-show-box">
-            <div className="user-info">
-              {photoDetails.poster}
-            </div>
+            <ul className="user-info">
+              <li>{ photoDetails.poster }</li>
+              <li><FollowButton poster_id={ this.state.photo.poster_id } /></li>
+            </ul>
 
             <div className="photo-text">
-              <h3>{photoDetails.title}</h3>
-              <p>{photoDetails.description}</p>
+              <h3>{ photoDetails.title }</h3>
+              <p>{ photoDetails.description }</p>
             </div>
 
             {editButton}

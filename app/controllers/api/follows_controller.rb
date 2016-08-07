@@ -3,25 +3,25 @@ class Api::FollowsController < ApplicationController
 
   def create
     @follow = Follow.new(
-      followee_id: follow_params(:other_user_id),
+      followee_id: follow_params[:poster_id],
       follower_id: current_user.id
     )
 
-    if follow.save
+    if @follow.save
       render '/api/follows/show', status: 200
     else
-      @errors = follow.errors.full_messages
+      @errors = @follow.errors.full_messages
       render "api/shared/errors", status: 422
     end
   end
 
   def destroy
     @follow = Follow.find_by(
-      followee_id: params[:id],
+      followee_id: follow_params[:poster_id],
       follower_id: current_user.id
     )
 
-    if follow.destroy
+    if @follow.destroy
       render 'api/follows/show', status: 200
     else
       @errors = follow.errors.full_messages
@@ -32,6 +32,6 @@ class Api::FollowsController < ApplicationController
   private
 
   def follow_params
-    params.require(:follow).permit(:other_user_id)
+    params.require(:follow).permit(:poster_id)
   end
 end
