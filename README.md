@@ -1,12 +1,12 @@
-# PxPerfect
+# TravelingPx
 
 [Heroku link][heroku]
 
-[heroku]: https://pxperfect.herokuapp.com/
+[heroku]: https://travelingpx.herokuapp.com/
 
 ## Minimum Viable Product
 
-PxPerfect is a web application inspired by 500px that will be build using Ruby on Rails and React.js. By the end of Week 9, this app will, at a minimum, satisfy the following criteria:
+TravelingPx is a web application inspired by 500px that will be build using Ruby on Rails and React.js. By the end of Week 9, this app will, at a minimum, satisfy the following criteria:
 
 - [x] Hosting on Heroku
 - [x] New account creation, login, and guest/demo login
@@ -90,20 +90,7 @@ the API.
 Phase 3 adds follow to the users which will provide a list of followers and list of people who are follow user.
 Follow information will be listed on the profile page of each user.
 
-### Phase 4: Home Feed (2 days, W2 W 6pm)
-
-**Objective:** Flushing out the users profile with a photo feed from users who we are following.
-
-- [ ] Using photosIndex to make a Home Feed
-- build out API, Flux loop, and components for:
-  - [ ] Fetch photos from followed users
-  - [ ] Infinite scrolling for the home feed
-- [ ] Include suggestions for follow sidebar
-  - [ ] Randomly suggest other uses not already followed
-  - [ ] Stationary side bar
-- [ ] Style new elements
-
-### Phase 5: Profile Page (2 days, W2 F 6pm)
+### Phase 4: Profile Page (2 days, W2 W 6pm)
 
 **objective:** Redirects to user page to see their photos and information. Also to allow editing of user information.
 
@@ -112,6 +99,19 @@ Follow information will be listed on the profile page of each user.
   - [ ] Allow user to edit and update their information
 - [ ] Fetch User information from database
 - [ ] Style the profile page.
+
+### Phase 5: Home Feed (2 days, W2 F 6pm)
+
+**Objective:** Flushing out the users profile with a photo feed from users who we are following.
+
+- [ ] Using photosIndex to make a Home Feed
+- build out API, Flux loop, and components for:
+- [ ] Fetch photos from followed users
+- [ ] Infinite scrolling for the home feed
+- [ ] Include suggestions for follow sidebar
+- [ ] Randomly suggest other uses not already followed
+- [ ] Stationary side bar
+- [ ] Style new elements
 
 ### Bonus Phases: Tagging, Comments Likes, Infinite Scrolling, Follow Suggestions
 

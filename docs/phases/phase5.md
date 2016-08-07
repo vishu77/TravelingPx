@@ -1,39 +1,32 @@
-# Phase 5: User Profile (2 days, W2 F 6pm)
+# Phase 5: Home Feed (2 days, W2 F 6pm)
 
 ## Rails
+
 ### Models
 
 ### Controllers
-* User
 
 ### Views
-* Api::UsersController (:index, :show)
+* Home
 
 ## Flux
 ### Views (React Components)
-* SignUp Form
-* Profile Edit
-* Profile page
+* Home Feed
 
 ### Stores
-* User
+* PhotoStore
+* FollowStore
 
 ### Actions
-* `UserActions.UpdateProfile`
-* `UserActions.fetchProfile`
-* `UserActions.receiveProfile`
-* `UserActions.fetchCurrentUser`
-* `UserActions.receiveCurrentUser`
-* `UserActions.createUser`
-* `UserActions.login`
-* `UserActions.removeUser`
-* `UserActions.logout`
-* `UserActions.guestLogin`
+* `PhotoActions.receiveHomeFeed`
+* `PhotoActions.fetchHomeFeed`
+* `FollowActions.fetchUnfollowedUsers`
+* `FollowActions.receiveUnfollowedUsers`
 
 ### ApiUtils
-* `UserUtil.fetchProfile`
-* `UserUtil.updateProfile`
-* `UserUtil.fetchCurrentUser`
+* `PhotoUtil.fetchHomeFeed`
+* `FollowUtil.fetchUnfollowedUsers`
 
 ## Gems/Libraries
-* Unknown as of right now
+* react-infinite-scroller
+* react-masonry
