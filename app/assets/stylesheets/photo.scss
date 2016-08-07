@@ -1,6 +1,21 @@
+.gallery {
+  display: block;
+  margin: 10px auto;
+  top: 20px;
+  background: lightyellow;
+}
+
 .condensed {
-  width: 25%;
-  height: 25%;
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 300px;
+  box-shadow: 0 0 30px black;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  border-radius: 8px;
+  border: 1px solid white;
 }
 
 .photo-details-box {

@@ -8,6 +8,7 @@
   overflow: hidden;
   position: relative;
   top: 0;
+  box-shadow: 0 0 30px black;
 }
 
 .splash-text {
@@ -19,13 +20,13 @@
   color: darkslategray;
 }
 
-.splash-text h1 {
+.splash-text > h1 {
   font-size: 48px;
   font-size: 3vw;
   margin-bottom: 20px;
 }
 
-.splash-text h2 {
+.splash-text > h2 {
   font-size: 24px;
   font-size: 2vw;
   margin-bottom: 40px;

@@ -6,8 +6,8 @@ const PhotoIndexItem = require('./index_item');
 
 const masonryOptions = {
   isFitWidth: true,
-	gutter: 7,
-  transitionDuration: 1
+	gutter: 10,
+  transitionDuration: '0.5s'
 };
 
 const PhotoIndex = React.createClass({
@@ -37,17 +37,13 @@ const PhotoIndex = React.createClass({
   render () {
 
     return (
-      <div className="gallery-box">
-        <Masonry
-          className="gallery"
-          elementType='ul'
-          options={masonryOptions}
-          disableImagesLoaded={false}
-          updateOnEachImageLoad={true}>
+      <Masonry className="gallery"
+        elementType='ul'
+        options={masonryOptions}
+        disableImagesLoaded={false}>
 
-          { this.gallery() }
-        </Masonry>
-      </div>
+        { this.gallery() }
+      </Masonry>
     );
   }
 });
