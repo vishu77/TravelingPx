@@ -14,17 +14,17 @@ polarbear = Photo.create(
             poster_id: flypuppy.id,
             title: "My Polar Bear Friend",
             description: "Busy resting on that rock",
-            image: File.open('app/assets/images/photo-1465232377925-cce9a9d87843.jpeg'));
+            image: open('https://hd.unsplash.com/photo-1465232377925-cce9a9d87843'));
 japan = Photo.create(
-            poster_id: flypuppy.id,
+            poster_id: nemo.id,
             title: "Japan Is Great!",
             description: "Amazing Architecture",
-            image: File.open('app/assets/images/photo-1445539348538-d540ff031729.jpeg'));
+            image: open('https://hd.unsplash.com/photo-1445539348538-d540ff031729'));
 aurora = Photo.create(
             poster_id: flypuppy.id,
             title: "Auroras?",
             description: "Beautiful Skyline",
-            image: File.open('app/assets/images/photo-1466939721550-ad3ef4b9eeec.jpeg'));
+            image: open('https://hd.unsplash.com/photo-1443926818681-717d074a57af'));
 fuzzy = Photo.create(
             poster_id: flypuppy.id,
             title: "Fuzzy Cat",
