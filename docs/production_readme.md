@@ -1,12 +1,12 @@
 ### Production Readme will be updated as project progresses as every part is uncertain at the start point.
 
-# PxPerfect
+# TravelingPx
 
-[PxPerfect live][heroku] **NB:** This should be a link to your production site
+[TravelingPx live][heroku] **NB:** This should be a link to your production site
 
 [heroku]: http://www.herokuapp.com
 
-PxPerfect is a full-stack web application inspired by 500px.  It utilizes Ruby on Rails on the backend, a PostgreSQL database, and React.js with a Flux architectural framework on the frontend.  
+TravelingPx is a full-stack web application inspired by 500px.  It utilizes Ruby on Rails on the backend, a PostgreSQL database, and React.js with a Flux architectural framework on the frontend.  
 
 ## Features & Implementation
 
