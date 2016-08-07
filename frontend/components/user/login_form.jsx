@@ -50,11 +50,11 @@ const LoginForm = React.createClass({
     let navlink, submitText, formHeader, formInfo;
     if (this.formType() === "login") {
       navlink = <Link to="/signup">Sign Up</Link>;
-      formHeader = "Log In to PxPerfect";
+      formHeader = "Log In to TravelingPx";
       submitText = "Log in";
     } else {
       navlink = <Link to="/login">Log in</Link>;
-      formHeader = "Join PxPerfect";
+      formHeader = "Join TravelingPx";
       formInfo = "Upload your amazing travels!";
       submitText = "Sign Up";
     }
