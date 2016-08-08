@@ -24,7 +24,6 @@ const _addFollow = (followeeId) => {
 };
 
 const _setProfile = (profile) => {
-  debugger
   _profile = profile;
   SessionStore.__emitChange();
 };

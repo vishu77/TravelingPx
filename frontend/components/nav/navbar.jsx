@@ -19,7 +19,6 @@ const NavBar = React.createClass({
       return (
         <ul>
           <li><Link to="/"><img className="logo" src={window.logoURL} /></Link></li>
-          <li><button>home button</button></li>
         </ul>
       );
     } else {

@@ -1,5 +1,5 @@
 const React = require('react');
-import { browserHistory } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 const PhotoShow = require('./show');
 
 const PhotoIndexItem = React.createClass({

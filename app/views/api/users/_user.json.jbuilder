@@ -6,5 +6,5 @@ json.followees user.followees.map(&:id)
 json.followers user.followers.map(&:id)
 
 json.photos user.photos.each do |photo|
-  json.partial! 'api/photos/photo', photo: photo
+  json.partial! "api/photos/photo", photo: photo
 end
