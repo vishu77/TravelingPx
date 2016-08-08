@@ -35,7 +35,7 @@ class Api::UsersController < ApplicationController
 
   def update_params
     params.require(:user).permit(:first_name,
-      :last_name, :description,
+      :last_name, :about,
       :avatar, :cover)
   end
 end

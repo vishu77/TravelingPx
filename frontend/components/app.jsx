@@ -16,7 +16,7 @@ const App = React.createClass({
   componentDidMount () {
     this.errorListener = ErrorStore.addListener(this._handleErrors);
   },
-  
+
   componentWillUnmount () {
     this.errorListener.remove();
   },

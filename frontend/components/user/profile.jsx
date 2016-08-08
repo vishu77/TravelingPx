@@ -1,11 +1,11 @@
 const React = require('react');
 const Masonry = require('react-masonry-component');
-const Modal = require('react-modal');
 const PhotoStore = require('../../stores/photo');
 const PhotoIndexItem = require('../photo/index_item');
 const SessionStore = require('../../stores/session');
 const SessionActions = require('../../actions/session_actions');
 const FollowButton = require('./follow_button');
+const ProfileEdit = require('./profile_edit');
 
 const Profile = React.createClass({
   getInitialState () {
@@ -14,6 +14,10 @@ const Profile = React.createClass({
 
   _onChange () {
     this.setState({ profile: SessionStore.profile() });
+  },
+
+  _handleClick () {
+    this.setState({ modalOpen: true });
   },
 
   componentDidMount () {
@@ -34,24 +38,54 @@ const Profile = React.createClass({
   render () {
     if (this.state.profile) {
       let profileOwner = this.state.profile;
-      debugger
+      let name = <h1>{profileOwner.username}</h1>;
+      let description;
+      let follow_or_edit = <FollowButton poster_id={ profileOwner.id } />;
+
+      if (SessionStore.currentUser().id === profileOwner.id) {
+        follow_or_edit = <ProfileEdit profile={this.state.profile} />;
+      }
+
+      if (profileOwner.description) {
+        description = <li>{profileOwner.description}</li>;
+      }
+      if (profileOwner.first_name ) {
+        name = (
+          <h1>
+            {`${profile.first_name} + " " + ${profileOwner.last_name}`}
+          </h1>
+        );
+      }
 
       return (
         <main className="profile">
           <div className="profile-cover">
+            <img src={profileOwner.cover_url} />
           </div>
 
           <ul className="profile-info">
-            <li>{`${profileOwner.first_name} + ${profileOwner.last_name}`}</li>
-            <li>{profileOwner.username}</li>
-            <li><p>{profileOwner.description}</p></li>
-            <li>{profileOwner.followers.length}</li>
-            <li>{profileOwner.followees.length}</li>
+            <img className="profile-avatar"
+                src={ profileOwner.avatar_url } />
+            <div className="profile-follow">
+              { follow_or_edit }
+            </div>
+            { name }
+            { description }
+
+            <li>{profileOwner.followers.length + " Followers"}</li>
+            <li>{profileOwner.followees.length + " Following"}</li>
+
           </ul>
 
-          <ul className="profile-gallery">
-            { this.profileGallery() }
-          </ul>
+          <div className="profile-gallery">
+            <div>
+              <h2>Photos</h2>
+            </div>
+
+            <ul>
+              { this.profileGallery() }
+            </ul>
+          </div>
         </main>
       );
     } else {
