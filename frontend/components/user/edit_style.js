@@ -10,14 +10,12 @@ const EditStyle = {
 
   content : {
     position        : 'fixed',
-    top             : '50px',
-    left            : '50px',
-    right           : '50px',
-    bottom          : '50px',
+    margin          : '5% auto',
+    width           : '550px',
+    height          : '550px',
     background      : '#fff',
     border          : '1px solid #ccc',
     padding         : '0',
-    outline         : 'none',
     borderRadius    : '3px',
     opacity         : '0',
     transition      : 'opacity 1s'

@@ -52,7 +52,7 @@ const Profile = React.createClass({
       if (profileOwner.first_name ) {
         name = (
           <h1>
-            {`${profile.first_name} + " " + ${profileOwner.last_name}`}
+            {`${profileOwner.first_name} ${profileOwner.last_name}`}
           </h1>
         );
       }
