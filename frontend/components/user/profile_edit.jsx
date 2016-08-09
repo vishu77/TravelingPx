@@ -2,7 +2,7 @@ const React = require('react');
 const Modal = require('react-modal');
 const Dropzone = require('react-dropzone');
 const EditStyle = require('./edit_style');
-const SessionActions = require('../../actions/session_actions');
+const UserActions = require('../../actions/user_actions');
 
 const ProfileEdit = React.createClass({
   getInitialState () {
@@ -38,7 +38,7 @@ const ProfileEdit = React.createClass({
     formData.append("user[avatar]", this.state.avatarFile);
     formData.append("user[cover]", this.state.coverFile);
 
-    SessionActions.updateProfile(formData, userId);
+    UserActions.updateProfile(formData, userId);
     this.setState({ modalOpen: false });
   },
 

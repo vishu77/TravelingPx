@@ -3,7 +3,8 @@ const Masonry = require('react-masonry-component');
 const PhotoStore = require('../../stores/photo');
 const PhotoIndexItem = require('../photo/index_item');
 const SessionStore = require('../../stores/session');
-const SessionActions = require('../../actions/session_actions');
+const UserStore = require('../../stores/user');
+const UserActions = require('../../actions/user_actions');
 const FollowButton = require('./follow_button');
 const ProfileEdit = require('./profile_edit');
 
@@ -13,7 +14,7 @@ const Profile = React.createClass({
   },
 
   _onChange () {
-    this.setState({ profile: SessionStore.profile() });
+    this.setState({ profile: UserStore.profile() });
   },
 
   _handleClick () {
@@ -21,8 +22,8 @@ const Profile = React.createClass({
   },
 
   componentDidMount () {
-    this.profileListener = SessionStore.addListener(this._onChange);
-    SessionActions.fetchProfile(this.props.params.username);
+    this.profileListener = UserStore.addListener(this._onChange);
+    UserActions.fetchProfile(this.props.params.username);
   },
 
   componentWillUnmount () {

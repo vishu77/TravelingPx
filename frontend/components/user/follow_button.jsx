@@ -1,6 +1,7 @@
 const React = require('react');
 const FollowActions = require('../../actions/follow_actions');
 const SessionStore = require('../../stores/session');
+const UserStore = require('../../stores/user');
 
 const FollowButton = React.createClass({
   getInitialState () {
@@ -8,7 +9,7 @@ const FollowButton = React.createClass({
   },
 
   componentDidMount () {
-    this.followListener = SessionStore.addListener(this._onChange);
+    this.followListener = UserStore.addListener(this._onChange);
   },
 
   componentWillUnmount () {

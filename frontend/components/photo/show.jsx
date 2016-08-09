@@ -104,7 +104,7 @@ const PhotoShow = React.createClass({
                   { photoDetails.poster }
                 </Link>
               </li>
-              
+
               <li><FollowButton poster_id={ this.state.photo.poster_id } /></li>
             </ul>
 
