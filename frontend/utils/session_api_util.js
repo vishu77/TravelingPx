@@ -9,9 +9,9 @@ const SessionUtil = {
     });
   },
 
-  updateProfile(formData, success) {
+  updateProfile(formData, userId, success) {
     $.ajax({
-      url: `/api/users/${user.id}`,
+      url: `/api/users/${userId}`,
       method: 'PATCH',
       processData: false,
       contentType: false,

@@ -39,7 +39,7 @@ const Profile = React.createClass({
     if (this.state.profile) {
       let profileOwner = this.state.profile;
       let name = <h1>{profileOwner.username}</h1>;
-      let description;
+      let description, city, country;
       let follow_or_edit = <FollowButton poster_id={ profileOwner.id } />;
 
       if (SessionStore.currentUser().id === profileOwner.id) {
@@ -49,6 +49,15 @@ const Profile = React.createClass({
       if (profileOwner.description) {
         description = <li>{profileOwner.description}</li>;
       }
+
+      if (profileOwner.city) {
+        city = <li>{profileOwner.city}</li>;
+      }
+
+      if (profileOwner.country) {
+        country = <li>{profileOwner.country}</li>;
+      }
+
       if (profileOwner.first_name ) {
         name = (
           <h1>
@@ -69,14 +78,15 @@ const Profile = React.createClass({
             <div className="profile-follow">
               { follow_or_edit }
             </div>
+
             { name }
             { description }
 
             <li>{profileOwner.followers.length + " Followers"}</li>
             <li>{profileOwner.followees.length + " Following"}</li>
-            <li>{profileOwner.city}</li>
-            <li>{profileOwner.country}</li>
 
+            { city }
+            { country }
           </ul>
 
           <div className="profile-gallery">

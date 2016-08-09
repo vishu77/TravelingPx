@@ -26,8 +26,8 @@ const SessionActions = {
       ErrorActions.setErrors);
   },
 
-  updateProfile (formData) {
-    SessionUtil.updateProfile(formData, this.receiveProfile);
+  updateProfile (formData, userId) {
+    SessionUtil.updateProfile(formData, userId, this.receiveProfile);
   },
 
   receiveCurrentUser(currentUser) {
