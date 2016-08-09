@@ -15,7 +15,12 @@ const _clearErrors = () => {
 
 const _setErrors = (payload) => {
   _form = payload.form;
-  _errors = payload.errors;
+  _errors = [];
+
+  payload.errors.errors.forEach ((error) => {
+    _errors.push(error);
+  });
+
   ErrorStore.__emitChange();
 };
 
