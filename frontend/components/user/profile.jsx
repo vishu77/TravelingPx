@@ -74,6 +74,8 @@ const Profile = React.createClass({
 
             <li>{profileOwner.followers.length + " Followers"}</li>
             <li>{profileOwner.followees.length + " Following"}</li>
+            <li>{profileOwner.city}</li>
+            <li>{profileOwner.country}</li>
 
           </ul>
 

@@ -1,4 +1,4 @@
-json.extract! user, :id, :username, :first_name, :last_name, :about
+json.extract! user, :id, :username, :first_name, :last_name, :about, :city, :location
 json.avatar_url asset_path(user.avatar.url)
 json.cover_url asset_path(user.cover.url)
 
