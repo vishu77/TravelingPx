@@ -39,15 +39,15 @@ const Profile = React.createClass({
     if (this.state.profile) {
       let profileOwner = this.state.profile;
       let name = <h1>{profileOwner.username}</h1>;
-      let description, city, country;
+      let about, city, country;
       let follow_or_edit = <FollowButton poster_id={ profileOwner.id } />;
 
       if (SessionStore.currentUser().id === profileOwner.id) {
         follow_or_edit = <ProfileEdit profile={this.state.profile} />;
       }
 
-      if (profileOwner.description) {
-        description = <li>{profileOwner.description}</li>;
+      if (profileOwner.about) {
+        about = <p>{profileOwner.about}</p>;
       }
 
       if (profileOwner.city) {
@@ -80,7 +80,7 @@ const Profile = React.createClass({
             </div>
 
             { name }
-            { description }
+            { about }
 
             <li>{profileOwner.followers.length + " Followers"}</li>
             <li>{profileOwner.followees.length + " Following"}</li>

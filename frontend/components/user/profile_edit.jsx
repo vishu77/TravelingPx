@@ -12,7 +12,7 @@ const ProfileEdit = React.createClass({
       last_name: profile.last_name ? profile.last_name : "",
       about: profile.about ? profile.about : "",
       city: profile.city ? profile.city : "",
-      country: profile.country ? profile.city : "",
+      country: profile.country ? profile.country : "",
       coverFile: "", coverURL: profile.cover_url,
       avatarFile: "", avatarURL: profile.avatar_url,
       modalOpen: false
@@ -44,7 +44,19 @@ const ProfileEdit = React.createClass({
 
   onModalClose (e) {
     e.preventDefault();
-    this.setState({ modalOpen: false });
+    let profile = this.props.profile;
+
+    this.setState({
+      first_name: profile.first_name ? profile.first_name : "",
+      last_name: profile.last_name ? profile.last_name : "",
+      about: profile.about ? profile.about : "",
+      city: profile.city ? profile.city : "",
+      country: profile.country ? profile.country : "",
+      coverFile: "", coverURL: profile.cover_url,
+      avatarFile: "", avatarURL: profile.avatar_url,
+      modalOpen: false
+    });
+
     EditStyle.content.opacity = 0;
   },
 
@@ -159,7 +171,7 @@ const ProfileEdit = React.createClass({
   render () {
     return (
       <div>
-        <button onClick={this._handleClick}>Edit Profile</button>
+        <button className="button edit-button" onClick={this._handleClick}>Edit Profile</button>
 
         <Modal
           isOpen={ this.state.modalOpen }
