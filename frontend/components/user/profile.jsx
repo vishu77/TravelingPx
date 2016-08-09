@@ -6,6 +6,7 @@ const SessionStore = require('../../stores/session');
 const UserStore = require('../../stores/user');
 const UserActions = require('../../actions/user_actions');
 const FollowButton = require('./follow_button');
+const FollowIndex = require('./follow_index');
 const ProfileEdit = require('./profile_edit');
 
 const Profile = React.createClass({
@@ -26,6 +27,10 @@ const Profile = React.createClass({
     UserActions.fetchProfile(this.props.params.username);
   },
 
+  componentWillReceiveProps (newProps) {
+    UserActions.fetchProfile(newProps.params.username);
+  },
+
   componentWillUnmount () {
     this.profileListener.remove();
   },
@@ -37,6 +42,7 @@ const Profile = React.createClass({
   },
 
   render () {
+
     if (this.state.profile) {
       let profileOwner = this.state.profile;
       let name = <h1>{profileOwner.username}</h1>;
@@ -83,8 +89,14 @@ const Profile = React.createClass({
             { name }
             { about }
 
-            <li>{profileOwner.followers.length + " Followers"}</li>
-            <li>{profileOwner.followees.length + " Following"}</li>
+            <li>
+              <FollowIndex follows={profileOwner.followers}
+                text="Followers" />
+            </li>
+            <li>
+              <FollowIndex follows={profileOwner.followees}
+                text="Following" />
+            </li>
 
             { city }
             { country }

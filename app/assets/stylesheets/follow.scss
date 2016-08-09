@@ -1,0 +1,52 @@
+.follow-list-box {
+  color: darkslategray;
+}
+
+
+.follow-list-box h2 {
+  font-size: 16px;
+  letter-spacing: 1px;
+  padding: 10px;
+  border-bottom: 1px solid darkgray;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.follow-list {
+  padding-bottom: 10px;
+  height: 450px;
+  background: aliceblue;
+  overflow: hidden;
+}
+
+.follow-item {
+  height: 60px;
+  display: flex;
+  flex-flow: row;
+  border-bottom: 1px solid darkgray;
+  padding-bottom: 10px;
+}
+
+.follow-item div {
+  display: flex;
+  flex-flow: column;
+}
+
+.follow-list h3 {
+  float: left;
+  padding-top: 10px;
+  font-size: 18px;
+}
+
+.follow-list h4 {
+  padding-top: 5px;
+  font-size: 14px;
+  color: gray;
+}
+
+.thumbnail {
+  width: 45px;
+  height: 45px;
+  padding: 10px;
+  float: left;
+}
