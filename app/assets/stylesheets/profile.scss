@@ -41,6 +41,7 @@
   width: 100px;
   height: 100px;
   top: -50px;
+  left: calc(50% - 52px);
   border-radius: 50%;
   border: 2px solid white;
 }
@@ -99,7 +100,7 @@
   display: flex;
   flex-flow: column;
   align-content: center;
-  height: 375px;
+  height: 360px;
 }
 
 .main-box {
@@ -142,4 +143,20 @@
   justify-content: flex-end;
   padding: 10px 5px;
   border-top: 1px solid lightgray;
+}
+
+.edit-profile-buttons button {
+  margin-right: 14px;
+}
+
+.cancel-button {
+
+}
+
+.save-button {
+  width: 60px;
+  text-align: center;
+  background: green;
+  border-radius: 3px;
+  padding: 5px 10px;
 }

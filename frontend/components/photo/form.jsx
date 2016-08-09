@@ -26,7 +26,6 @@ const PhotoForm = React.createClass({
       this.props.close();
 
     } else {
-
       const formData = new FormData();
 
       formData.append("photo[title]", this.state.title);

@@ -23,7 +23,15 @@ const ProfileEdit = React.createClass({
 
   _handleSubmit (e) {
     e.preventDefault ();
-    SessionActions.updateProfile(this.state);
+    const formData = new FormData();
+
+    formData.append("user[first_name]", this.state.first_name);
+    formData.append("user[last_name]", this.state.last_name);
+    formData.append("user[about]", this.state.about);
+    formData.append("user[avatar]", this.state.avatarFile);
+    formData.append("user[cover]", this.state.coverFile);
+
+    SessionActions.updateProfile(formData);
     this.setState({ modalOpen: false });
   },
 
@@ -118,9 +126,10 @@ const ProfileEdit = React.createClass({
             Cancel
           </button>
 
-          <button className="edit-button"
-            onClick={this._handleSubmit}>
-            Save</button>
+          <button onClick={this.handleSubmit}
+            className="save-button">
+            Save
+          </button>
         </div>
       </form>
     );

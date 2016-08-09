@@ -9,11 +9,13 @@ const SessionUtil = {
     });
   },
 
-  updateProfile(user, success) {
+  updateProfile(formData, success) {
     $.ajax({
       url: `/api/users/${user.id}`,
       method: 'PATCH',
-      data: { user: user },
+      processData: false,
+      contentType: false,
+      data: formData,
       success (data) {
         success(data);
       }
