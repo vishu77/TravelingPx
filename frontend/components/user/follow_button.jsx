@@ -5,15 +5,18 @@ const UserStore = require('../../stores/user');
 
 const FollowButton = React.createClass({
   getInitialState () {
-    return { currentUser: SessionStore.currentUser() };
+    return {
+      currentUser: SessionStore.currentUser(),
+      UserProfile: UserStore.profile()
+    };
   },
 
   componentDidMount () {
-    this.followListener = UserStore.addListener(this._onChange);
+    this.followeeListener = SessionStore.addListener(this._onChange);
   },
 
   componentWillUnmount () {
-    this.followListener.remove();
+    this.followeeListener.remove();
   },
 
   _isFollowed () {
@@ -23,7 +26,7 @@ const FollowButton = React.createClass({
       this.state.currentUser.id !== this.props.poster_id) {
       const currentUserFollows = this.state.currentUser.followees;
 
-      if (currentUserFollows.indexOf(this.props.poster_id) !== -1) {
+      if (currentUserFollows.find((follow) => follow.followeeId === this.props.poster_id)) {
         followText = "Unfollow";
       }
     }
@@ -32,7 +35,10 @@ const FollowButton = React.createClass({
   },
 
   _onChange () {
-    this.setState({ currentUser: SessionStore.currentUser() });
+    this.setState({
+      currentUser: SessionStore.currentUser() ,
+      userProfile: UserStore.profile()
+    });
   },
 
   toggleFollow () {

@@ -4,10 +4,11 @@ const UserConstants = require('../constants/session_constants');
 const FollowConstants = require('../constants/follow_constants');
 
 let _profile = {};
+
 const UserStore = new Store(AppDispatcher);
 
-const _addFollow = (followeeId) => {
-  _currentUser.followees.push(parseInt(followeeId));
+const _addFollow = (follower) => {
+  _profile.followers.push(follower);
   UserStore.__emitChange();
 };
 
@@ -16,9 +17,13 @@ const _setProfile = (profile) => {
   UserStore.__emitChange();
 };
 
-const _removeFollow = (followeeId) => {
-  let userIdx = _currentUser.followees.indexOf(parseInt(followeeId));
-  _currentUser.followees.splice(userIdx, 1);
+const _removeFollow = (followerId) => {
+  let index;
+  _profile.followers.find((follow, idx) => {
+    index = idx;
+    return follow.id === parseInt(followerId);
+  });
+  _profile.followers.splice(index, 1);
   UserStore.__emitChange();
 };
 
@@ -26,20 +31,19 @@ UserStore.profile = () => {
   return _profile;
 };
 
-
 UserStore.__onDispatch = (payload) => {
   switch (payload.actionType) {
     case UserConstants.PROFILE_RECEIVED:
       _setProfile(payload.profile);
       break;
 
-  case FollowConstants.FOLLOW_RECEIVED:
-    _addFollow(payload.follow.followeeId);
-    break;
+    case FollowConstants.FOLLOW_RECEIVED:
+      _addFollow(payload.follow);
+      break;
 
-  case FollowConstants.FOLLOW_REMOVED:
-    _removeFollow(payload.follow.followeeId);
-    break;
+    case FollowConstants.FOLLOW_REMOVED:
+      _removeFollow(payload.follow.followerId);
+      break;
   }
 };
 

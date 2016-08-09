@@ -10,9 +10,11 @@ password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
 first_name      | string    |
 last_name       | string    |
-description     | text      |
-avatar          | text      | default: picture
-cover           | text      |
+city            | string    |
+country         | string    |
+about           | text      |
+avatar          | file      | default: picture
+cover           | file      |
 
 ## Photos
 column name | data type | details

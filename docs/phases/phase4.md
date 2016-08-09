@@ -18,16 +18,9 @@
 * User
 
 ### Actions
-* `UserActions.UpdateProfile`
 * `UserActions.fetchProfile`
 * `UserActions.receiveProfile`
-* `UserActions.fetchCurrentUser`
-* `UserActions.receiveCurrentUser`
-* `UserActions.createUser`
-* `UserActions.login`
-* `UserActions.removeUser`
-* `UserActions.logout`
-* `UserActions.guestLogin`
+* `UserActions.updateProfile`
 
 ### ApiUtils
 * `UserUtil.fetchProfile`

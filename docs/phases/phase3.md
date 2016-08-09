@@ -10,6 +10,7 @@
 ## Flux
 ### Views (React Components)
 * FollowIndex
+  - FollowIndexItem
 * FollowButton
 
 ### Stores
@@ -20,13 +21,10 @@
 * `FollowActions.unfollowUser`
 * `FollowActions.receiveFollow`
 * `FollowActions.receiveUnfollow`
-* `FollowActions.fetchStatus`
-* `FollowActions.receiveStatus`
 
 ### ApiUtils
 * `FollowUtil.follow`
 * `FollowUtil.unfollow`
-* `FollowUtil.status`
 
 ## Gems/Libraries
 * Unknown as of right now
