@@ -1,6 +1,6 @@
 const React = require('react');
 const Modal = require('react-modal');
-import { browserHistory } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 const ModalStyle = require('../nav/modal_style');
 const PhotoForm = require('./form');
 const PhotoStore = require('../../stores/photo');
@@ -95,7 +95,16 @@ const PhotoShow = React.createClass({
 
           <div className="photo-details-show-box">
             <ul className="user-info">
-              <li>{ photoDetails.poster }</li>
+              <Link to={"/" + photoDetails.poster}>
+                <img src={photoDetails.avatar_url} />
+              </Link>
+
+              <li>
+                <Link to={"/" + photoDetails.poster}>
+                  { photoDetails.poster }
+                </Link>
+              </li>
+              
               <li><FollowButton poster_id={ this.state.photo.poster_id } /></li>
             </ul>
 

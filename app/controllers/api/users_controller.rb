@@ -12,7 +12,8 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by_username(params[:id])
+
     if @user
       render "api/users/show"
     else

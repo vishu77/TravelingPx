@@ -19,7 +19,7 @@ const pageRouter = (
       <Route path="/login" component={LoginForm} onEnter={ _ensureLoggedIn }/>
       <Route path="/signup" component={LoginForm} onEnter={ _ensureLoggedIn }/>
       <Route path="/photos/:photoId" component={PhotoShow} />
-      <Route path="/:userId" component={Profile} />
+      <Route path="/:username" component={Profile} />
     </Route>
   </Router>
 );

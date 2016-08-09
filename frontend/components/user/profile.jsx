@@ -22,7 +22,7 @@ const Profile = React.createClass({
 
   componentDidMount () {
     this.profileListener = SessionStore.addListener(this._onChange);
-    SessionActions.fetchProfile(this.props.params.userId);
+    SessionActions.fetchProfile(this.props.params.username);
   },
 
   componentWillUnmount () {

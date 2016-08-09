@@ -1,7 +1,7 @@
 const SessionUtil = {
-  fetchProfile(userId, success) {
+  fetchProfile(username, success) {
     $.ajax({
-      url: `/api/users/${userId}`,
+      url: `/api/users/${username}`,
       method: "GET",
       success (user) {
         success(user);

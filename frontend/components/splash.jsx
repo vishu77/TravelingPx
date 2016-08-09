@@ -17,7 +17,7 @@ const Splash = React.createClass({
       main = (
         <div className="splash">
           <div className="splash-text">
-            <h1>Home of Amazing Travel Photos</h1>
+            <h1>Gateway to an Amazing Adventure</h1>
             <h2>Showcase your Travels and Inspire Others to Travel</h2>
             <button className="splash-button" onClick={this.handleClick}>Get Started</button>
           </div>

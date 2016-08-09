@@ -1,20 +1,16 @@
 const React = require('react');
-import { Link, browserHistory } from 'react-router';
+import { Link } from 'react-router';
 const PhotoShow = require('./show');
 
 const PhotoIndexItem = React.createClass({
-  handleClick () {
-    browserHistory.push(`/photos/${this.props.photo.id}`);
-  },
-
   render () {
     let photo = this.props.photo;
 
     return (
       <li>
-        <img className="condensed"
-          onClick={this.handleClick}
-          src={photo.image_url} />
+        <Link to={'/photos/' + photo.id}>
+          <img className="gallery-image" src={photo.image_url} />
+        </Link>
       </li>
     );
   }
