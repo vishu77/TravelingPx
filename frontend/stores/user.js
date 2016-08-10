@@ -21,8 +21,9 @@ const _removeFollow = (followerId) => {
   let index;
   _profile.followers.find((follow, idx) => {
     index = idx;
-    return follow.id === parseInt(followerId);
+    return follow.followerId === parseInt(followerId);
   });
+
   _profile.followers.splice(index, 1);
   UserStore.__emitChange();
 };

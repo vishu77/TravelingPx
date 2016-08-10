@@ -26,7 +26,7 @@ const _removeFollow = (followeeId) => {
   let index;
   _currentUser.followees.find((follow, idx) => {
     index = idx;
-    return follow.id === parseInt(followeeId);
+    return follow.followeeId === parseInt(followeeId);
   });
   _currentUser.followees.splice(index, 1);
   SessionStore.__emitChange();
