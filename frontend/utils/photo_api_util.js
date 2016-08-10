@@ -19,6 +19,16 @@ const PhotoUtil = {
     });
   },
 
+  fetchHomeFeed(callBack) {
+    $.ajax({
+      url: '/api/homefeed',
+      method: "GET",
+      success (photos) {
+        callBack(photos);
+      }
+    });
+  },
+
   fetchSinglePhoto (id, callBack) {
     $.ajax({
       url: `/api/photos/${id}`,

@@ -1,6 +1,7 @@
 const React = require('react');
 import { browserHistory } from 'react-router';
 const PhotoIndex = require('./photo/index');
+const HomeFeed = require('./photo/homefeed');
 const SessionStore = require('../stores/session');
 const NavBar = require('./nav/navbar');
 
@@ -30,14 +31,20 @@ const Splash = React.createClass({
           </div>
         </div>
       );
-    }
 
-    return (
-      <div>
-        {main}
-        <PhotoIndex />
-      </div>
-    );
+      return (
+        <div>
+          { main }
+          <PhotoIndex />
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <HomeFeed />
+        </div>
+      );
+    }
   }
 });
 

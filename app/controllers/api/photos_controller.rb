@@ -17,6 +17,18 @@ class Api::PhotosController < ApplicationController
     render json: photo
   end
 
+  def home
+    following = []
+    
+    if current_user
+      following = current_user.followees.map(&:id)
+    end
+
+    @photos = Photo.where(poster_id: following)
+
+    render 'api/photos/home'
+  end
+
   def index
     @photos = Photo.all
     render "api/photos/index"

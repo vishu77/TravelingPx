@@ -14,7 +14,6 @@
 * FollowButton
 
 ### Stores
-* Follow
 
 ### Actions
 * `FollowActions.followUser`

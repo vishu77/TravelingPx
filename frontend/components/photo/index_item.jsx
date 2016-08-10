@@ -1,6 +1,5 @@
 const React = require('react');
 import { Link } from 'react-router';
-const PhotoShow = require('./show');
 
 const PhotoIndexItem = React.createClass({
   render () {

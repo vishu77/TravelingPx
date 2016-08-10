@@ -7,6 +7,10 @@ const PhotoActions = {
     PhotoUtil.fetchAllPhotos(this.receiveAllPhotos);
   },
 
+  fetchHomeFeed () {
+    PhotoUtil.fetchHomeFeed(this.receiveHomeFeed);
+  },
+
   fetchSinglePhoto (photoID) {
     PhotoUtil.fetchSinglePhoto(photoID, this.receiveSinglePhoto);
   },
@@ -26,6 +30,13 @@ const PhotoActions = {
   receiveAllPhotos (photos) {
     AppDispatcher.dispatch({
       actionType: PhotoConstants.PHOTOS_RECEIVED,
+      photos: photos
+    });
+  },
+
+  receiveHomeFeed (photos) {
+    AppDispatcher.dispatch({
+      actionType: PhotoConstants.HOMEFEED_RECEIVED,
       photos: photos
     });
   },

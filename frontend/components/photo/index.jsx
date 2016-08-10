@@ -6,8 +6,7 @@ const PhotoIndexItem = require('./index_item');
 
 const masonryOptions = {
   isFitWidth: true,
-	gutter: 10,
-  transitionDuration: '1s'
+	gutter: 10
 };
 
 const PhotoIndex = React.createClass({
