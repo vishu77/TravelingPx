@@ -1,0 +1,64 @@
+.login-signup-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 750px;
+}
+
+.login-signup-box {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 400px;
+  height: 450px;
+  border: 1px solid lightgray;
+  color: gray;
+  font-weight: lighter;
+}
+
+.login-signup-box h2 {
+  text-align: center;
+  font-size: 24px;
+  margin: 10px;
+  padding-top: 15px;
+}
+
+.login-signup-box h3 {
+  text-align: center;
+  font-size: 16px;
+  margin: 10px;
+  padding-bottom: 5px;
+}
+
+.login-form {
+  width: 315px;
+  padding: 10px;
+}
+
+.login-form label {
+  font-size: 14px;
+}
+
+.form-inputs {
+  width: 290px;
+  height: 30px;
+  margin: 10px 0;
+  border-radius: 3px;
+  font-size: 14px;
+  padding: 5px 10px;;
+  border: 1px solid lightgray;
+}
+
+.login-form > input {
+  margin-right: 10px;
+}
+
+.login-button {
+  text-align: center;
+  padding: 10px;
+  width: 48%;
+  background: #fe9533;
+  border-radius: 3px;
+  border: 1px solid #fe8b3a;
+  color: white;
+}

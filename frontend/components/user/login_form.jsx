@@ -58,39 +58,41 @@ const LoginForm = React.createClass({
     }
 
     return (
-      <div className="login-signup-box">
-        <div>
-          <h2>{formHeader}</h2>
-          <h3>{formInfo}</h3>
+      <main className="login-signup-page">
+        <div className="login-signup-box">
+          <div>
+            <h2>{formHeader}</h2>
+            <h3>{formInfo}</h3>
 
-          <form onSubmit={this._handleSubmit} className="login-form">
-            <label>
-              Username
-              <div>
-                <input type="text" className="form-inputs"
-                  value={this.state.username}
-                  onChange={this.updateProps("username")} />
-              </div>
-            </label>
+            <form onSubmit={this._handleSubmit} className="login-form">
+              <label>
+                Username
+                <div>
+                  <input type="text" className="form-inputs"
+                    value={this.state.username}
+                    onChange={this.updateProps("username")} />
+                </div>
+              </label>
 
-            <label>
-              Password
-              <div>
-                <input type="password" className="form-inputs"
-                  value={this.state.password}
-                  onChange={this.updateProps("password")} />
-              </div>
-            </label>
+              <label>
+                Password
+                <div>
+                  <input type="password" className="form-inputs"
+                    value={this.state.password}
+                    onChange={this.updateProps("password")} />
+                </div>
+              </label>
 
-            <input type="submit" className="button submit-button" value={submitText} />
-          </form>
+              <input type="submit" className="login-button" value={submitText} />
+              <button className="login-button"
+                onClick={this._handleGuestLogin}>
+                Guest Login
+              </button>
+            </form>
 
-          <button className="button submit-button"
-            onClick={this._handleGuestLogin}>
-            Guest Login
-          </button>
+          </div>
         </div>
-      </div>
+      </main>
     );
   }
 });
