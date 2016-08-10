@@ -95,12 +95,12 @@ const PhotoShow = React.createClass({
 
           <div className="photo-details-show-box">
             <ul className="user-info">
-              <Link to={"/" + photoDetails.poster}>
+              <Link to={"/" + photoDetails.username}>
                 <img src={photoDetails.avatar_url} />
               </Link>
 
               <li>
-                <Link to={"/" + photoDetails.poster}>
+                <Link to={"/" + photoDetails.username}>
                   { photoDetails.poster }
                 </Link>
               </li>
