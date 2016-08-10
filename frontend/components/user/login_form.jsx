@@ -33,7 +33,7 @@ const LoginForm = React.createClass({
 
   _handleGuestLogin (e) {
     e.preventDefault();
-    SessionActions.login({username: "flypuppy", password: "iamsofly"});
+    SessionActions.login({username: "lazypanda", password: "eatallday"});
   },
 
   redirectIfLoggedIn () {
