@@ -94,38 +94,77 @@ anne = User.create(
   cover: open('https://hd.unsplash.com/photo-1452788041655-75a2d80535e0')
 );
 
+f1 = Follow.create(anne.id, jimmy.id);
+f2 = Follow.create(judy.id, anne.id);
+f3 = Follow.create(judy.id, panda.id);
+f4 = Follow.create(panda.id, vivi.id);
+f5 = Follow.create(vivi.id, ben.id);
+f6 = Follow.create(ben.id, sora.id);
+f8 = Follow.create(sora.id, jimmy.id);
+f9 = Follow.create(hachiko.id, panda.id);
+f10 = Follow.create(judy.id, hachiko.id);
+f11 = Follow.create(arthas.id, ben.id);
+f12 = Follow.create(chinchilla.id, anne.id);
+f13 = Follow.create(arthas.id, judy.id);
+f14 = Follow.create(panda.id, vivi.id);
+f15 = Follow.create(ben.id, arthas.id);
+
 polarbear = Photo.create(
-            poster_id: flypuppy.id,
+            poster_id: ben.id,
             title: "My Polar Bear Friend",
             description: "Busy resting on that rock",
             image: open('https://hd.unsplash.com/photo-1465232377925-cce9a9d87843'));
+
 japan = Photo.create(
-            poster_id: nemo.id,
+            poster_id: hachiko.id,
             title: "Japan Is Great!",
             description: "Amazing Architecture",
             image: open('https://hd.unsplash.com/photo-1445539348538-d540ff031729'));
+
 aurora = Photo.create(
-            poster_id: flypuppy.id,
+            poster_id: anne.id,
             title: "Auroras?",
             description: "Beautiful Skyline",
             image: open('https://hd.unsplash.com/photo-1443926818681-717d074a57af'));
+
 fuzzy = Photo.create(
-            poster_id: flypuppy.id,
+            poster_id: sora.id,
             title: "Fuzzy Cat",
-            description: "The Details!!!",
+            description: "Wished I had a cat",
             image: open('https://hd.unsplash.com/photo-1468465369248-3054456ce11a'));
+
 wedding = Photo.create(
-            poster_id: angrypanda.id,
+            poster_id: hachiko.id,
             title: "Japanese Wedding",
             description: "Tradional Japanese Wedding",
-            image: open('https://unsplash.com/search/japan?photo=kVeZoNqHDNk'));
+            image: open('https://hd.unsplash.com/photo-1415697747654-db820a209c6f'));
+
 bamboo = Photo.create(
-            poster_id: angrypanda.id,
-            title: "Bamboo Forest",
-            description: "All the bamboo I can eat",
-            image: open('https://unsplash.com/search/japan?photo=buF62ewDLcQ'));
+            poster_id: vivi.id,
+            title: "Kangaroo",
+            description: "So Fuzzy",
+            image: open('https://hd.unsplash.com/photo-1467001558184-514c99761d0d'));
+
 pineapples = Photo.create(
-            poster_id: nemo.id,
+            poster_id: jimmy.id,
             title: "Pineapples",
             description: "What da!? Pineapples attacking my pool",
             image: open('https://hd.unsplash.com/photo-1451479456262-b94f205059be'));
+
+chicago = Photo.create(
+            poster_id: arthas.id,
+            title: "Chicago",
+            description: "I will conquer this!!!!!",
+            image: open('https://hd.unsplash.com/photo-1414115880398-afebc3d95efc'));
+
+zoo = Photo.create(
+            poster_id: judy.id,
+            title: "Resting",
+            description: "No one going savage here!",
+            image: open('https://hd.unsplash.com/photo-1417721885406-d31aee8c2a79'));
+
+sf = Photo.create(
+            poster_id: chinchilla.id,
+            title: "San Francisco",
+            description: "I will come back here someday.",
+            image: open('https://hd.unsplash.com/photo-1422226256160-9b266e308ea6'));
