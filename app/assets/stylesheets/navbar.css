@@ -1,6 +1,7 @@
 .navbar {
   font-size: 18px;
   height: 60px;
+  min-width: 380px;
   padding-left: 50px;
   padding-right: 50px;
   color: darkslategray;

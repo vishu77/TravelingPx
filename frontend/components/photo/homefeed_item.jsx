@@ -1,5 +1,6 @@
 const React = require('react');
 import { Link } from 'react-router';
+const TimeAgo = require('react-timeago').default;
 
 const HomeFeedItem = React.createClass({
   render () {
@@ -30,7 +31,7 @@ const HomeFeedItem = React.createClass({
           </li>
 
           <li>
-            { photo.created_at }
+            <TimeAgo date={ photo.created_at } />
           </li>
         </ul>
 

@@ -1,11 +1,13 @@
 const React = require('react');
+import { Link } from 'react-router';
 const PhotoActions = require('../../actions/photo_actions');
 const PhotoStore = require('../../stores/photo');
 const HomeFeedItem = require('./homefeed_item');
+const SessionStore = require('../../stores/session');
 
 const HomeFeed = React.createClass({
   getInitialState () {
-    return { photos: [] };
+    return { photos: [], currentUser: SessionStore.currentUser() };
   },
 
   _onChange () {
@@ -28,6 +30,13 @@ const HomeFeed = React.createClass({
   },
 
   render () {
+    let currentUser = this.state.currentUser;
+    let name = currentUser.username;
+
+    if (currentUser.first_name) {
+      name = `${currentUser.first_name} ${currentUser.last_name}`;
+    }
+
     return (
       <main className="homepage">
         <section className="homefeed">
@@ -37,9 +46,21 @@ const HomeFeed = React.createClass({
         </section>
 
         <aside className="user-dashboard">
+          <div>
+            <Link to={'/' + currentUser.username }>
+              <img className="thumbnail" src={ currentUser.avatar_url } />
+            </Link>
 
+            <Link to={'/' + currentUser.username }>
+              <h3>{ name }</h3>
+            </Link>
+          </div>
+
+          <ul className="group">
+            <li><h4>{ currentUser.photos.length + " PHOTOS"  }</h4></li>
+            <li><h4>{ currentUser.followers.length + " FOLLOWERS" }</h4></li>
+          </ul>
         </aside>
-
       </main>
     );
   }

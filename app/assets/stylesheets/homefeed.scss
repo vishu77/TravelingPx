@@ -1,6 +1,7 @@
 .homepage {
   display: flex;
   justify-content: center;
+  background: azure;
 }
 
 .homefeed {
@@ -19,7 +20,8 @@
   max-width: 900px;
   border-radius: 5px;
   margin-bottom: 20px;
-  background: azure;
+  box-shadow: 0 0 30px black;
+  background: white;
 }
 
 .homefeed-item > ul + ul {
@@ -43,7 +45,9 @@
   height: auto;
   max-width: 100%;
   max-height: 775px;
+  border-radius: 3px;
   border-bottom: 1px solid slategray;
+  background: black;
 }
 
 .homefeed-user {
@@ -63,6 +67,58 @@
 }
 
 .user-dashboard {
-  background: aliceblue;
-  width: 300px;
+  margin-top: 40px;
+  border: 1px solid lightgray;
+  background: white;
+  width: 290px;
+  height: 140px;
+}
+
+.user-dashboard > div {
+  padding: 10px 5px;
+  height: 50px;
+  border-bottom: 1px solid lightgray;
+}
+
+.user-dashboard > div h3 {
+  margin-top: 15px;
+  font-size: 20px;
+  color: lightslategray;
+}
+
+.user-dashboard > div h3:hover {
+  opacity: 0.80;
+}
+
+.user-dashboard > div img:hover {
+  opacity: 0.80;
+}
+
+.user-dashboard > ul {
+  height: 50px;
+  display: flex;
+  align-content: center;
+}
+
+.user-dashboard > ul > li {
+  padding: 10px;
+  font-size: 14px;
+  height: 50px;
+  text-align: center;
+  min-width: 125px;
+}
+
+.user-dashboard > ul > li + li {
+  border-left: 1px solid lightgray;
+}
+
+.user-dashboard > ul > li > h4 {
+  margin-top: 15px;
+  color: lightslategray;
+}
+
+@media only screen and (max-width: 1026px) {
+  .user-dashboard {
+    display: none;
+  }
 }
