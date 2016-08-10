@@ -16,21 +16,28 @@ const HomeFeedItem = React.createClass({
           <img className="homefeed-img" src={photo.image_url} />
         </Link>
 
-        <div className="follow-item">
-          <Link to={'/' + photo.username }>
-            <img className="thumbnail" src={photo.avatar_url} />
-          </Link>
+        <ul className="homefeed-user group">
+          <li>
+            <Link to={'/' + photo.username }>
+              <img className="thumbnail" src={photo.avatar_url} />
+            </Link>
+          </li>
 
-          <Link to={'/' + photo.username}>
-            <h3>{ name }</h3>
-          </Link>
+          <li>
+            <Link to={'/' + photo.username}>
+              { name }
+            </Link>
+          </li>
 
-          <h4>{ photo.created_at }</h4>
-        </div>
+          <li>
+            { photo.created_at }
+          </li>
+        </ul>
 
-        <div>
-          <h1>{ photo.title }</h1>
-        </div>
+        <ul>
+          <li>{ photo.title }</li>
+          <li>{ photo.description }</li>
+        </ul>
       </li>
     );
   }

@@ -1,5 +1,6 @@
 .homepage {
-
+  display: flex;
+  justify-content: center;
 }
 
 .homefeed {
@@ -7,21 +8,61 @@
 }
 
 .homefeed-list {
-
+  padding: 40px;
 }
 
 .homefeed-item {
+  position: relative;
+  text-align: center;
+  border: 2px solid darkgray;
+  max-height: 900px;
+  max-width: 900px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  background: azure;
+}
 
+.homefeed-item > ul + ul {
+  text-align: left;
+  padding: 10px;
+}
+
+.homefeed-item > ul + ul > li:first-child {
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: darkslategray;
+}
+
+.homefeed-item > ul + ul > li + li {
+  font-size: 14px;
+  color: slategray;
 }
 
 .homefeed-img {
-  width: 500px;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 775px;
+  border-bottom: 1px solid slategray;
 }
 
-.homefeed-item > img {
-  width: 500px;
+.homefeed-user {
+  border-bottom: 1px solid darkgray;
+  text-align: left;
+}
+
+.homefeed-user > li + li:nth-child(2) {
+  padding-top: 8px;
+  font-size: 18px;
+  color: darkslategray;
+}
+.homefeed-user > li + li:nth-child(3) {
+  padding-top: 1px;
+  font-size: 12px;
+  color: slategray;
 }
 
 .user-dashboard {
+  background: aliceblue;
   width: 300px;
 }
