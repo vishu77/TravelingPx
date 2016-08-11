@@ -14,7 +14,7 @@ const Profile = React.createClass({
     return { profile: null };
   },
 
-  _onChange () {
+  _onUserChange () {
     this.setState({ profile: UserStore.profile() });
   },
 
@@ -23,7 +23,7 @@ const Profile = React.createClass({
   },
 
   componentDidMount () {
-    this.profileListener = UserStore.addListener(this._onChange);
+    this.profileListener = UserStore.addListener(this._onUserChange);
     UserActions.fetchProfile(this.props.params.username);
   },
 
@@ -48,6 +48,11 @@ const Profile = React.createClass({
       let name = <h1>{profileOwner.username}</h1>;
       let about, city, country;
       let follow_or_edit = <FollowButton poster_id={ profileOwner.id } />;
+      let coverClass = "empty-cover";
+
+      if (profileOwner.cover_url) {
+        coverClass = "profile-cover";
+      }
 
       if (SessionStore.currentUser().id === profileOwner.id) {
         follow_or_edit = <ProfileEdit profile={this.state.profile} />;
@@ -75,7 +80,7 @@ const Profile = React.createClass({
 
       return (
         <main className="profile">
-          <div className="profile-cover">
+          <div className={coverClass}>
             <img src={profileOwner.cover_url} />
           </div>
 
@@ -104,7 +109,7 @@ const Profile = React.createClass({
 
           <div className="profile-gallery">
             <div>
-              <h2>Photos</h2>
+              <h2>{`Photos ${profileOwner.photos.length}`} </h2>
             </div>
 
             <ul>

@@ -50,14 +50,14 @@ const PhotoForm = React.createClass({
     }
 
     return (
-      <div className="form-box group">
+      <div className="form-box">
         <div className="image-box">
           <img className="upload-photo" src={this.state.imageURL} />
         </div>
 
         <form onSubmit={this._handleSubmit} className="inputs-box">
-          <div className="publish-button-box">
-            <button className="button submit-button">{submitText}</button>
+          <div className="upload-button-box">
+            <button className="upload-button">{submitText}</button>
           </div>
 
           <div className="input-components">
@@ -65,7 +65,7 @@ const PhotoForm = React.createClass({
               <label>
                 <h4>Title</h4>
                 <div>
-                  <input type="text" className="form-inputs"
+                  <input type="text" className="upload-form-inputs"
                     value={this.state.title}
                     onChange={this.updateProps("title")} />
                 </div>
@@ -76,7 +76,7 @@ const PhotoForm = React.createClass({
               <label>
               <h4>Description</h4>
                 <div>
-                  <textarea className="form-inputs"
+                  <textarea className="upload-form-inputs"
                     value={this.state.description}
                     onChange={this.updateProps("description")} />
                 </div>

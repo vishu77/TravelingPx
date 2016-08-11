@@ -112,10 +112,16 @@
   border-left: 1px solid lightgray;
 }
 
-.user-dashboard > ul > li > h4 {
+.user-dashboard > ul > li h4 {
   margin-top: 15px;
   color: lightslategray;
 }
+
+.user-dashboard > ul > li button {
+  text-transform: uppercase;
+}
+
+
 
 @media only screen and (max-width: 1026px) {
   .user-dashboard {

@@ -33,10 +33,10 @@ const Splash = React.createClass({
       );
 
       return (
-        <div>
+        <main className="splash-page">
           { main }
           <PhotoIndex />
-        </div>
+        </main>
       );
     } else {
       return (

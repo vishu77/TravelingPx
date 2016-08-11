@@ -23,10 +23,10 @@ TravelingPx is a web application inspired by 500px that will be build using Ruby
   - [x] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [x] Adequate CSS styling
-- [ ] Home Feed
-  - [ ] Smooth, bug-free navigation
+- [x] Home Feed
+  - [x] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
-  - [ ] Adequate CSS styling
+  - [x] Adequate CSS styling
 
 ## Design Docs
 * [View Wireframes][views]
@@ -95,23 +95,23 @@ Follow information will be listed on the profile page of each user.
 **objective:** Redirects to user page to see their photos and information. Also to allow editing of user information.
 
 - build out API, Flux loop, and components for:
-  - [ ] Fetch user information
-  - [ ] Allow user to edit and update their information
-- [ ] Fetch User information from database
-- [ ] Style the profile page.
+  - [x] Fetch user information
+  - [x] Allow user to edit and update their information
+- [x] Fetch User information from database
+- [x] Style the profile page.
 
 ### Phase 5: Home Feed (2 days, W2 F 6pm)
 
 **Objective:** Flushing out the users profile with a photo feed from users who we are following.
 
-- [ ] Using photosIndex to make a Home Feed
+- [x] Using photosIndex to make a Home Feed
 - build out API, Flux loop, and components for:
-- [ ] Fetch photos from followed users
+- [x] Fetch photos from followed users
 - [ ] Infinite scrolling for the home feed
 - [ ] Include suggestions for follow sidebar
 - [ ] Randomly suggest other uses not already followed
 - [ ] Stationary side bar
-- [ ] Style new elements
+- [x] Style new elements
 
 ### Bonus Phases: Tagging, Comments Likes, Infinite Scrolling, Follow Suggestions
 

@@ -4,6 +4,7 @@ const PhotoActions = require('../../actions/photo_actions');
 const PhotoStore = require('../../stores/photo');
 const HomeFeedItem = require('./homefeed_item');
 const SessionStore = require('../../stores/session');
+const FollowIndex = require('../user/follow_index');
 
 const HomeFeed = React.createClass({
   getInitialState () {
@@ -57,8 +58,18 @@ const HomeFeed = React.createClass({
           </div>
 
           <ul className="group">
-            <li><h4>{ currentUser.photos.length + " PHOTOS"  }</h4></li>
-            <li><h4>{ currentUser.followers.length + " FOLLOWERS" }</h4></li>
+            <li>
+              <Link to={'/' + currentUser.username }>
+                <h4>{ currentUser.photos.length + " PHOTOS"}</h4>
+              </Link>
+            </li>
+
+            <li>
+              <h4>
+                <FollowIndex follows={currentUser.followers}
+                  text="Followers" />
+              </h4>
+            </li>
           </ul>
         </aside>
       </main>
