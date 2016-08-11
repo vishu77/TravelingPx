@@ -1,6 +1,6 @@
 json.extract! user, :id, :username, :first_name, :last_name, :about, :city, :country
-json.avatar_url asset_path(user.avatar.url)
-json.cover_url asset_path(user.cover.url)
+json.avatar_url asset_path(user.avatar.url(:avatar))
+json.cover_url asset_path(user.cover.url(:fhd))
 json.photos   user.photos.map(&:id)
 
 
@@ -9,7 +9,7 @@ json.followees user.followees do |followee|
   json.followeeId followee.id
   json.username   followee.username
   json.followers followee.followers.map(&:id).length
-  json.avatar_url asset_path(followee.avatar.url)
+  json.avatar_url asset_path(followee.avatar.url(:avatar))
 end
 
 json.followers user.followers do |follower|
@@ -17,5 +17,5 @@ json.followers user.followers do |follower|
   json.followeeId user.id
   json.username   follower.username
   json.followers  follower.followers.map(&:id).length
-  json.avatar_url asset_path(follower.avatar.url)
+  json.avatar_url asset_path(follower.avatar.url(:avatar))
 end
