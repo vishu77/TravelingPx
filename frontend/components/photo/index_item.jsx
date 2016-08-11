@@ -8,7 +8,7 @@ const PhotoIndexItem = React.createClass({
     return (
       <li>
         <Link to={'/photos/' + photo.id}>
-          <img className="gallery-image" src={photo.image_url} />
+          <img className="gallery-image" src={photo.image_small} />
         </Link>
       </li>
     );

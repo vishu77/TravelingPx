@@ -18,7 +18,9 @@ const _logout = () => {
   SessionStore.__emitChange();
 };
 const _addPhoto = (photo) => {
-  _currentUser.photos.push(photo);
+  if ( _currentUser.id ) {
+    _currentUser.photos.push(photo);
+  }
   SessionStore.__emitChange();
 };
 

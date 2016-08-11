@@ -22,13 +22,13 @@ class User < ActiveRecord::Base
 
   has_attached_file :avatar,
   styles: {
-        avatar: { geometry: '100x100#', format: :jpg }
+    avatar: { geometry: '100x100#', format: :jpg }
   }, default_url: "default.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   has_attached_file :cover, styles: {
-        fhd:  { geometry: '1920x1080>', format: :jpg }
-    }, default_url: ""
+    FHD:  { geometry: '1920x1080>', format: :jpg }
+  }, default_url: ""
   validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/
 
   attr_reader :password
