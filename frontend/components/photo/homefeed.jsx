@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 const PhotoActions = require('../../actions/photo_actions');
 const PhotoStore = require('../../stores/photo');
 const HomeFeedItem = require('./homefeed_item');
+const SessionActions = require('../../actions/session_actions');
 const SessionStore = require('../../stores/session');
 const FollowIndex = require('../user/follow_index');
 
@@ -11,13 +12,14 @@ const HomeFeed = React.createClass({
     return { photos: [], currentUser: SessionStore.currentUser() };
   },
 
-  _onChange () {
+  _onHomeChange () {
     this.setState({ photos: PhotoStore.homefeed() });
   },
 
   componentDidMount () {
-    this.homeListener = PhotoStore.addListener(this._onChange);
+    this.homeListener = PhotoStore.addListener(this._onHomeChange);
     PhotoActions.fetchHomeFeed();
+    SessionActions.fetchCurrentUser(this.props.currentUser);
   },
 
   componentWillUnmount () {
@@ -31,7 +33,7 @@ const HomeFeed = React.createClass({
   },
 
   render () {
-    let currentUser = this.state.currentUser;
+    let currentUser = this.props.currentUser;
     let name = currentUser.username;
 
     if (currentUser.first_name) {

@@ -1,10 +1,20 @@
 const SessionUtil = {
- login (user, success, clear, errorCb) {
+  fetchCurrentUser (user, success) {
+    $.ajax({
+      url: `/api/users/${user.username}`,
+      method: "GET",
+      success (resp) {
+        success(resp);
+      }
+    });
+  },
+
+  login (user, success, clear, errorCb) {
     $.ajax({
       url: '/api/session',
       method: 'POST',
       data: { user },
-      success (resp){
+      success (resp) {
         success(resp);
         clear();
       },

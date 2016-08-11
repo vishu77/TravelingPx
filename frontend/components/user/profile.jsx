@@ -9,6 +9,12 @@ const FollowButton = require('./follow_button');
 const FollowIndex = require('./follow_index');
 const ProfileEdit = require('./profile_edit');
 
+const masonryOptions = {
+  isFitWidth: true,
+	gutter: 10,
+  transitionDuration: '1s'
+};
+
 const Profile = React.createClass({
   getInitialState () {
     return { profile: null };
@@ -87,7 +93,7 @@ const Profile = React.createClass({
           <ul className="profile-info">
             <img className="profile-avatar"
                 src={ profileOwner.avatar_url } />
-            <div className="profile-follow">
+            <div className="edit-or-follow">
               { follow_or_edit }
             </div>
 
@@ -112,9 +118,13 @@ const Profile = React.createClass({
               <h2>{`Photos ${profileOwner.photos.length}`} </h2>
             </div>
 
-            <ul>
+            <Masonry className="gallery"
+              elementType='ul'
+              options={masonryOptions}
+              disableImagesLoaded={false}>
+
               { this.profileGallery() }
-            </ul>
+            </Masonry>
           </div>
         </main>
       );

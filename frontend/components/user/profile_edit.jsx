@@ -171,7 +171,7 @@ const ProfileEdit = React.createClass({
   render () {
     return (
       <div>
-        <button className="button edit-button" onClick={this._handleClick}>Edit Profile</button>
+        <button className="edit-profile" onClick={this._handleClick}>Edit Profile</button>
 
         <Modal
           isOpen={ this.state.modalOpen }

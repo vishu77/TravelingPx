@@ -52,15 +52,15 @@ const PhotoShow = React.createClass({
     if (this.state.photo){
       let editButton = <div></div>;
       let deleteButton = <div></div>;
+      let followers = `${photoDetails.followers.length} followers`;
+      let buttons;
 
       let currentUser = SessionStore.currentUser();
       if (currentUser && currentUser.id === photoDetails.poster_id) {
         editButton = (
-          <div className="button-space">
-            <button className="button form-button"
-              onClick={ this._handleClick }>
-              Edit Photo
-            </button>
+          <button className="edit-image"
+            onClick={ this._handleClick }>
+            Edit Photo
 
             <Modal
               isOpen={ this.state.modalOpen }
@@ -74,49 +74,58 @@ const PhotoShow = React.createClass({
                 close={ this.onModalClose } />
 
             </Modal>
-          </div>
+          </button>
         );
 
         deleteButton = (
+          <button className="delete-button"
+            onClick={this._handleRemove}>
+            Delete Photo
+          </button>
+        );
+
+        buttons = (
           <div className="button-space">
-            <button className="button form-button"
-              onClick={this._handleRemove}>
-              Delete Photo
-            </button>
+            { editButton }
+            { deleteButton }
           </div>
         );
+      } else if ( currentUser && currentUser.id !== photoDetails.poster_id) {
+        followers = <FollowButton poster_id={ this.state.photo.poster_id } />;
       }
 
       return (
-        <div className="photo-details-box">
+        <main className="photo-details-box">
           <div className="image-show-box">
             <img className="photo-show" src={ photoDetails.image_url }/>
           </div>
 
           <div className="photo-details-show-box">
             <ul className="user-info">
-              <Link to={"/" + photoDetails.username}>
-                <img src={photoDetails.avatar_url} />
-              </Link>
-
               <li>
                 <Link to={"/" + photoDetails.username}>
-                  { photoDetails.poster }
+                  <img className="thumbnail" src={photoDetails.avatar_url} />
                 </Link>
               </li>
 
-              <li><FollowButton poster_id={ this.state.photo.poster_id } /></li>
-            </ul>
+              <li>
+                <Link to={"/" + photoDetails.username}>
+                  <h3>{ photoDetails.poster }</h3>
+                </Link>
 
-            <div className="photo-text">
-              <h3>{ photoDetails.title }</h3>
-              <p>{ photoDetails.description }</p>
-            </div>
+                <h4>{ followers }</h4>
+              </li>
+          </ul>
 
-            {editButton}
-            {deleteButton}
+          { buttons }
+
+          <div className="photo-text">
+            <h3>{ photoDetails.title }</h3>
+            <p>{ photoDetails.description }</p>
           </div>
-        </div>
+
+          </div>
+        </main>
       );
     } else {
       return(

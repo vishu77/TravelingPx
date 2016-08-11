@@ -22,6 +22,10 @@ const SessionActions = {
       ErrorActions.setErrors);
   },
 
+  fetchCurrentUser (user) {
+    SessionUtil.fetchCurrentUser(user, this.receiveCurrentUser);
+  },
+
   receiveCurrentUser(currentUser) {
     AppDispatcher.dispatch({
       actionType: SessionConstants.LOGIN,

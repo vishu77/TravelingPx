@@ -3,16 +3,25 @@ import { Link, browserHistory } from 'react-router';
 const SessionStore = require('../../stores/session');
 const SessionActions = require('../../actions/session_actions');
 const UploadModal = require('./upload_modal');
+const UserDropDown = require('./user_dropdown');
 
 const NavBar = React.createClass({
-  _handleLogOut (e) {
-    e.preventDefault();
-    SessionActions.logout();
+  getInitialState () {
+    return { userDropDown: false };
   },
 
   _handleMain (e) {
     e.preventDefault();
     browserHistory.push("/");
+  },
+
+  _dropDownClick (e) {
+    e.preventDefault();
+    this.setState({ userDropDown: true });
+ },
+
+  _dropDownOff() {
+    this.setState({ userDropDown: false });
   },
 
   navLeft () {
@@ -32,10 +41,29 @@ const NavBar = React.createClass({
   },
 
   navRight () {
+
     if (SessionStore.isUserLoggedIn()) {
+      let currentUser = SessionStore.currentUser();
+      let name = currentUser.username;
+
+      if ( currentUser.first_name ) {
+        name = `${currentUser.first_name} ${currentUser.last_name}`;
+      }
+
+      let dropDown = this.state.userDropDown ? <UserDropDown /> : "";
+
       return (
-        <ul>
-          <li><button onClick={this._handleLogOut}>Log Out</button></li>
+        <ul className="username">
+          <li className="menu-list">
+            <button
+              onClick={ this._dropDownClick }
+              onMouseLeave= { this._dropDownOff }>
+
+              <img className="avatar" src={ currentUser.avatar_url } />
+              <h5>{ name }</h5>
+              { dropDown }
+            </button>
+          </li>
           <UploadModal />
         </ul>
       );
@@ -70,11 +98,11 @@ const NavBar = React.createClass({
     return (
       <nav className={navClass}>
         <div className="leftButtons">
-          {this.navLeft()}
+          { this.navLeft() }
         </div>
 
         <div className="rightButtons">
-          {this.navRight()}
+          { this.navRight() }
         </div>
       </nav>
     );

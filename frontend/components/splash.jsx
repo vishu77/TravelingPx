@@ -6,6 +6,22 @@ const SessionStore = require('../stores/session');
 const NavBar = require('./nav/navbar');
 
 const Splash = React.createClass({
+  getInitialState () {
+    return { currentUser: SessionStore.currentUser() };
+  },
+
+  _onChange () {
+    this.setState({ currentUser: SessionStore.currentUser() });
+  },
+
+  componentDidMount () {
+    this.listener = SessionStore.addListener(this._onChange);
+  },
+
+  componentWillUnmount () {
+    this.listener.remove();
+  },
+
   handleClick (e) {
     e.preventDefault();
     browserHistory.push('/signup');
@@ -13,7 +29,6 @@ const Splash = React.createClass({
 
   render () {
     let main;
-
     if (!SessionStore.isUserLoggedIn()) {
       main = (
         <div className="splash">
@@ -41,7 +56,7 @@ const Splash = React.createClass({
     } else {
       return (
         <div>
-          <HomeFeed />
+          <HomeFeed currentUser={ this.state.currentUser } />
         </div>
       );
     }

@@ -1,3 +1,7 @@
+button:focus {
+  outline: 0;
+}
+
 .navbar {
   font-size: 18px;
   height: 60px;
@@ -26,8 +30,12 @@
 }
 
 .navbar-other {
+  position: absolute;
+  left: 0;
+  right: 0;
   background: lightgrey;
   border-bottom: 2px solid lightslategray;
+  z-index: 1;
 }
 
 .logo {
@@ -38,12 +46,72 @@
   float: left;
 }
 
+.leftButtons:hover {
+  background: azure;
+  color: darkslategray;
+  border-radius: 3px;
+}
+
 .leftButtons > ul > li + li {
   padding: 20px;
 }
 
 .rightButtons {
   float: right;
+}
+
+.rightButtons > ul > li:hover {
+  background: azure;
+  color: darkslategray;
+  border-radius: 3px;
+}
+
+.username > li:first-child {
+  width: 155px;
+  padding: 4px 0;
+}
+
+.username h5 {
+  float: left;
+  padding: 15px 3px;
+}
+
+.menu-list {
+  width: 155px;
+}
+
+.menu-list button {
+  height: 47px;
+}
+
+.menu-item {
+  border: 1px solid darkgray;
+  background: white;
+  width: 115px;
+  font-size: 20px;
+  color: darkslategray;
+  text-align: center;
+}
+
+.first-item {
+  margin-top: 6px;
+}
+
+.menu-item:hover {
+  background: #FE9533;
+  color: white;
+}
+
+.second-item {
+  margin-top: 0;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  float: left;
+  padding-left: 3px;
 }
 
 .rightButtons li {
@@ -54,10 +122,6 @@
   float: left;
 }
 
-.navbar li:hover {
-  background: #fff;
-  color: darkslategray;
-}
 
 .ReactModal__Body--open {
   overflow: hidden;

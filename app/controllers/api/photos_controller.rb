@@ -19,7 +19,7 @@ class Api::PhotosController < ApplicationController
 
   def home
     following = []
-    
+
     if current_user
       following = current_user.followees.map(&:id)
     end

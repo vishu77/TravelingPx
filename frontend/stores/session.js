@@ -2,6 +2,7 @@ const Store = require('flux/utils').Store;
 const AppDispatcher = require('../dispatcher/dispatcher');
 const SessionConstants = require('../constants/session_constants');
 const FollowConstants = require('../constants/follow_constants');
+const PhotoConstants = require('../constants/photo_constants');
 
 let _currentUser = {};
 
@@ -14,6 +15,10 @@ const _login = (currentUser) => {
 
 const _logout = () => {
   _currentUser = {};
+  SessionStore.__emitChange();
+};
+const _addPhoto = (photo) => {
+  _currentUser.photos.push(photo);
   SessionStore.__emitChange();
 };
 
@@ -56,6 +61,9 @@ SessionStore.__onDispatch = (payload) => {
 
     case FollowConstants.FOLLOW_REMOVED:
       _removeFollow(payload.follow.followeeId);
+      break;
+    case PhotoConstants.PHOTO_RECEIVED:
+      _addPhoto(payload.photo);
       break;
   }
 };

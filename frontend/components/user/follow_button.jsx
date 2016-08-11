@@ -57,7 +57,7 @@ const FollowButton = React.createClass({
     if (SessionStore.isUserLoggedIn() &&
       currentUser.id !== this.props.poster_id) {
       return (
-        <button onClick={ this.toggleFollow } className="button follow-button">
+        <button onClick={ this.toggleFollow } className="follow-button">
           { this._isFollowed() }
         </button>
       );

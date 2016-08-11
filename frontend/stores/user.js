@@ -14,7 +14,9 @@ const _addFollow = (follower) => {
 };
 
 const _addPhoto = (photo) => {
-  _profile.photos.push(photo);
+  if ( _profile.id ) {
+    _profile.photos.push(photo);
+  }
   UserStore.__emitChange();
 };
 

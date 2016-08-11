@@ -1,5 +1,5 @@
 .splash-page {
-  background: aliceblue;
+  background: azure;
 }
 
 .splash {
@@ -47,6 +47,10 @@
   border-radius: 3px;
   border-color: #0088cc;
   font-weight: lighter;
+}
+
+.splash-button:hover {
+  opacity: 0.9;
 }
 
 .splash-footer {
