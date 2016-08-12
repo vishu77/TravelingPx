@@ -6,7 +6,6 @@ const SessionActions = require('../../actions/session_actions');
 const UserDropDown = React.createClass({
   _handleLogOut (e) {
     e.preventDefault();
-    this.props.close();
     SessionActions.logout();
   },
 
@@ -14,19 +13,19 @@ const UserDropDown = React.createClass({
     let currentUser = SessionStore.currentUser();
 
     return (
-      <ul>
+      <div>
         <Link to={'/' + currentUser.username }>
-          <li className="menu-item first-item">
+          <h3 className="menu-item first-item">
             My Profile
-          </li>
+          </h3>
         </Link>
 
         <Link to='/' onClick={ this._handleLogOut }>
-          <li className="menu-item second-item">
+          <h3 className="menu-item second-item">
             Log Out
-          </li>
+          </h3>
         </Link>
-      </ul>
+      </div>
     );
   }
 

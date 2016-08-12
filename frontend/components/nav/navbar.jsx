@@ -24,6 +24,10 @@ const NavBar = React.createClass({
     this.setState({ userDropDown: false });
   },
 
+  componentWillReceiveProps (newProps) {
+    this._dropDownOff();
+  },
+
   navLeft () {
     if (SessionStore.isUserLoggedIn()) {
       return (

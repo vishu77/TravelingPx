@@ -1,7 +1,6 @@
 .upload-photo {
-  width: auto;
-  height: auto;
   max-width: 90%;
+  max-height: 90%;
   border-radius: 5px;
   border: 3px solid lightgray;
 }
@@ -20,6 +19,8 @@
   align-items: center;
   background: aliceblue;
   overflow: hidden;
+  height: 100%;
+  width: 100%;
 }
 
 .inputs-box {
@@ -52,7 +53,7 @@
 
 .input-components h4 {
   font-size: 18px;
-  color: #0099e5;
+  color: #0099E5;
   margin-bottom: 10px;
   letter-spacing: 1px;
 }
