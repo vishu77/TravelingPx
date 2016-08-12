@@ -49,10 +49,10 @@ const PhotoShow = React.createClass({
   render () {
     let photoDetails = this.state.photo;
 
-    if (this.state.photo){
+    if (photoDetails){
       let editButton = <div></div>;
       let deleteButton = <div></div>;
-      let followers = `${photoDetails.followers.length} followers`;
+      let followers = <FollowButton poster_id={ this.state.photo.poster_id } />;
       let buttons;
 
       let currentUser = SessionStore.currentUser();
@@ -72,7 +72,6 @@ const PhotoShow = React.createClass({
                 photo={ this.state.photo }
                 photoId= { parseInt(this.props.params.photoId) }
                 close={ this.onModalClose } />
-
             </Modal>
           </button>
         );
@@ -90,8 +89,8 @@ const PhotoShow = React.createClass({
             { deleteButton }
           </div>
         );
-      } else if ( currentUser && currentUser.id !== photoDetails.poster_id) {
-        followers = <FollowButton poster_id={ this.state.photo.poster_id } />;
+      } else {
+        followers = `${photoDetails.followers.length} followers`;
       }
 
       return (

@@ -98,18 +98,24 @@ anne = User.create(
 
 f1 = Follow.create(followee_id: anne.id, follower_id: jimmy.id);
 f2 = Follow.create(followee_id: judy.id, follower_id: anne.id);
-f3 = Follow.create(followee_id: judy.id, follower_id: panda.id);
-f4 = Follow.create(followee_id: panda.id, follower_id: vivi.id);
-f5 = Follow.create(followee_id: vivi.id, follower_id: ben.id);
-f6 = Follow.create(followee_id: ben.id, follower_id: sora.id);
-f8 = Follow.create(followee_id: sora.id, follower_id: jimmy.id);
-f9 = Follow.create(followee_id: hachi.id, follower_id: panda.id);
-f10 = Follow.create(followee_id: judy.id, follower_id: hachi.id);
-f11 = Follow.create(followee_id: arthas.id, follower_id: ben.id);
-f12 = Follow.create(followee_id: chinchilla.id, follower_id: anne.id);
-f13 = Follow.create(followee_id: arthas.id, follower_id: judy.id);
-f14 = Follow.create(followee_id: panda.id, follower_id: vivi.id);
-f15 = Follow.create(followee_id: ben.id, follower_id: arthas.id);
+f3 = Follow.create(followee_id: vivi.id, follower_id: ben.id);
+f4 = Follow.create(followee_id: ben.id, follower_id: sora.id);
+f5 = Follow.create(followee_id: sora.id, follower_id: jimmy.id);
+f6 = Follow.create(followee_id: judy.id, follower_id: hachi.id);
+f7 = Follow.create(followee_id: arthas.id, follower_id: ben.id);
+f8 = Follow.create(followee_id: chinchilla.id, follower_id: anne.id);
+f9 = Follow.create(followee_id: arthas.id, follower_id: judy.id);
+f10 = Follow.create(followee_id: panda.id, follower_id: vivi.id);
+f11 = Follow.create(followee_id: ben.id, follower_id: arthas.id);
+f12 = Follow.create(followee_id: hachi.id, follower_id: panda.id);
+f13 = Follow.create(followee_id: judy.id, follower_id: panda.id);
+f14 = Follow.create(followee_id: arthas.id, follower_id: panda.id);
+f15 = Follow.create(followee_id: anne.id, follower_id: panda.id);
+f16 = Follow.create(followee_id: jimmy.id, follower_id: panda.id);
+f17 = Follow.create(followee_id: ben.id, follower_id: panda.id);
+f18 = Follow.create(followee_id: vivi.id, follower_id: panda.id);
+f19 = Follow.create(followee_id: sora.id, follower_id: panda.id);
+f20 = Follow.create(followee_id: chinchilla.id, follower_id: panda.id);
 
 polarbear = Photo.create(
             poster_id: ben.id,
@@ -165,8 +171,80 @@ zoo = Photo.create(
             description: "No one going savage here!",
             image: open('https://hd.unsplash.com/photo-1417721885406-d31aee8c2a79'));
 
-sf = Photo.create(
-            poster_id: chinchilla.id,
+korea2 = Photo.create(
+            poster_id: panda.id,
+            title: "South Korea Mornings",
+            description: "More from South Korea",
+            image: open('https://hd.unsplash.com/photo-1446918662934-8a37d9e6659e'));
+
+aus = Photo.create(
+            poster_id: anne.id,
+            title: "Australia",
+            description: "Bright Blue Skies!",
+            image: open('https://hd.unsplash.com/photo-1446768500601-ac47e5ec3719'));
+
+aus2 = Photo.create(
+            poster_id: anne.id,
             title: "San Francisco",
             description: "I will come back here someday.",
+            image: open('https://hd.unsplash.com/photo-1461566978495-8c8f681e1235'));
+
+tower = Photo.create(
+            poster_id: hachi.id,
+            title: "Tokyo Tower",
+            description: "",
+            image: open('https://hd.unsplash.com/photo-1443170412500-d04323a4eb57'));
+
+korea = Photo.create(
+            poster_id: panda.id,
+            title: "South Korea",
+            description: "Night time in Seoul",
+            image: open('https://hd.unsplash.com/photo-1446918662934-8a37d9e6659e'));
+
+vietnam = Photo.create(
+            poster_id: ben.id,
+            title: "Viet",
+            description: "Luscious green landscape",
             image: open('https://hd.unsplash.com/photo-1422226256160-9b266e308ea6'));
+
+iceland = Photo.create(
+            poster_id: chinchilla.id,
+            title: "Iceland",
+            description: "Waterfall!",
+            image: open('https://hd.unsplash.com/photo-1467048206339-21d11f496fd1'));
+
+switerzland = Photo.create(
+            poster_id: judy.id,
+            title: "switerzland",
+            description: "Forest",
+            image: open('https://hd.unsplash.com/photo-1465464388793-12ae9c0a6166'));
+
+iceland = Photo.create(
+            poster_id: chinchilla.id,
+            title: "Iceland",
+            description: "Waterfall!",
+            image: open('https://hd.unsplash.com/photo-1467048206339-21d11f496fd1'));
+
+norway = Photo.create(
+            poster_id: jimmy.id,
+            title: "Norway",
+            description: "Snow everywhere",
+            image: open('https://hd.unsplash.com/photo-1468476775582-6bede20f356f'));
+
+taiwan = Photo.create(
+            poster_id: panda.id,
+            title: "Taiwan",
+            description: "Taichung City, Taiwan",
+            image: open('https://hd.unsplash.com/photo-1434434319959-1f886517e1fe'));
+
+final = Photo.create(
+            poster_id: vivi.id,
+            title: "Gridania",
+            description: "Final Fantasy 14: A Realm Reborn",
+            image: open('http://angryweb.net/wp-content/uploads/2009/08/Gridania_FINAL.png'));
+
+kh3 = Photo.create(
+            poster_id: sora.id,
+            title: "Kingdom Hearts 3",
+            description: "Awaiting my next adventure",
+            image: open('http://media.psu.com/media/articles/image/kh3_screenshot1.jpg'));

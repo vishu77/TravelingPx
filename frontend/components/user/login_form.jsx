@@ -1,24 +1,41 @@
 const React = require('react');
 import { browserHistory } from 'react-router';
+const ErrorStore = require('../../stores/error');
 const ErrorActions = require('../../actions/error_actions');
 const SessionActions = require('../../actions/session_actions');
 const SessionStore = require('../../stores/session');
 
 const LoginForm = React.createClass({
   getInitialState () {
-    return { username: "", password: "" };
+    return { username: "", password: "", errors: [] };
   },
 
   componentDidMount() {
+    this.errorListener = ErrorStore.addListener(this._handleErrors);
     this.sessionListener = SessionStore.addListener(this.redirectIfLoggedIn);
   },
 
   componentWillUnmount() {
     this.sessionListener.remove();
+    this.errorListener.remove();
+  },
+
+  errors() {
+    const errors = this.state.errors;
+    const messages = errors.map( (errorMsg, i) => {
+      return <li key={ i }>{ errorMsg }</li>;
+    });
+
+    return <ul>{ messages }</ul>;
   },
 
   formType() {
     return this.props.location.pathname.slice(1);
+  },
+
+  _handleErrors () {
+    const form = this.props.location.pathname.slice(1);
+    this.setState({ errors: ErrorStore.errors(form) });
   },
 
   _handleSubmit (e) {
@@ -59,6 +76,10 @@ const LoginForm = React.createClass({
 
     return (
       <main className="login-signup-page">
+        <div className="errors">
+          { this.errors() }
+        </div>
+
         <div className="login-signup-box">
           <div>
             <h2>{formHeader}</h2>

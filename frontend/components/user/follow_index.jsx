@@ -31,7 +31,6 @@ const FollowIndex = React.createClass({
     });
 
     return (
-
       <div>
         <button
           onClick={ this._handleClick }>

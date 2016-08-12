@@ -5,6 +5,13 @@
   min-height: 750px;
 }
 
+.errors {
+  position: absolute;
+  top: 70px;
+  margin: 0 auto;
+  color: darkgray;
+}
+
 .login-signup-box {
   display: flex;
   justify-content: center;
@@ -35,9 +42,9 @@
   padding: 10px;
 }
 
-.login-form label {
+.login-form > label {
   font-size: 16px;
-  color: #0099e5;
+  color: #0099E5;
 }
 
 .form-inputs {

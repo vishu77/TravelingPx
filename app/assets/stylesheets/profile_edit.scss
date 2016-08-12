@@ -112,14 +112,16 @@
 .cancel-button {
   padding: 10px 20px;
   margin-right: 10px;
+  cursor: pointer;
 }
 
 .save-button {
   width: 75px;
   text-align: center;
-  background: green;
+  background: #FE9533;
+  border: 1px solid #FE8B3A;
   border-radius: 3px;
-  padding: 5px 10px;
   color: white;
   margin-right: 15px;
+  cursor: pointer;
 }
