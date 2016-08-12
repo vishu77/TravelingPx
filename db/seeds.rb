@@ -96,6 +96,60 @@ anne = User.create(
   cover: open('https://hd.unsplash.com/photo-1452788041655-75a2d80535e0')
 );
 
+chris = User.create(
+  username: "chrisrock", password: "comedygold",
+  first_name: "Chris", last_name: "Rock",
+  about: "",
+  city: "Manhattan", country: "New York",
+  avatar: open('http://www.slate.com/content/dam/slate/blogs/browbeat/2014/12/16/chris_rock_s_reddit_ama_adam_sandler_race_and_other_highlights/81330113-comedian-chris-rock-gives-a-press-conference-on-june-2.jpg.CROP.promovar-mediumlarge.jpg'),
+  cover: open('')
+);
+
+bigbird = User.create(
+  username: "bigbird", password: "sesamestreet",
+  first_name: "Big", last_name: "Bird",
+  about: "Sesame Street",
+  city: "Sesame Street", country: "",
+  avatar: open('http://img2.timeinc.net/people/i/2012/news/121015/big-bird-320.jpg'),
+  cover: open('https://hd.unsplash.com/photo-1444910069701-01b71164c92d')
+);
+
+avengers = User.create(
+  username: "avengers", password: "savetheworld",
+  first_name: "", last_name: "",
+  about: "Dropping cities",
+  city: "Every City", country: "Every Country",
+  avatar: open('https://i.ytimg.com/vi/dqqSV8XxpXw/maxresdefault.jpg'),
+  cover: open('http://vignette3.wikia.nocookie.net/marvelcinematicuniverse/images/b/b2/Sokovia.jpg/revision/latest?cb=20150725181553')
+);
+
+superman = User.create(
+  username: "superman", password: "kryptonite",
+  first_name: "Clark", last_name: "Kent",
+  about: "I try to save the world",
+  city: "Metropolis", country: "Every Country",
+  avatar: open('https://cdn.theatlantic.com/assets/media/img/mt/2016/01/superman/lead_960.jpg?1454104448'),
+  cover: open('https://i.ytimg.com/vi/NBAyFBz6N4w/maxresdefault.jpg')
+);
+
+jack = User.create(
+  username: "jacksparrow", password: "blackpearl",
+  first_name: "Jack", last_name: "Sparrow",
+  about: "Sailing all over the world",
+  city: "I live on the Black Pearl", country: "No country",
+  avatar: open('http://vignette3.wikia.nocookie.net/pirates/images/8/8a/Jack_Sparrow.jpg/revision/latest/scale-to-width-down/230?cb=20060705091420'),
+  cover: open('http://thegamercave.com/wp-content/uploads/2014/08/15050-black-pearl-pirates-of-the-caribbean-1920x1200-movie-wallpaper.jpg')
+);
+
+lupin = User.create(
+  username: "lupinthethird", password: "stealing",
+  first_name: "Lupin", last_name: "III",
+  about: "There is nothing I can't steal",
+  city: "San Marino", country: "Italy",
+  avatar: open('http://timmaughanbooks.com/wp-content/uploads/2009/02/lupin.jpg'),
+  cover: open('https://hd.unsplash.com/photo-1415329343600-a53dd8daf392')
+);
+
 f1 = Follow.create(followee_id: anne.id, follower_id: jimmy.id);
 f2 = Follow.create(followee_id: judy.id, follower_id: anne.id);
 f3 = Follow.create(followee_id: vivi.id, follower_id: ben.id);
@@ -115,7 +169,15 @@ f16 = Follow.create(followee_id: jimmy.id, follower_id: panda.id);
 f17 = Follow.create(followee_id: ben.id, follower_id: panda.id);
 f18 = Follow.create(followee_id: vivi.id, follower_id: panda.id);
 f19 = Follow.create(followee_id: sora.id, follower_id: panda.id);
-f20 = Follow.create(followee_id: chinchilla.id, follower_id: panda.id);
+f20 = Follow.create(followee_id: superman.id, follower_id: panda.id);
+f21 = Follow.create(followee_id: bigbird.id, follower_id: panda.id);
+f22 = Follow.create(followee_id: avengers.id, follower_id: panda.id);
+f23 = Follow.create(followee_id: jack.id, follower_id: panda.id);
+f24 = Follow.create(followee_id: chris.id, follower_id: panda.id);
+f25 = Follow.create(followee_id: panda.id, follower_id: chris.id);
+f25 = Follow.create(followee_id: panda.id, follower_id: superman.id);
+f25 = Follow.create(followee_id: panda.id, follower_id: jack.id);
+f25 = Follow.create(followee_id: lupin.id, follower_id: panda.id);
 
 polarbear = Photo.create(
             poster_id: ben.id,
@@ -242,3 +304,45 @@ kh3 = Photo.create(
             title: "Kingdom Hearts 3",
             description: "Awaiting my next adventure",
             image: open('http://media.psu.com/media/articles/image/kh3_screenshot1.jpg'));
+
+richmond = Photo.create(
+            poster_id: superman.id,
+            title: "Fighting",
+            description: "",
+            image: open('https://hd.unsplash.com/photo-1470936972859-25f4c18b7479'));
+
+stockport = Photo.create(
+            poster_id: jack.id,
+            title: "Stockport, UK",
+            description: "My Black Pearl can't come here",
+            image: open('https://hd.unsplash.com/photo-1470920456752-d50214d7ed59'));
+
+hongkong = Photo.create(
+            poster_id: avengers.id,
+            title: "Maybe here next time",
+            description: "Hong Kong",
+            image: open('https://hd.unsplash.com/photo-1466158665257-b4899e4813b3'));
+
+venice = Photo.create(
+            poster_id: bigbird.id,
+            title: "Venice",
+            description: "Big Bird likes this place",
+            image: open('https://hd.unsplash.com/photo-1453747063559-36695c8771bd'));
+
+spain = Photo.create(
+            poster_id: chris.id,
+            title: "Barcelona, Spain",
+            description: "Ahhhhh Spain......",
+            image: open('http://media.psu.com/media/articles/image/kh3_screenshot1.jpg'));
+
+italy = Photo.create(
+            poster_id: lupin.id,
+            title: "Italy My Love",
+            description: "",
+            image: open('https://hd.unsplash.com/photo-1462922905131-1a670ce6093c'));
+
+gold = Photo.create(
+            poster_id: hachi.id,
+            title: "Golden Pavilion",
+            description: "Kyoto, Japan. It's so golden!",
+            image: open('https://hd.unsplash.com/photo-1446694518429-60077dd2e230'));
