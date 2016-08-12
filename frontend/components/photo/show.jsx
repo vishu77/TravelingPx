@@ -36,7 +36,7 @@ const PhotoShow = React.createClass({
     const photo = PhotoStore.find(this.props.params.photoId);
     this.setState({ photo: photo ? photo : {} });
   },
-
+  
   onModalClose () {
     this.setState({ modalOpen: false });
     ModalStyle.content.opacity = 0;
