@@ -102,7 +102,7 @@ chris = User.create(
   about: "",
   city: "Manhattan", country: "New York",
   avatar: open('http://www.slate.com/content/dam/slate/blogs/browbeat/2014/12/16/chris_rock_s_reddit_ama_adam_sandler_race_and_other_highlights/81330113-comedian-chris-rock-gives-a-press-conference-on-june-2.jpg.CROP.promovar-mediumlarge.jpg'),
-  cover: open('')
+  cover: open('https://hd.unsplash.com/photo-1464621922360-27f3bf0eca75')
 );
 
 bigbird = User.create(
