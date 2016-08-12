@@ -333,7 +333,7 @@ spain = Photo.create(
             poster_id: chris.id,
             title: "Barcelona, Spain",
             description: "Ahhhhh Spain......",
-            image: open('http://media.psu.com/media/articles/image/kh3_screenshot1.jpg'));
+            image: open('https://hd.unsplash.com/photo-1464790719320-516ecd75af6c'));
 
 italy = Photo.create(
             poster_id: lupin.id,
