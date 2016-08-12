@@ -18,7 +18,8 @@ const FollowStyle = {
     padding         : '0',
     borderRadius    : '3px',
     opacity         : '0',
-    transition      : 'opacity 1s'
+    transition      : 'opacity 1s',
+    overflow        : 'scroll'
   }
 };
 

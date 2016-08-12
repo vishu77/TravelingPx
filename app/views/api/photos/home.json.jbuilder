@@ -1,3 +1,3 @@
-json.array! @photos.each do |photo|
+json.array! @photos do |photo|
     json.partial! 'photo', photo: photo
 end

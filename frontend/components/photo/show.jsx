@@ -89,6 +89,8 @@ const PhotoShow = React.createClass({
             { deleteButton }
           </div>
         );
+
+        followers = `${photoDetails.followers.length} followers`;
       } else {
         followers = `${photoDetails.followers.length} followers`;
       }

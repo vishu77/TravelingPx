@@ -10,7 +10,7 @@ const ModalStyle = {
 
   content : {
     position        : 'fixed',
-    top             : '50px',
+    top             : '100px',
     left            : '50px',
     right           : '50px',
     bottom          : '50px',

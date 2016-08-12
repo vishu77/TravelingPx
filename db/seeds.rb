@@ -171,12 +171,6 @@ zoo = Photo.create(
             description: "No one going savage here!",
             image: open('https://hd.unsplash.com/photo-1417721885406-d31aee8c2a79'));
 
-korea2 = Photo.create(
-            poster_id: panda.id,
-            title: "South Korea Mornings",
-            description: "More from South Korea",
-            image: open('https://hd.unsplash.com/photo-1446918662934-8a37d9e6659e'));
-
 aus = Photo.create(
             poster_id: anne.id,
             title: "Australia",

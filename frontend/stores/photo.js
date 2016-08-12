@@ -3,7 +3,7 @@ const PhotoConstants = require('../constants/photo_constants');
 const AppDispatcher = require('../dispatcher/dispatcher');
 
 let _photos = {};
-let _homefeed = {};
+let _homefeed = [];
 
 const PhotoStore = new Store(AppDispatcher);
 
@@ -13,12 +13,7 @@ const _removePhoto = (photo) => {
 };
 
 const _resetHomeFeed = (photos) => {
-  _homefeed = {};
-
-  photos.forEach((photo) => {
-    _homefeed[photo.id] = photo;
-  });
-
+  _homefeed = photos;
   PhotoStore.__emitChange();
 };
 
@@ -49,13 +44,7 @@ PhotoStore.find = (photoID) => {
 };
 
 PhotoStore.homefeed = () => {
-  let home = [];
-
-  for (let photoID in _homefeed) {
-    home.push(_homefeed[photoID]);
-  }
-
-  return home;
+  return _homefeed.slice();
 };
 
 PhotoStore.__onDispatch = (payload) => {

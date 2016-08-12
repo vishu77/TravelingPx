@@ -24,7 +24,7 @@ class Api::PhotosController < ApplicationController
       following = current_user.followees.map(&:id)
     end
 
-    @photos = Photo.where(poster_id: following)
+    @photos = Photo.where(poster_id: following).order("created_at DESC")
 
     render 'api/photos/home'
   end

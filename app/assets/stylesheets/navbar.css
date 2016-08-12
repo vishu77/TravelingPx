@@ -5,7 +5,7 @@ button:focus {
 .navbar {
   font-size: 18px;
   height: 60px;
-  min-width: 380px;
+  min-width: 500px;
   padding-left: 50px;
   padding-right: 50px;
   color: darkslategray;
@@ -73,15 +73,18 @@ button:focus {
 
 .username h5 {
   float: left;
-  padding: 15px 3px;
+  padding: 18px 5px;
 }
 
 .menu-list {
   width: 155px;
+  text-align: center;
 }
 
 .menu-list button {
   height: 47px;
+  font-size: 14px;
+  text-align: center;
 }
 
 .menu-item {

@@ -6,6 +6,7 @@ const SessionActions = require('../../actions/session_actions');
 const UserDropDown = React.createClass({
   _handleLogOut (e) {
     e.preventDefault();
+    this.props.close();
     SessionActions.logout();
   },
 
