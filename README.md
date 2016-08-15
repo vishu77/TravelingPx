@@ -38,7 +38,7 @@ TravelingPx also provides the ability to see the users that are following and us
 ![profile]
 [profile]: ./docs/wireframes/profile.png
 
-When logged in, users are able to edit their profile from their profile page and edit photos from each photo's show page which they have uploaded.
+When logged in, users are able to edit their profile from their own profile page where they can change their name, location, about information and upload a new avatar or a new cover photo, both which also utilizes paperclip and AWS.
 
 ### Homefeed
 
