@@ -1,32 +1,15 @@
-### Production Readme will be updated as project progresses as every part is uncertain at the start point.
-
 # TravelingPx
 
-[TravelingPx live][heroku] **NB:** This should be a link to your production site
+[TravelingPx live][heroku]
 
-[heroku]: http://www.herokuapp.com
+[heroku]: https://travelingpx.herokuapp.com/
 
-TravelingPx is a full-stack web application inspired by 500px.  It utilizes Ruby on Rails on the backend, a PostgreSQL database, and React.js with a Flux architectural framework on the frontend.  
+TravelingPx is a full-stack web application that was modeled after [500px][500px-link]. It utilizes Ruby on Rails, a PostgreSQL database, and React.js with a Flux architectural framework on the frontend. TravelingPx is truly a single-page by utilizing ajax requests to deliver all content on one static page.
 
-## Features & Implementation
+[500px-link]: https://500px.com/
 
- **NB**: don't copy and paste any of this.  Many folks will implement similar features, and many employers will see the READMEs of a lot of a/A grads.  You must write in a way that distinguishes your README from that of other students', but use this as a guide for what topics to cover.  
-
-### Single-Page App
-
-FresherNote is truly a single-page; all content is delivered on one static page.  The root page listens to a `SessionStore` and renders content based on a call to `SessionStore.currentUser()`.  Sensitive information is kept out of the frontend of the app by making an API call to `SessionsController#get_user`.
-
-```ruby
-class Api::SessionsController < ApplicationController
-    def get_user
-      if current_user
-        render :current_user
-      else
-        render json: errors.full_messages
-      end
-    end
- end
-  ```
+## Features
+[splashpage]: ./docs/images/splashpage.png
 
 ### Photo Rendering and Editing
 

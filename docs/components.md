@@ -28,13 +28,12 @@ _**exactly**_ match the nesting of your routes.)
 ## Routes
 
 * **component:** `App` **path:** `/`
+  * **component:** `Splash` **path:** `/`
   * **component** `LoginForm` **path:** `/login`
   * **component** `SignupForm` **path:** `/signup`
-  * **component:** `ProfilePage` **path:** `/users/:username`
   * **component:** `PhotoIndex` **path:** `/photos`
     * **component:** `PhotoDetail` **path:** `/photos/:photoId`
-    * **component:** `PhotoEdit` **path:** `/photos/:photoId/edit`
-  * **component:** `UserDetail` **path:** `/username`
+  * **component:** `ProfilePage` **path:** `/username`
 
 For Routes that have no `photoId`, `PhotoIndex` will render all
 photos.

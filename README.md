@@ -10,22 +10,22 @@ TravelingPx is a web application inspired by 500px that will be build using Ruby
 
 - [x] Hosting on Heroku
 - [x] New account creation, login, and guest/demo login
-- [ ] A production README, replacing this README (**NB**: check out the [sample production README](docs/production_readme.md) -- you'll write this later)
+- [x] A production README, replacing this README (**NB**: check out the [sample production README](docs/production_readme.md) -- you'll write this later)
 - [x] Post Pictures
   - [x] Smooth, bug-free navigation
   - [x] Adequate seed data to demonstrate the site's features
   - [x] Adequate CSS styling
 - [x] Follow Users
   - [x] Smooth, bug-free navigation
-  - [ ] Adequate seed data to demonstrate the site's features
+  - [x] Adequate seed data to demonstrate the site's features
   - [x] Adequate CSS styling
 - [x] Profile Page
   - [x] Smooth, bug-free navigation
-  - [ ] Adequate seed data to demonstrate the site's features
+  - [x] Adequate seed data to demonstrate the site's features
   - [x] Adequate CSS styling
 - [x] Home Feed
   - [x] Smooth, bug-free navigation
-  - [ ] Adequate seed data to demonstrate the site's features
+  - [x] Adequate seed data to demonstrate the site's features
   - [x] Adequate CSS styling
 
 ## Design Docs
@@ -107,10 +107,6 @@ Follow information will be listed on the profile page of each user.
 - [x] Using photosIndex to make a Home Feed
 - build out API, Flux loop, and components for:
 - [x] Fetch photos from followed users
-- [ ] Infinite scrolling for the home feed
-- [ ] Include suggestions for follow sidebar
-- [ ] Randomly suggest other uses not already followed
-- [ ] Stationary side bar
 - [x] Style new elements
 
 ### Bonus Phases: Tagging, Comments Likes, Infinite Scrolling, Follow Suggestions

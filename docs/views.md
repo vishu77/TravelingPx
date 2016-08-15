@@ -18,9 +18,9 @@
 ## Profile Page
 ![profile]
 
-[new-user]: ./wireframes/new_user.png
-[new-session]: ./wireframes/new_session.png
-[photos]: ./wireframes/root_notes.png
-[follows]: ./wireframes/root_notebooks.png
-[home feed]: ./wireframes/notebook_form.png
+[new-user]: ./wireframes/signup.png
+[new-session]: ./wireframes/login.png
+[photos]: ./wireframes/photoshow.png
+[follows]: ./wireframes/follows.png
+[home feed]: ./wireframes/homefeed.png
 [profile]: ./wireframes/profile.png
