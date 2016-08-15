@@ -20,7 +20,7 @@
 
 [new-user]: ./wireframes/signup.png
 [new-session]: ./wireframes/login.png
-[photos]: ./wireframes/photoshow.png
+[photo]: ./wireframes/photoshow.png
 [follows]: ./wireframes/follows.png
 [home feed]: ./wireframes/homefeed.png
 [profile]: ./wireframes/profile.png

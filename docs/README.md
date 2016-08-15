@@ -1,59 +1,129 @@
 # TravelingPx
 
-[TravelingPx live][heroku]
+[Heroku link][heroku]
 
 [heroku]: https://travelingpx.herokuapp.com/
 
-TravelingPx is a full-stack web application that was modeled after [500px][500px-link]. It utilizes Ruby on Rails, a PostgreSQL database, and React.js with a Flux architectural framework on the frontend. TravelingPx is truly a single-page by utilizing ajax requests to deliver all content on one static page.
+## Minimum Viable Product
 
-[500px-link]: https://500px.com/
+TravelingPx is a web application inspired by 500px that will be build using Ruby on Rails and React.js. By the end of Week 9, this app will, at a minimum, satisfy the following criteria:
 
-## Features
-[splashpage]: ./docs/images/splashpage.png
+- [x] Hosting on Heroku
+- [x] New account creation, login, and guest/demo login
+- [x] A production README, replacing this README (**NB**: check out the [sample production README](docs/production_readme.md) -- you'll write this later)
+- [x] Post Pictures
+  - [x] Smooth, bug-free navigation
+  - [x] Adequate seed data to demonstrate the site's features
+  - [x] Adequate CSS styling
+- [x] Follow Users
+  - [x] Smooth, bug-free navigation
+  - [x] Adequate seed data to demonstrate the site's features
+  - [x] Adequate CSS styling
+- [x] Profile Page
+  - [x] Smooth, bug-free navigation
+  - [x] Adequate seed data to demonstrate the site's features
+  - [x] Adequate CSS styling
+- [x] Home Feed
+  - [x] Smooth, bug-free navigation
+  - [x] Adequate seed data to demonstrate the site's features
+  - [x] Adequate CSS styling
 
-### Photo Rendering and Editing
+## Design Docs
+* [View Wireframes][views]
+* [React Components][components]
+* [Flux Cycles][flux-cycles]
+* [API endpoints][api-endpoints]
+* [DB schema][schema]
 
-  On the database side, the photos are stored in one table in the database, which contains columns for `id`, `user_id`, `title`, `description`, `url`, `category` and `updated_at`.  Upon login, an API call is made to the database which joins the user table and the photo table on `user_id` and filters by the current user's `id`.  These notes are held in the `PhotoStore` until the user's session is destroyed.  
+[views]: docs/views.md
+[components]: docs/components.md
+[flux-cycles]: docs/flux-cycles.md
+[api-endpoints]: docs/api-endpoints.md
+[schema]: docs/schema.md
 
-  Photos are rendered in two different components: the `CondensedPhotos` components, which show the title and first few words of the note content, and the `enlargedPhoto` components, which are editable and show all note text.  The `PhotoIndex` renders all of the `CondensedPhoto`s as subcomponents, as well as one `enlargedPhoto` component, which renders based on `PhotoStore.selectedNote()`. The UI of the `PhotoIndex` is taken directly from 500px for a professional, clean look:  
+## Implementation Timeline
 
-![image of notebook index](https://github.com/appacademy/sample-project-proposal/blob/master/docs/noteIndex.png)
+### Phase 1: Backend setup and Front End User Authentication (2 days, W1 W 6pm)
 
-Photo editing is implemented using the Quill.js library, allowing for a Word-processor-like user experience.
+**Objective:** Functioning rails project with front-end Authentication
 
-### Notebooks
+- [x] create new project
+- [x] create `User` model
+- [x] authentication backend setup
+- [x] create `StaticPages` controller and root view
+- [x] set up webpack & flux scaffold with skeleton files
+- [x] setup `SessionUtil` to interact with the API
+- [x] set up flux cycle for frontend auth
+- [x] user signup/signin components
+- [x] blank landing component after signin
+- [x] style signin/signup components
 
-Implementing Notebooks started with a notebook table in the database.  The `Notebook` table contains two columns: `title` and `id`.  Additionally, a `notebook_id` column was added to the `Note` table.  
+### Phase 2: Photos, API, and components (2 days, W1 F 6pm)
 
-The React component structure for notebooks mirrored that of notes: the `NotebookIndex` component renders a list of `CondensedNotebook`s as subcomponents, along with one `ExpandedNotebook`, kept track of by `NotebookStore.selectedNotebook()`.  
+**Objective:** Uploaded Photos can be created, read, edited and destroyed through
+the API.
 
-`NotebookIndex` render method:
+- [x] create `Photo` model
+- [x] seed the database with a small amount of test data
+- [x] CRUD API for Photo (`PhotosController`)
+- [x] jBuilder views for photos
+- [x] test out API interaction in the console.
+- implement each photo component, building out the flux loop as needed.
+  - [x] `PhotosIndex`
+  - [x] `PhotosIndexItem`
+  - [x] `PhotoForm for uploading and editing`
+  - [x] `PhotoDetail`
+- [x] save Photos to the DB when the form loses focus or is left idle after editing.
+- [x] basic styling for existing components
 
-```javascript
-render: function () {
-  return ({this.state.notebooks.map(function (notebook) {
-    return <CondensedNotebook notebook={notebook} />
-  }
-  <ExpandedNotebook notebook={this.state.selectedNotebook} />)
-}
-```
+### Phase 3: Follow Users (1 day, W2 Mon 6pm)
 
-### Tags
+**Objective:** Allows users to follow other users
 
-As with notebooks, tags are stored in the database through a `tag` table and a join table.  The `tag` table contains the columns `id` and `tag_name`.  The `tagged_notes` table is the associated join table, which contains three columns: `id`, `tag_id`, and `note_id`.  
+- [x] create `FollowToggle` (`FollowButton`)
+- build out omponents for:
+  - [x] Follow CRUD
+  - [x] FollowToggle allowing to follow and unfollow user
+  - [x] Update database for followed and following
+- Use CSS to style new components
 
-Tags are maintained on the frontend in the `TagStore`.  Because creating, editing, and destroying notes can potentially affect `Tag` objects, the `NoteIndex` and the `NotebookIndex` both listen to the `TagStore`.  It was not necessary to create a `Tag` component, as tags are simply rendered as part of the individual `Note` components.  
+Phase 3 adds follow to the users which will provide a list of followers and list of people who are follow user.
+Follow information will be listed on the profile page of each user.
 
-![tag screenshot](https://github.com/appacademy/sample-project-proposal/blob/master/docs/tagScreenshot.png)
+### Phase 4: Profile Page (2 days, W2 W 6pm)
 
-## Future Directions for the Project
+**objective:** Redirects to user page to see their photos and information. Also to allow editing of user information.
 
-In addition to the features already implemented, I plan to continue work on this project.  The next steps for FresherNote are outlined below.
+- build out API, Flux loop, and components for:
+  - [x] Fetch user information
+  - [x] Allow user to edit and update their information
+- [x] Fetch User information from database
+- [x] Style the profile page.
 
-### Search
+### Phase 5: Home Feed (2 days, W2 F 6pm)
 
-Searching notes is a standard feature of Evernote.  I plan to utilize the Fuse.js library to create a fuzzy search of notes and notebooks.  This search will look go through tags, note titles, notebook titles, and note content.  
+**Objective:** Flushing out the users profile with a photo feed from users who we are following.
 
-### Direct Messaging
+- [x] Using photosIndex to make a Home Feed
+- build out API, Flux loop, and components for:
+- [x] Fetch photos from followed users
+- [x] Style new elements
 
-Although this is less essential functionality, I also plan to implement messaging between FresherNote users.  To do this, I will use WebRTC so that notifications of messages happens seamlessly.  
+### Bonus Phases: Tagging, Comments Likes, Infinite Scrolling, Follow Suggestions
+
+### Bonus Features (TBD)
+- [ ] Likes
+- [ ] Comments
+- [ ] Tagging (Key Words)
+- [ ] OAuth (Facebook, Twitter, Google)
+- [ ] Discover with infinite scrolling
+- [ ] Follow Suggestions
+- [ ] Gallery
+- [ ] Ratings
+- [ ] Notifications
+
+[phase-one]: docs/phases/phase1.md
+[phase-two]: docs/phases/phase2.md
+[phase-three]: docs/phases/phase3.md
+[phase-four]: docs/phases/phase4.md
+[phase-five]: docs/phases/phase5.md
