@@ -8,16 +8,16 @@ module.exports = {
     filename: "bundle.js"
   },
   plugins:[
-    new webpack.DefinePlugin({
-      'process.env':{
-        'NODE_ENV': JSON.stringify('production')
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress:{
-        warnings: true
-      }
-    })
+   new webpack.DefinePlugin({
+     'process.env':{
+       'NODE_ENV': JSON.stringify('production')
+     }
+   }),
+   new webpack.optimize.UglifyJsPlugin({
+     compress:{
+       warnings: true
+     }
+   })
   ],
   module: {
     loaders: [
@@ -28,18 +28,10 @@ module.exports = {
         query: {
           presets: ['react']
         }
-      },
-      {
-        test: /masonry|imagesloaded|fizzy\-ui\-utils|desandro\-|outlayer|get\-size|doc\-ready|eventie|eventemitter/,
-        loader: 'imports?define=>false&this=>window'
-      },
-      {
-        test: /\.node$/,
-        loader: "node-loader"
       }
     ]
   },
-  devtool: 'source-maps',
+  devtool: 'source-map',
   resolve: {
     extensions: ["", ".js", ".jsx"]
   }
