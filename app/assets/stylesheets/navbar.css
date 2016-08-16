@@ -69,6 +69,7 @@ button:focus {
 .username > li:first-child {
   width: 155px;
   padding: 4px 0;
+  text-align: left;
 }
 
 .username h5 {

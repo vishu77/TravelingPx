@@ -26,3 +26,7 @@ ul {
   display: block;
   clear: both;
 }
+
+a, button, img {
+    cursor: pointer;
+}
