@@ -2,7 +2,7 @@
 
 [TravelingPx][heroku]
 
-[heroku]: https://travelingpx.herokuapp.com/
+[heroku]: http://travelingpx.herokuapp.com/
 
 TravelingPx is a full-stack web application that was modeled after [500px][500px-link]. It utilizes Ruby on Rails, a PostgreSQL database, and React.js with a Flux architectural framework on the frontend. TravelingPx is truly a single-page by utilizing ajax requests to deliver all content on one static page.
 
