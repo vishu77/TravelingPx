@@ -1,9 +1,10 @@
 const React = require('react');
-import { browserHistory } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 const PhotoIndex = require('./photo/index');
 const HomeFeed = require('./photo/homefeed');
 const SessionStore = require('../stores/session');
 const NavBar = require('./nav/navbar');
+const SessionActions = require('../actions/session_actions');
 
 const Splash = React.createClass({
   getInitialState () {
@@ -22,9 +23,9 @@ const Splash = React.createClass({
     this.listener.remove();
   },
 
-  handleClick (e) {
+  handleGuestLogin (e) {
     e.preventDefault();
-    browserHistory.push('/signup');
+    SessionActions.login({username: "lazypanda", password: "eatallday"});
   },
 
   render () {
@@ -35,8 +36,9 @@ const Splash = React.createClass({
           <div className="splash-text">
             <h1>Gateway to an Amazing Adventure</h1>
             <h2>Showcase your travels and Inspire others to go on an Adventure</h2>
-            <button className="splash-button"
-              onClick={this.handleClick}>Get Started</button>
+            <Link to='/signup' className="splash-button">Get Started</Link>
+            <button className="guest-button"
+              onClick={this.handleGuestLogin}>Guest Login</button>
           </div>
 
           <div className="splash-footer">
