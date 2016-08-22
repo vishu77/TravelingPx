@@ -32,6 +32,7 @@ CommentStore.__onDispatch = () => {
     _addComment(comment);
     break;
   }
+  
 };
 
 module.exports = CommentStore;

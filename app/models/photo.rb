@@ -30,7 +30,6 @@ class Photo < ActiveRecord::Base
   has_many(
     :comments,
     class_name: "Comment",
-    foreign_key: :photo_id,
-    primary_key: :id
+    foreign_key: :photo_id
   )
 end

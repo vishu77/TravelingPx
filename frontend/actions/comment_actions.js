@@ -24,6 +24,7 @@ const CommentActions = {
       comment: comment
     });
   }
+  
 };
 
 module.exports = CommentActions;
