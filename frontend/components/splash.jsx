@@ -38,7 +38,8 @@ const Splash = React.createClass({
             <h2>Showcase your travels and Inspire others to go on an Adventure</h2>
             <Link to='/signup' className="splash-button">Get Started</Link>
             <button className="guest-button"
-              onClick={this.handleGuestLogin}>Guest Login</button>
+              onClick={this.handleGuestLogin}>Guest Login
+            </button>
           </div>
 
           <div className="splash-footer">
