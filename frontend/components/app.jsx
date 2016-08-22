@@ -4,7 +4,6 @@ const NavBar = require('./nav/navbar');
 const App = React.createClass({
   render () {
     let location = this.props.location;
-
     return (
       <div>
         <header>

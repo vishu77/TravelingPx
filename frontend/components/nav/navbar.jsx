@@ -18,10 +18,22 @@ const NavBar = React.createClass({
   _dropDownClick (e) {
     e.preventDefault();
     this.setState({ userDropDown: true });
- },
+  },
 
   _dropDownOff() {
     this.setState({ userDropDown: false });
+  },
+
+  _onChange () {
+    this.setState({ currentUser: SessionStore.currentUser() });
+  },
+
+  componentDidMount () {
+    this.listener = SessionStore.addListener(this._onChange);
+  },
+
+  componentWillUnmount () {
+    this.listener.remove();
   },
 
   componentWillReceiveProps (newProps) {
@@ -29,23 +41,14 @@ const NavBar = React.createClass({
   },
 
   navLeft () {
-    if (SessionStore.isUserLoggedIn()) {
-      return (
-        <ul>
-          <li><Link to="/"><img className="logo" src={window.logoURL} /></Link></li>
-        </ul>
-      );
-    } else {
-      return (
-        <ul>
-          <li><Link to="/"><img className="logo" src={window.logoURL} /></Link></li>
-        </ul>
-      );
-    }
+    return (
+      <ul>
+        <li><Link to="/"><img className="logo" src={window.logoURL} /></Link></li>
+      </ul>
+    );
   },
 
   navRight () {
-
     if (SessionStore.isUserLoggedIn()) {
       let currentUser = SessionStore.currentUser();
       let name = currentUser.username;

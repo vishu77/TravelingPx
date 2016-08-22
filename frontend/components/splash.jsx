@@ -2,9 +2,8 @@ const React = require('react');
 import { Link, browserHistory } from 'react-router';
 const PhotoIndex = require('./photo/index');
 const HomeFeed = require('./photo/homefeed');
-const SessionStore = require('../stores/session');
-const NavBar = require('./nav/navbar');
 const SessionActions = require('../actions/session_actions');
+const SessionStore = require('../stores/session');
 
 const Splash = React.createClass({
   getInitialState () {
@@ -26,6 +25,7 @@ const Splash = React.createClass({
   handleGuestLogin (e) {
     e.preventDefault();
     SessionActions.login({username: "lazypanda", password: "eatallday"});
+    this.forceUpdate();
   },
 
   render () {
