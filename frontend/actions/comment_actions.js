@@ -24,7 +24,10 @@ const CommentActions = {
       comment: comment
     });
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> features
 };
 
 module.exports = CommentActions;
