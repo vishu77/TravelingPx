@@ -38,12 +38,6 @@ class User < ActiveRecord::Base
   has_many :is_following, class_name: "Follow", foreign_key: :follower_id
   has_many :followers, through: :is_followed, source: :follower
   has_many :followees, through: :is_following, source: :followee
-  has_many(
-    :comments,
-    class_name: "Comment",
-    foreign_key: :author_id,
-    primary_key: :id
-  )
 
   before_validation :ensure_session_token
 
