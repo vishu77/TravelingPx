@@ -44,7 +44,6 @@ const CommentIndex = React.createClass({
       </div>
     );
   }
-  
 });
 
 module.exports = CommentIndex;

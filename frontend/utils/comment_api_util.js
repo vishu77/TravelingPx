@@ -20,7 +20,6 @@ const CommentUtil = {
       }
     });
   }
-  
 };
 
 module.exports = CommentUtil;

@@ -27,9 +27,5 @@ class Photo < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   belongs_to :poster, class_name: "User", foreign_key: :poster_id
-  has_many(
-    :comments,
-    class_name: "Comment",
-    foreign_key: :photo_id
-  )
+  has_many :comments, class_name: "Comment", foreign_key: :photo_id
 end
