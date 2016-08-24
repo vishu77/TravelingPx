@@ -38,7 +38,7 @@ TravelingPx also provides the ability to see the users that they are following a
 ![profile]
 [profile]: ./docs/wireframes/profile.png
 
-When logged in, users are able to edit their profile from their own profile page. They can change their name, location, about description and upload a avatar or cover photo, both which also utilizes paperclip and AWS.
+When logged in, users are able to edit their profile from their own profile page. They can change their name, location, about description. Users are also able to upload a avatar or cover photo, by clicking on the avatar and cover photo in the edit profile modal, both which also utilizes paperclip and AWS.
 
 ### Homefeed
 

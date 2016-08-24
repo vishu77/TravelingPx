@@ -20,6 +20,10 @@ const LoginForm = React.createClass({
     this.errorListener.remove();
   },
 
+  componentWillReceiveProps(newProps) {
+    this.setState({ username: "", password: "", errors: [] });
+  },
+
   errors() {
     const errors = this.state.errors;
     const messages = errors.map( (errorMsg, i) => {

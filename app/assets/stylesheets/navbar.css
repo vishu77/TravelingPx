@@ -132,6 +132,9 @@ button:focus {
   float: left;
 }
 
+.nav-item {
+  cursor: pointer;
+}
 
 .ReactModal__Body--open {
   overflow: hidden;

@@ -40,6 +40,14 @@ const NavBar = React.createClass({
     this._dropDownOff();
   },
 
+  _handleLoginClick() {
+    browserHistory.push(`/login`);
+  },
+
+  _handleSignupClick() {
+    browserHistory.push(`/signup`);
+  },
+
   navLeft () {
     return (
       <ul>
@@ -77,20 +85,20 @@ const NavBar = React.createClass({
     } else if (this.props.pathname === '/login') {
       return (
         <ul>
-          <li><Link to="/signup">Sign Up</Link></li>
+          <li className="nav-item" onClick={this._handleSignupClick}>Sign Up</li>
         </ul>
       );
     } else if (this.props.pathname === '/signup'){
       return (
         <ul>
-          <li><Link to="/login">Login</Link></li>
+          <li className="nav-item" onClick={this._handleLoginClick}>Login</li>
         </ul>
       );
     } else {
       return (
         <ul>
-          <li><Link to="/login">Login</Link></li>
-          <li><Link to="/signup">Sign Up</Link></li>
+          <li className="nav-item" onClick={this._handleLoginClick}>Login</li>
+          <li className="nav-item" onClick={this._handleSignupClick}>Sign Up</li>
         </ul>
       );
     }

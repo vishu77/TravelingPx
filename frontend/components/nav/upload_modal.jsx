@@ -68,8 +68,8 @@ const UploadModal = React.createClass({
 
   render () {
     return (
-      <li>
-        <button onClick={this._handleClick}>Upload</button>
+      <li className="nav-item" onClick={this._handleClick}>
+        Upload
 
         <Modal
           isOpen={this.state.modalOpen}

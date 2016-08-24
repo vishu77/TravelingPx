@@ -19,6 +19,7 @@ const SessionActions = {
   signup (user) {
     SessionUtil.signup(user,
       SessionActions.receiveCurrentUser,
+      ErrorActions.clearErrors,
       ErrorActions.setErrors);
   },
 

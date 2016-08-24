@@ -6,7 +6,7 @@ class Api::UsersController < ApplicationController
       login(@user)
       render "api/users/show"
     else
-      @errors = @user.errors.full_messages
+      @errors = ["Username already taken"]
       render "api/shared/errors", status: 422
     end
   end
