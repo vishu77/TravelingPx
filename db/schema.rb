@@ -16,6 +16,17 @@ ActiveRecord::Schema.define(version: 20160812173628) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "comments", force: :cascade do |t|
+    t.integer  "photo_id",   null: false
+    t.integer  "author_id",  null: false
+    t.text     "comment",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "comments", ["author_id"], name: "index_comments_on_author_id", using: :btree
+  add_index "comments", ["photo_id"], name: "index_comments_on_photo_id", using: :btree
+
   create_table "follows", force: :cascade do |t|
     t.integer  "followee_id", null: false
     t.integer  "follower_id", null: false
