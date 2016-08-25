@@ -1,17 +1,26 @@
 const React = require('react');
 const PhotoActions = require('../../actions/photo_actions');
+const ErrorStore = require('../../stores/error');
+const ErrorActions = require('../../actions/error_actions');
 
 const PhotoForm = React.createClass({
   getInitialState () {
     if (this.props.formType === 'edit') {
       return { title: this.props.photo.title,
         description: this.props.photo.description,
-        imageURL: this.props.photo.image_url };
+        imageURL: this.props.photo.image_url,
+        errors: [] };
     } else {
       return { title: "", description: "",
         imageFile: this.props.imageFile,
-        imageURL: this.props.imageURL };
+        imageURL: this.props.imageURL,
+        errors: [] };
     }
+  },
+
+  _handleErrors () {
+    const form = "photo";
+    this.setState({ errors: ErrorStore.errors(form) });
   },
 
   _handleSubmit (e) {
@@ -23,8 +32,6 @@ const PhotoForm = React.createClass({
           description: this.state.description };
 
       PhotoActions.updatePhoto(photo);
-      this.props.close();
-
     } else {
       const formData = new FormData();
 
@@ -33,10 +40,32 @@ const PhotoForm = React.createClass({
       formData.append("photo[image]", this.state.imageFile);
 
       PhotoActions.uploadPhoto(formData);
-      this.props.close();
-      this.setState({title: "", description: "",
-        imageURL: "", imageFile: null });
     }
+
+    this.setState({ errors: [] });
+  },
+
+  componentDidMount() {
+    this.errorListener = ErrorStore.addListener(this._handleErrors);
+  },
+
+  componentWillUnmount() {
+    this.errorListener.remove();
+  },
+
+  componentWillReceiveProps(newProps){
+    if (this.state.errors.length === 0){
+      this.props.close();
+    }
+  },
+
+  errors() {
+    const errors = this.state.errors;
+    const messages = errors.map( (errorMsg, i) => {
+      return <li key={ i }>{ errorMsg }</li>;
+    });
+
+    return <ul>{ messages }</ul>;
   },
 
   updateProps (property) {
@@ -60,6 +89,7 @@ const PhotoForm = React.createClass({
             <button className="upload-button">{submitText}</button>
           </div>
 
+          { this.errors() }
           <div className="input-components">
             <div>
               <label>

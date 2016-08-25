@@ -1,6 +1,7 @@
 const AppDispatcher = require('../dispatcher/dispatcher');
 const PhotoConstants = require('../constants/photo_constants');
 const PhotoUtil = require('../utils/photo_api_util');
+const ErrorActions = require('./error_actions');
 
 const PhotoActions = {
   fetchAllPhotos () {
@@ -16,11 +17,17 @@ const PhotoActions = {
   },
 
   uploadPhoto (formData) {
-    PhotoUtil.uploadPhoto(formData, this.receiveSinglePhoto);
+    PhotoUtil.uploadPhoto(formData,
+      this.receiveSinglePhoto,
+      ErrorActions.clearErrors,
+      ErrorActions.setErrors);
   },
 
   updatePhoto (photo) {
-    PhotoUtil.updatePhoto(photo, this.receiveSinglePhoto);
+    PhotoUtil.updatePhoto(photo,
+      this.receiveSinglePhoto,
+      ErrorActions.clearErrors,
+      ErrorActions.setErrors);
   },
 
   deletePhoto (photoID) {

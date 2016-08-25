@@ -39,18 +39,23 @@ const PhotoUtil = {
     });
   },
 
-  updatePhoto (photo, callBack) {
+  updatePhoto (photo, callBack, clear, errorCb) {
     $.ajax({
       url: `/api/photos/${photo.id}`,
       method: 'PATCH',
       data: { photo: photo },
       success (data) {
         callBack(data);
+        clear();
+      },
+      error(xhr) {
+        const errors = xhr.responseJSON;
+        errorCb('photo', errors);
       }
     });
   },
 
-  uploadPhoto (formData, callBack) {
+  uploadPhoto (formData, callBack, clear, errorCb) {
     $.ajax({
       url: `/api/photos`,
       method: 'POST',
@@ -59,6 +64,11 @@ const PhotoUtil = {
       data: formData,
       success (data) {
         callBack(data);
+        clear();
+      },
+      error(xhr) {
+        const errors = xhr.responseJSON;
+        errorCb('photo', errors);
       }
     });
   }

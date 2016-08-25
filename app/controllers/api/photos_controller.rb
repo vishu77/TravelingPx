@@ -6,7 +6,7 @@ class Api::PhotosController < ApplicationController
     if @photo.save
       render "api/photos/show"
     else
-      @errors = @photo.errors.full_messages
+      @errors = ["Title can't be blank"]
       render "api/shared/errors", status: 422
     end
   end
@@ -45,7 +45,7 @@ class Api::PhotosController < ApplicationController
     if @photo.update(photo_params)
       render "api/photos/show"
     else
-      @errors ["can't update photo"]
+      @errors = ["Title can't be blank"]
       render "api/shared/errors", status: 404
     end
   end
