@@ -36,7 +36,7 @@ const PhotoShow = React.createClass({
     const photo = PhotoStore.find(this.props.params.photoId);
     this.setState({ photo: photo ? photo : {} });
   },
-  
+
   onModalClose () {
     this.setState({ modalOpen: false });
     ModalStyle.content.opacity = 0;
@@ -54,6 +54,11 @@ const PhotoShow = React.createClass({
       let deleteButton = <div></div>;
       let followers = <FollowButton poster_id={ this.state.photo.poster_id } />;
       let buttons;
+      let poster = photoDetails.poster
+
+      if (photoDetails.poster === " ") {
+        poster = photoDetails.username;
+      }
 
       let currentUser = SessionStore.currentUser();
       if (currentUser && currentUser.id === photoDetails.poster_id) {
@@ -111,7 +116,7 @@ const PhotoShow = React.createClass({
 
               <li>
                 <Link to={"/" + photoDetails.username}>
-                  <h3>{ photoDetails.poster }</h3>
+                  <h3>{ poster }</h3>
                 </Link>
 
                 <h4>{ followers }</h4>

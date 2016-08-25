@@ -1,5 +1,5 @@
 const React = require('react');
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 const PhotoActions = require('../../actions/photo_actions');
 const PhotoStore = require('../../stores/photo');
 const HomeFeedItem = require('./homefeed_item');
@@ -14,6 +14,11 @@ const HomeFeed = React.createClass({
 
   _onHomeChange () {
     this.setState({ photos: PhotoStore.homefeed() });
+  },
+
+  _dashboardPhotos (e) {
+    e.preventDefault();
+    browserHistory.push(`/${this.state.currentUser.username}`)
   },
 
   componentDidMount () {
@@ -59,11 +64,9 @@ const HomeFeed = React.createClass({
             </Link>
           </div>
 
-          <ul className="group">
-            <li>
-              <Link to={'/' + currentUser.username }>
-                <h4>{ currentUser.photos.length + " PHOTOS"}</h4>
-              </Link>
+          <ul>
+            <li onClick={ this._dashboardPhotos }>
+              <h4>{ currentUser.photos.length + " PHOTOS"}</h4>
             </li>
 
             <li>

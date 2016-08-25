@@ -1,7 +1,16 @@
 .cover-drop-zone {
+  position:relative;
   width: 550px;
   height: 130px;
   background: darkgray;
+}
+
+.cover-drop-zone h5 {
+  position: absolute;
+  top: 40px;
+  left: 74px;
+  color: #FFF;
+  cursor: pointer;
 }
 
 .cover-drop-zone img {

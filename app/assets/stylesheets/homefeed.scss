@@ -107,10 +107,18 @@
   height: 50px;
   text-align: center;
   min-width: 125px;
+  cursor: pointer;
 }
 
 .user-dashboard > ul > li + li {
   border-left: 1px solid lightgray;
+}
+
+.user-dashboard > ul > li + li button {
+  width: 144px;
+  height: 69px;
+  margin-top: -25px;
+  margin-left: -10px;
 }
 
 .user-dashboard > ul > li h4 {

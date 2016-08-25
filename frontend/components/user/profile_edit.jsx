@@ -102,6 +102,7 @@ const ProfileEdit = React.createClass({
             multiple={false} disableClick={false}
             accept='image/*' onDrop={this.onDropCover}>
             <img src={this.state.coverURL} />
+            <h5>Click on cover or avatar to update or upload profile photos</h5>
         </Dropzone>
 
         <div className="profile-edit">
