@@ -48,7 +48,6 @@ const Profile = React.createClass({
   },
 
   render () {
-
     if (this.state.profile) {
       let profileOwner = this.state.profile;
       let name = <h1>{profileOwner.username}</h1>;
