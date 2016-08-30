@@ -63,29 +63,16 @@ photoDropped () {
 TravelingPx also provides the ability to see the users that they are following and who they themselves are followed by. This allows of smooth navigation from profile to profile. All users profile data including followers and followings data is returned through jbuilder by utilizing the users table associations.
 
 ```Ruby
-json.extract! user, :id, :username, :first_name, :last_name, :about, :city, :country
-json.avatar_url asset_path(user.avatar.url(:avatar))
-json.cover_url asset_path(user.cover.url(:FHD))
-json.photos   user.photos.map(&:id)
+json.partial! 'api/users/user', user: @user
 
-json.followees user.followees do |followee|
-  json.followerId user.id
-  json.followeeId followee.id
-  json.username   followee.username
-  json.first_name followee.first_name
-  json.last_name  followee.last_name
-  json.followers  followee.followers.map(&:id).length
-  json.avatar_url asset_path(followee.avatar.url(:avatar))
+json.photos @user.photos do |photo|
+  json.partial! "api/photos/photo", photo: photo
 end
 
-json.followers user.followers do |follower|
-  json.followerId follower.id
-  json.followeeId user.id
-  json.username   follower.username
-  json.first_name follower.first_name
-  json.last_name  follower.last_name
-  json.followers  follower.followers.map(&:id).length
-  json.avatar_url asset_path(follower.avatar.url(:avatar))
+json.followees @user.followees do |followee|
+  json.followerId @user.id
+  json.followeeId followee.id
+  json.partial! "api/users/follow", follow: followee
 end
 ```
 
