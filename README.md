@@ -57,8 +57,7 @@ photoDropped () {
 
 ### Follows and Profile
 
-![follow]
-[follow]: ./docs/wireframes/follows.png
+![follow](./docs/wireframes/follows.png)
 
 TravelingPx also provides the ability to see the users that they are following and who they themselves are followed by. This allows of smooth navigation from profile to profile. All users profile data including followers and followings data is returned through jbuilder by utilizing the users table associations.
 
@@ -72,7 +71,7 @@ end
 json.followees @user.followees do |followee|
   json.followerId @user.id
   json.followeeId followee.id
-  json.partial! "api/users/follow", follow: followee
+  json.partial! "api/follows/follow", follow: followee
 end
 ```
 
@@ -82,12 +81,12 @@ end
 When logged in, users are able to edit their profile from their own profile page. They can change their name, location, about description, and upload or update their avatar or cover photos, both which also utilizes paperclip and AWS.
 
 
-### Homefeed
+### Home feed
 
 ![homefeed]
 [homefeed]: ./docs/wireframes/homefeed.png
 
-Lastly when logged in, users are provided with a homefeed instead of the splash page. Users will get updates from users who they are following when they upload new photos, sorted by the newest first.
+Lastly when logged in, users are provided with a home feed instead of the splash page. Users will get updates from users who they are following when they upload new photos, sorted by the newest first. Since new users will not have any followings, ten of the latest photo uploads will be shown on their home feed until they follow another user.
 
 ```Ruby
 def home
@@ -97,7 +96,11 @@ def home
     following = current_user.followees.map(&:id)
   end
 
-  @photos = Photo.where(poster_id: following).order("created_at DESC")
+  if following.empty?
+    @photos = Photo.order("created_at DESC").limit(10)
+  else
+    @photos = Photo.where(poster_id: following).order("created_at DESC")
+  end
 
   render 'api/photos/home'
 end
