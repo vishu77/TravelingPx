@@ -1,18 +1,20 @@
 const React = require('react');
 const FollowActions = require('../../actions/follow_actions');
 const SessionStore = require('../../stores/session');
+const SessionActions = require('../../actions/session_actions');
 const UserStore = require('../../stores/user');
 
 const FollowButton = React.createClass({
   getInitialState () {
     return {
       currentUser: SessionStore.currentUser(),
-      UserProfile: UserStore.profile()
+      userProfile: UserStore.profile()
     };
   },
 
   componentDidMount () {
     this.followeeListener = SessionStore.addListener(this._onChange);
+    SessionActions.fetchCurrentUser(this.state.currentUser);
   },
 
   componentWillUnmount () {
@@ -24,9 +26,9 @@ const FollowButton = React.createClass({
 
     if (SessionStore.isUserLoggedIn() &&
       this.state.currentUser.id !== this.props.poster_id) {
-      const currentUserFollows = this.state.currentUser.followees;
+      const userFollowers = this.state.userProfile.followers;
 
-      if (currentUserFollows.find((follow) => follow.followeeId === this.props.poster_id)) {
+      if (userFollowers.find((follow) => follow.followerId === this.state.currentUser.id)) {
         followText = "Unfollow";
       }
     }
