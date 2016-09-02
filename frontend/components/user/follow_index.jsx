@@ -30,11 +30,18 @@ const FollowIndex = React.createClass({
           follow={follow} key={idx}/>;
     });
 
+    let followText;
+    if (this.props.text === "Followers") {
+      followText = follow.length === 1 ? "Follower" : "Followers";
+    } else {
+      followText = this.props.text;
+    }
+
     return (
       <div>
         <button
           onClick={ this._handleClick }>
-          { follow.length + " " + this.props.text}
+          { follow.length + " " + followText }
         </button>
 
         <Modal

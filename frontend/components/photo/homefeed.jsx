@@ -23,8 +23,12 @@ const HomeFeed = React.createClass({
 
   componentDidMount () {
     this.homeListener = PhotoStore.addListener(this._onHomeChange);
-    PhotoActions.fetchHomeFeed();
+    PhotoActions.fetchAllPhotos();
     SessionActions.fetchCurrentUser(this.props.currentUser);
+  },
+
+  componentWillReceiveProps(newProps) {
+    PhotoActions.fetchHomeFeed();
   },
 
   componentWillUnmount () {
