@@ -18,7 +18,7 @@ TravelingPx starts at the splash page allowing guests to check out already uploa
 
 ### Photo viewing, uploading and editing
 
-The main feature of TravelingPx is the ability to upload photos to showcase your travels. The photos are stored in a table within the database containing the photo file information, the title and a description. Users can edit or delete their photos when they are logged in.
+The main feature of TravelingPx is the ability to upload photos to showcase your travels. Users can edit or delete their photos when they are logged in.
 
 ![photoedit](./docs/images/photoedit.png)
 
