@@ -22,7 +22,7 @@ The main feature of TravelingPx is the ability to upload photos to showcase your
 
 ![photoedit](./docs/images/photoedit.png)
 
-The photos are uploaded using imagemagick and paperclip gem and then they are hosted on Amazon Web Services. React-dropzone is incorporated to provide drag and drop for easy uploading. When a photo is dropped or uploaded, it transitions to an upload form.
+The photos are uploaded using imagemagick and paperclip gem and hosted on Amazon Web Services. React-dropzone is incorporated to provide drag and drop for easy uploading. When a photo is dropped or uploaded, it transitions to an upload form.
 
 ```JavaScript
 photoDropped () {
