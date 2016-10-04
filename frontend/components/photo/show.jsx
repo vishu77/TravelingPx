@@ -7,6 +7,7 @@ const PhotoStore = require('../../stores/photo');
 const PhotoActions = require('../../actions/photo_actions');
 const SessionStore = require('../../stores/session');
 const FollowButton = require('../user/follow_button');
+const CommentIndex = require('./comment_index');
 
 const PhotoShow = React.createClass({
   getInitialState () {
@@ -121,14 +122,16 @@ const PhotoShow = React.createClass({
 
                 <h4>{ followers }</h4>
               </li>
-          </ul>
+            </ul>
 
-          { buttons }
+            { buttons }
 
-          <div className="photo-text">
-            <h3>{ photoDetails.title }</h3>
-            <p>{ photoDetails.description }</p>
-          </div>
+            <div className="photo-text">
+              <h3>{ photoDetails.title }</h3>
+              <p>{ photoDetails.description }</p>
+            </div>
+
+            <CommentIndex photoId={this.props.params.photoId} />
 
           </div>
         </main>

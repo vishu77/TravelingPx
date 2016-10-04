@@ -1,6 +1,6 @@
 const Store = require('flux/utils').Store;
 const AppDispatcher = require('../dispatcher/dispatcher');
-const CommentConstants = require('../constants/comment_consants');
+const CommentConstants = require('../constants/comment_constants');
 
 let _photoComments = [];
 
@@ -22,14 +22,14 @@ CommentStore.all = () => {
   return _photoComments.slice();
 };
 
-CommentStore.__onDispatch = () => {
+CommentStore.__onDispatch = (payload) => {
   switch (payload.actionType) {
     case CommentConstants.COMMENTS_RECEIVED:
-    _resetComments(comments);
+    _resetComments(payload.comments);
     break;
 
     case CommentConstants.COMMENTS_RECEIVED:
-    _addComment(comment);
+    _addComment(payload.comment);
     break;
   }
 };

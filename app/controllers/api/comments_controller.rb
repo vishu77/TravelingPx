@@ -15,7 +15,6 @@ class Api::CommentsController < ApplicationController
   def index
     photo = Photo.find(params[:photoId])
     @comments = photo.comments
-
     render 'api/comments/index'
   end
 

@@ -2,11 +2,12 @@ const React = require('react');
 const CommentActions = require('../../actions/comment_actions');
 const CommentStore = require('../../stores/comment');
 const CommentIndexItem = require('./comment_index_item');
-const SessionStore = require('../stores/session');
+const CommentForm = require('./comment_form');
+const SessionStore = require('../../stores/session');
 
 const CommentIndex = React.createClass({
   getInitialState () {
-    return { comments: CommentStore.all() };
+    return { comments: []  };
   },
 
   _onChange () {
@@ -15,7 +16,7 @@ const CommentIndex = React.createClass({
 
   componentDidMount () {
     this.commentListener = CommentStore.addListener(this._onChange);
-    CommentActions.fetchComments(this.props.photoId);
+    CommentActions.fetchPhotoComments(this.props.photoId);
   },
 
   componentWillUnmount () {
@@ -31,7 +32,7 @@ const CommentIndex = React.createClass({
     let currentUser = SessionStore.currentUser();
 
     if (currentUser) {
-      commentForm = <CommentForm user={currentUSer} />;
+      commentForm = <CommentForm user={currentUser} />;
     }
 
     return (
