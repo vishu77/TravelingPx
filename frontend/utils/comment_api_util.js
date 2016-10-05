@@ -10,11 +10,12 @@ const CommentUtil = {
     });
   },
 
-  createComment (photoId, comment, success) {
+  createComment (comment, success) {
+    debugger
     $.ajax({
       url: `/api/comments`,
       method: 'POST',
-      data: { photoId: photoId, comment: comment },
+      data: { comment },
       success (resp) {
         success(resp);
       }

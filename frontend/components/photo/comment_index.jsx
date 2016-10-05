@@ -32,7 +32,11 @@ const CommentIndex = React.createClass({
     let currentUser = SessionStore.currentUser();
 
     if (currentUser) {
-      commentForm = <CommentForm user={currentUser} />;
+      commentForm = <CommentForm
+                      currentUser={currentUser}
+                      photoId={this.props.photoId} />;
+    } else {
+      commentForm = (<div></div>)
     }
 
     return (

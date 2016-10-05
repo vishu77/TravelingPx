@@ -7,8 +7,8 @@ const CommentActions = {
     CommentUtil.fetchPhotoComments(photoId, this.receiveComments);
   },
 
-  createComment (photoId, comment) {
-    CommentUtil.createComment(photoId, comment, this.receiveComment);
+  createComment (comment) {
+    CommentUtil.createComment(comment, this.receiveComment);
   },
 
   receiveComments (comments) {

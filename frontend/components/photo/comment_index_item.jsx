@@ -4,7 +4,7 @@ const CommentIndexItem = React.createClass({
   render () {
     return (
       <li>
-        
+
       </li>
     )
   }
