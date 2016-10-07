@@ -2,7 +2,7 @@ class Api::CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.author_id = current_user.id
-    
+
     if @comment.save
       render 'api/comments/show'
     else
@@ -13,7 +13,8 @@ class Api::CommentsController < ApplicationController
 
   def index
     photo = Photo.find(params[:photoId])
-    @comments = photo.comments
+    @comments = photo.comments.includes(:author)
+    
     render 'api/comments/index'
   end
 
