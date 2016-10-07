@@ -24,19 +24,17 @@ const CommentIndex = React.createClass({
   },
 
   render () {
-    let comments = this.state.comments.forEach((comment) => {
-      return <CommentIndexItem comment={comment} />;
+    let comments = this.state.comments.map((comment) => {
+      return <CommentIndexItem comment={comment} key={ comment.id } />;
     });
 
-    let commentForm;
+    let commentForm = <div></div>
     let currentUser = SessionStore.currentUser();
 
-    if (currentUser) {
+    if (currentUser.username) {
       commentForm = <CommentForm
                       currentUser={currentUser}
                       photoId={this.props.photoId} />;
-    } else {
-      commentForm = (<div></div>)
     }
 
     return (
